@@ -1,0 +1,19 @@
+# www.iots.vip 
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /tags/
+Allow: /about/
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /lib/
+Disallow: /assets/
+Disallow: /down/
+Disallow: /loading.gif
+Disallow: /post/mind/
+Disallow: /reward/
+Disallow: /*.txt
+Sitemap: https://www.iots.vip/sitemap.xml
