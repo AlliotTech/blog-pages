@@ -17,3 +17,12 @@ Disallow: /post/mind/
 Disallow: /reward/
 Disallow: /*.txt
 Sitemap: https://www.iots.vip/sitemap.xml
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /

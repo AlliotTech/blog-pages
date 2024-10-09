@@ -1686,6 +1686,25 @@
       </tags>
   </entry>
   <entry>
+    <title>Xmind8 Pro激活方法及补丁下载</title>
+    <url>//post/xmind8pro-crack.html</url>
+    <content><![CDATA[<p>　　Xmind 是一个非常不错的思维导图软件，本文记录了 Xmind8 Pro 激活方法及补丁 XMindCrack.jar 的下载地址。<span id="more"></span><br>整理于 haotianyi 博客，步骤进行了简化与修改。</p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>补丁与安装包  链接：<a href="https://pan.baidu.com/s/1FGCOeNBYCEzzk5ljy1UCjA">https://pan.baidu.com/s/1FGCOeNBYCEzzk5ljy1UCjA</a> 密码：c8c5 解压密码: <a href="http://www.iots.vip/">www.iots.vip</a><br>安装<code>xmind-8-update4-windows</code>安装包，推荐使用默认路径。将补丁<code>XMindCrack.jar</code>复制到 <code>Xmind</code> 的安装路径，默认安装路径为 <code>C:\Program Files (x86)\XMind</code>  </p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>打开安装路径，将 <code>XMind.ini</code> 使用记事本打开，如果你Xmind的安装路径自定义了（装到别的盘的），如我的是放在D:\XMind，那么请在最后面添加一行</p>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">-javaagent:D:<span class="regexp">/XMind/</span>XMindCrack.jar</span><br></pre></td></tr></table></figure>
+<p>这里非常重要，特别注意斜杠别弄反了，如果修改错误，将无法启动 Xmind。  </p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>以管理员身份运行 <code>xmind.bat</code> 脚本即可(该脚本作用为追加 <code>0.0.0.0 www.xmind.net</code> 到本机 hosts 文件)。  </p>
+<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>断网并打开 XMind,在 “编辑-首选项” 中取消勾选 “启动时检查更新和消息” 以及 “发送用户数据” 确认保存后，在 “帮助-序列号” 中，随便输入一个邮箱地址和下面的序列号激活软件。序列号： </p>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">XAka<span class="number">34</span>A<span class="number">2</span>rVRYJ<span class="number">4</span>XBIU<span class="number">35</span>UZMUEEF<span class="number">64</span>CMMIYZCK<span class="number">2</span>FZZUQ<span class="symbol">NODEKUHGJLFMSLIQMQUCUBXRENLK6</span><span class="symbol">NZL37</span>JXP<span class="number">4</span>PZXQFILMQ<span class="number">2</span>R<span class="name">G5</span>R<span class="number">7</span><span class="name">G4</span>Q<span class="symbol">NDO3</span>PSOEUBOCDRYSSXZGRARV<span class="number">6</span>MGA<span class="number">33</span>T<span class="symbol">N2</span>AMUBHEL<span class="number">4</span>FXMWYTTJDEI<span class="symbol">NJXUAV4</span>BAYKBDCZQWVF<span class="number">3</span>LWYXSDCXY<span class="number">546</span>U<span class="number">3</span><span class="symbol">NBGOI3</span>ZPAP<span class="number">2</span>S<span class="meta">O3</span>CSQF<span class="symbol">NB7</span>VVIY<span class="number">123456789012345</span>   </span><br></pre></td></tr></table></figure>
+<p>安装激活完成。   </p>
+<p><del>2018年6月23日更新：</del><br>已收到声称是某公司的人发来的法务邮件，如果发现链接再次被取消分享，不用怀疑是谁干的~请回复补充链接<br>附上法务邮件截图与回复：<br><img data-src="https://static.iots.vip/%E9%A9%AC%E5%85%8B%E4%B8%81-%E5%AE%83%E7%9A%84%E6%9D%A5%E4%BF%A1.png" alt="死妈杰丁克"><br><img data-src="https://static.iots.vip/%E9%A9%AC%E5%85%8B%E4%B8%81-%E6%88%91%E7%9A%84%E5%9B%9E%E5%A4%8D.png" alt="xmind8pro破解"><br>同时补充几个链接：<br><a href="https://www.zhihu.com/question/60166627">如何看待某公司对于盗版疯狂封杀的态度? - 知乎</a><br><a href="https://52huameng.com/tucao/1100">对于某公司威胁删帖的回应</a><br><a href="http://www.ssdtop.com/thread-1315-1-1.html">8号站被“某公司狗 ”在百度搜索付费删收录 删关键词 </a>  </p>
+<p><del>2018年9月19日更新</del><br>今天打开程序发现软件重新变为未激活的状态了，查看 hosts 正常，不知道是由于代理的锅还是什么，这里使用防火墙来阻止 Xmind 联网：<br>打开控制面板，点击其中的“系统与安全”；点击“Windows 防火墙”之后，打开“高级设置”；点击“出站规则”–新建规则；点击“程序”–浏览–找到 xmind 的路径。选择 <code>Xmind.exe</code>，勾选“阻止连接”，保存后，重新输入序列号，将邮箱换一下即可。  </p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Y7000换72色域屏</title>
     <url>//post/replace-y7000-screen-to-72NTSC.html</url>
     <content><![CDATA[<p>　　看了同事新提的小米 Pro 的屏幕之后，我决定给我的小黑（拯救者 Y7000）乞丐版换上 72 色域的屏幕，整个步骤下来 200 出头。<span id="more"></span>  </p>
@@ -1706,25 +1725,6 @@
       <tags>
         <tag>折腾</tag>
         <tag>硬件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Xmind8 Pro激活方法及补丁下载</title>
-    <url>//post/xmind8pro-crack.html</url>
-    <content><![CDATA[<p>　　Xmind 是一个非常不错的思维导图软件，本文记录了 Xmind8 Pro 激活方法及补丁 XMindCrack.jar 的下载地址。<span id="more"></span><br>整理于 haotianyi 博客，步骤进行了简化与修改。</p>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>补丁与安装包  链接：<a href="https://pan.baidu.com/s/1FGCOeNBYCEzzk5ljy1UCjA">https://pan.baidu.com/s/1FGCOeNBYCEzzk5ljy1UCjA</a> 密码：c8c5 解压密码: <a href="http://www.iots.vip/">www.iots.vip</a><br>安装<code>xmind-8-update4-windows</code>安装包，推荐使用默认路径。将补丁<code>XMindCrack.jar</code>复制到 <code>Xmind</code> 的安装路径，默认安装路径为 <code>C:\Program Files (x86)\XMind</code>  </p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>打开安装路径，将 <code>XMind.ini</code> 使用记事本打开，如果你Xmind的安装路径自定义了（装到别的盘的），如我的是放在D:\XMind，那么请在最后面添加一行</p>
-<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">-javaagent:D:<span class="regexp">/XMind/</span>XMindCrack.jar</span><br></pre></td></tr></table></figure>
-<p>这里非常重要，特别注意斜杠别弄反了，如果修改错误，将无法启动 Xmind。  </p>
-<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>以管理员身份运行 <code>xmind.bat</code> 脚本即可(该脚本作用为追加 <code>0.0.0.0 www.xmind.net</code> 到本机 hosts 文件)。  </p>
-<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>断网并打开 XMind,在 “编辑-首选项” 中取消勾选 “启动时检查更新和消息” 以及 “发送用户数据” 确认保存后，在 “帮助-序列号” 中，随便输入一个邮箱地址和下面的序列号激活软件。序列号： </p>
-<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">XAka<span class="number">34</span>A<span class="number">2</span>rVRYJ<span class="number">4</span>XBIU<span class="number">35</span>UZMUEEF<span class="number">64</span>CMMIYZCK<span class="number">2</span>FZZUQ<span class="symbol">NODEKUHGJLFMSLIQMQUCUBXRENLK6</span><span class="symbol">NZL37</span>JXP<span class="number">4</span>PZXQFILMQ<span class="number">2</span>R<span class="name">G5</span>R<span class="number">7</span><span class="name">G4</span>Q<span class="symbol">NDO3</span>PSOEUBOCDRYSSXZGRARV<span class="number">6</span>MGA<span class="number">33</span>T<span class="symbol">N2</span>AMUBHEL<span class="number">4</span>FXMWYTTJDEI<span class="symbol">NJXUAV4</span>BAYKBDCZQWVF<span class="number">3</span>LWYXSDCXY<span class="number">546</span>U<span class="number">3</span><span class="symbol">NBGOI3</span>ZPAP<span class="number">2</span>S<span class="meta">O3</span>CSQF<span class="symbol">NB7</span>VVIY<span class="number">123456789012345</span>   </span><br></pre></td></tr></table></figure>
-<p>安装激活完成。   </p>
-<p><del>2018年6月23日更新：</del><br>已收到声称是某公司的人发来的法务邮件，如果发现链接再次被取消分享，不用怀疑是谁干的~请回复补充链接<br>附上法务邮件截图与回复：<br><img data-src="https://static.iots.vip/%E9%A9%AC%E5%85%8B%E4%B8%81-%E5%AE%83%E7%9A%84%E6%9D%A5%E4%BF%A1.png" alt="死妈杰丁克"><br><img data-src="https://static.iots.vip/%E9%A9%AC%E5%85%8B%E4%B8%81-%E6%88%91%E7%9A%84%E5%9B%9E%E5%A4%8D.png" alt="xmind8pro破解"><br>同时补充几个链接：<br><a href="https://www.zhihu.com/question/60166627">如何看待某公司对于盗版疯狂封杀的态度? - 知乎</a><br><a href="https://52huameng.com/tucao/1100">对于某公司威胁删帖的回应</a><br><a href="http://www.ssdtop.com/thread-1315-1-1.html">8号站被“某公司狗 ”在百度搜索付费删收录 删关键词 </a>  </p>
-<p><del>2018年9月19日更新</del><br>今天打开程序发现软件重新变为未激活的状态了，查看 hosts 正常，不知道是由于代理的锅还是什么，这里使用防火墙来阻止 Xmind 联网：<br>打开控制面板，点击其中的“系统与安全”；点击“Windows 防火墙”之后，打开“高级设置”；点击“出站规则”–新建规则；点击“程序”–浏览–找到 xmind 的路径。选择 <code>Xmind.exe</code>，勾选“阻止连接”，保存后，重新输入序列号，将邮箱换一下即可。  </p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
       </tags>
   </entry>
   <entry>
@@ -2949,7 +2949,7 @@
 
 <h3 id="Git-pages"><a href="#Git-pages" class="headerlink" title="Git pages"></a>Git pages</h3><p>　　很多用 hexo 的朋友都选择使用两个分支来分别存放站点的 source 与 public，然后 public 的分支用来构建 gitpages。由于 GitHub 已经有免费的私有仓库了，我这里是将 source 与 public 分开各开一个 repository，source 仓库为私有。我在 GitHub 新建了两个仓库分别为: wiki-source(私有)、hexo-wiki-pages(公有)。在 hexo-wiki-pages 仓库的设置里打开 gitpages。<br>　　将 themes&#x2F;Wikitten&#x2F;hexo&#x2F; 下的所有文件复制到 hexo 的目录下。</p>
 <ul>
-<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#111;&#109;</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
+<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
 <li>修改 <code>.travis.yml</code> branch 字段指定你要构建的分支，如我的 wiki-source 仓库需要构建的分支为: master   </li>
 <li>修改 <code>travis_env_init.sh</code> 中 git 的配置信息（用户名与邮箱）。<br>之后就可以通过 <code>hexo s</code> 打开 <code>localhost:4000</code> 本地访问测试一下，成功则将 hexo 目录 push 到你的 source 仓库。</li>
 </ul>
