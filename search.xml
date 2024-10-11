@@ -2949,7 +2949,7 @@
 
 <h3 id="Git-pages"><a href="#Git-pages" class="headerlink" title="Git pages"></a>Git pages</h3><p>　　很多用 hexo 的朋友都选择使用两个分支来分别存放站点的 source 与 public，然后 public 的分支用来构建 gitpages。由于 GitHub 已经有免费的私有仓库了，我这里是将 source 与 public 分开各开一个 repository，source 仓库为私有。我在 GitHub 新建了两个仓库分别为: wiki-source(私有)、hexo-wiki-pages(公有)。在 hexo-wiki-pages 仓库的设置里打开 gitpages。<br>　　将 themes&#x2F;Wikitten&#x2F;hexo&#x2F; 下的所有文件复制到 hexo 的目录下。</p>
 <ul>
-<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
+<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
 <li>修改 <code>.travis.yml</code> branch 字段指定你要构建的分支，如我的 wiki-source 仓库需要构建的分支为: master   </li>
 <li>修改 <code>travis_env_init.sh</code> 中 git 的配置信息（用户名与邮箱）。<br>之后就可以通过 <code>hexo s</code> 打开 <code>localhost:4000</code> 本地访问测试一下，成功则将 hexo 目录 push 到你的 source 仓库。</li>
 </ul>

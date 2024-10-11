@@ -1,21 +1,29 @@
 # www.iots.vip 
 User-agent: *
 Allow: /
-Allow: /archives/
-Allow: /tags/
 Allow: /about/
+Allow: /post/
 
-Disallow: /js/
-Disallow: /css/
-Disallow: /fonts/
+Disallow: /post/mind/
+
+Disallow: /archives/
+Disallow: /page/
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /reward/
+Disallow: /movies/
+Disallow: /books/
+
 Disallow: /vendors/
 Disallow: /lib/
-Disallow: /assets/
 Disallow: /down/
-Disallow: /loading.gif
-Disallow: /post/mind/
-Disallow: /reward/
+
 Disallow: /*.txt
+Disallow: /*.json
+Disallow: /404.html
+Disallow: /loading.gif
+Disallow: /search.xml
+
 Sitemap: https://www.iots.vip/sitemap.xml
 
 User-agent: GPTBot
