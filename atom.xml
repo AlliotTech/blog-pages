@@ -18,8 +18,8 @@
   
   <entry>
     <title>Cloudflare Tunnel前置代理支持</title>
-    <link href="https://www.iots.vip/post/cloudflare-tunnel-proxy-support.html"/>
-    <id>https://www.iots.vip/post/cloudflare-tunnel-proxy-support.html</id>
+    <link href="https://www.iots.vip/post/cloudflare-tunnel-proxy-support"/>
+    <id>https://www.iots.vip/post/cloudflare-tunnel-proxy-support</id>
     <published>2024-09-01T11:00:00.000Z</published>
     <updated>2024-09-01T11:00:00.000Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>CDN场景下配置Vaultwarden启用fail2ban</title>
-    <link href="https://www.iots.vip/post/configuration-vaultwarden-enable-fail2ban-over-cdn.html"/>
-    <id>https://www.iots.vip/post/configuration-vaultwarden-enable-fail2ban-over-cdn.html</id>
+    <link href="https://www.iots.vip/post/configuration-vaultwarden-enable-fail2ban-over-cdn"/>
+    <id>https://www.iots.vip/post/configuration-vaultwarden-enable-fail2ban-over-cdn</id>
     <published>2024-06-25T03:16:52.000Z</published>
     <updated>2024-06-25T03:16:52.000Z</updated>
     
@@ -60,8 +60,8 @@
   
   <entry>
     <title>中银香港丝滑开户总结</title>
-    <link href="https://www.iots.vip/post/summary-of-smooth-account-opening-in-boc-hong-kong.html"/>
-    <id>https://www.iots.vip/post/summary-of-smooth-account-opening-in-boc-hong-kong.html</id>
+    <link href="https://www.iots.vip/post/summary-of-smooth-account-opening-in-boc-hong-kong"/>
+    <id>https://www.iots.vip/post/summary-of-smooth-account-opening-in-boc-hong-kong</id>
     <published>2024-05-25T06:00:00.000Z</published>
     <updated>2024-05-25T06:00:00.000Z</updated>
     
@@ -79,8 +79,8 @@
   
   <entry>
     <title>从指定路径更新雷池WAF证书</title>
-    <link href="https://www.iots.vip/post/update-safeline-ssl-cert-from-file.html"/>
-    <id>https://www.iots.vip/post/update-safeline-ssl-cert-from-file.html</id>
+    <link href="https://www.iots.vip/post/update-safeline-ssl-cert-from-file"/>
+    <id>https://www.iots.vip/post/update-safeline-ssl-cert-from-file</id>
     <published>2024-04-02T07:50:16.000Z</published>
     <updated>2024-04-02T07:50:16.000Z</updated>
     
@@ -98,8 +98,8 @@
   
   <entry>
     <title>AWS ECS使用EBS作为Volume</title>
-    <link href="https://www.iots.vip/post/aws-ecs-fargate-ebs-volume.html"/>
-    <id>https://www.iots.vip/post/aws-ecs-fargate-ebs-volume.html</id>
+    <link href="https://www.iots.vip/post/aws-ecs-fargate-ebs-volume"/>
+    <id>https://www.iots.vip/post/aws-ecs-fargate-ebs-volume</id>
     <published>2024-03-31T05:34:35.000Z</published>
     <updated>2024-03-31T05:34:35.000Z</updated>
     
@@ -119,8 +119,8 @@
   
   <entry>
     <title>浅浅的调教一下国产智障电视</title>
-    <link href="https://www.iots.vip/post/fxxk-android-tv.html"/>
-    <id>https://www.iots.vip/post/fxxk-android-tv.html</id>
+    <link href="https://www.iots.vip/post/fxxk-android-tv"/>
+    <id>https://www.iots.vip/post/fxxk-android-tv</id>
     <published>2024-02-01T05:05:51.000Z</published>
     <updated>2024-02-01T05:05:51.000Z</updated>
     
@@ -140,8 +140,8 @@
   
   <entry>
     <title>Nginx proxy_pass到AWS ALB的504问题</title>
-    <link href="https://www.iots.vip/post/nginx-proxy-pass-aws-alb-504-issue.html"/>
-    <id>https://www.iots.vip/post/nginx-proxy-pass-aws-alb-504-issue.html</id>
+    <link href="https://www.iots.vip/post/nginx-proxy-pass-aws-alb-504-issue"/>
+    <id>https://www.iots.vip/post/nginx-proxy-pass-aws-alb-504-issue</id>
     <published>2024-01-23T12:00:00.000Z</published>
     <updated>2024-01-23T12:00:00.000Z</updated>
     
@@ -161,8 +161,8 @@
   
   <entry>
     <title>OpenV**手动指定路由规则</title>
-    <link href="https://www.iots.vip/post/openvxx-manual-static-route-configuration.html"/>
-    <id>https://www.iots.vip/post/openvxx-manual-static-route-configuration.html</id>
+    <link href="https://www.iots.vip/post/openvxx-manual-static-route-configuration"/>
+    <id>https://www.iots.vip/post/openvxx-manual-static-route-configuration</id>
     <published>2023-12-20T11:00:00.000Z</published>
     <updated>2023-12-20T11:00:00.000Z</updated>
     
@@ -182,8 +182,8 @@
   
   <entry>
     <title>本地模拟CNAME解析</title>
-    <link href="https://www.iots.vip/post/cname-record-simulate.html"/>
-    <id>https://www.iots.vip/post/cname-record-simulate.html</id>
+    <link href="https://www.iots.vip/post/cname-record-simulate"/>
+    <id>https://www.iots.vip/post/cname-record-simulate</id>
     <published>2023-11-04T04:00:00.000Z</published>
     <updated>2023-11-04T04:00:00.000Z</updated>
     
@@ -201,8 +201,8 @@
   
   <entry>
     <title>Nginx搭建WebDAV服务</title>
-    <link href="https://www.iots.vip/post/nginx-webdav-server.html"/>
-    <id>https://www.iots.vip/post/nginx-webdav-server.html</id>
+    <link href="https://www.iots.vip/post/nginx-webdav-server"/>
+    <id>https://www.iots.vip/post/nginx-webdav-server</id>
     <published>2023-10-23T15:00:00.000Z</published>
     <updated>2023-10-23T15:00:00.000Z</updated>
     
@@ -222,8 +222,8 @@
   
   <entry>
     <title>迎来船新版本的Hexo+NexT</title>
-    <link href="https://www.iots.vip/post/new-hexo-workflow.html"/>
-    <id>https://www.iots.vip/post/new-hexo-workflow.html</id>
+    <link href="https://www.iots.vip/post/new-hexo-workflow"/>
+    <id>https://www.iots.vip/post/new-hexo-workflow</id>
     <published>2023-09-01T04:44:03.000Z</published>
     <updated>2023-09-01T04:44:03.000Z</updated>
     
@@ -243,8 +243,8 @@
   
   <entry>
     <title>优雅的处理Git多帐号与代理问题</title>
-    <link href="https://www.iots.vip/post/elegant-solution-git-multiple-accounts-proxy-issues.html"/>
-    <id>https://www.iots.vip/post/elegant-solution-git-multiple-accounts-proxy-issues.html</id>
+    <link href="https://www.iots.vip/post/elegant-solution-git-multiple-accounts-proxy-issues"/>
+    <id>https://www.iots.vip/post/elegant-solution-git-multiple-accounts-proxy-issues</id>
     <published>2023-08-06T14:00:00.000Z</published>
     <updated>2023-08-06T14:00:00.000Z</updated>
     
@@ -262,8 +262,8 @@
   
   <entry>
     <title>验光配镜扫盲</title>
-    <link href="https://www.iots.vip/post/choose-glasses.html"/>
-    <id>https://www.iots.vip/post/choose-glasses.html</id>
+    <link href="https://www.iots.vip/post/choose-glasses"/>
+    <id>https://www.iots.vip/post/choose-glasses</id>
     <published>2023-04-04T16:00:00.000Z</published>
     <updated>2023-04-04T16:00:00.000Z</updated>
     
@@ -279,8 +279,8 @@
   
   <entry>
     <title>Prometheus relabel实现动态metrics path</title>
-    <link href="https://www.iots.vip/post/prometheus-metrics-path-relabel.html"/>
-    <id>https://www.iots.vip/post/prometheus-metrics-path-relabel.html</id>
+    <link href="https://www.iots.vip/post/prometheus-metrics-path-relabel"/>
+    <id>https://www.iots.vip/post/prometheus-metrics-path-relabel</id>
     <published>2023-03-02T11:00:00.000Z</published>
     <updated>2023-03-02T11:00:00.000Z</updated>
     
@@ -298,8 +298,8 @@
   
   <entry>
     <title>基于Terraform在AWS ECS中构建Jenkins持续集成体系</title>
-    <link href="https://www.iots.vip/post/terraform-aws-ecs-jenkins.html"/>
-    <id>https://www.iots.vip/post/terraform-aws-ecs-jenkins.html</id>
+    <link href="https://www.iots.vip/post/terraform-aws-ecs-jenkins"/>
+    <id>https://www.iots.vip/post/terraform-aws-ecs-jenkins</id>
     <published>2022-10-14T11:30:00.000Z</published>
     <updated>2022-10-14T11:30:00.000Z</updated>
     
@@ -317,8 +317,8 @@
   
   <entry>
     <title>Terraform启用provider缓存</title>
-    <link href="https://www.iots.vip/post/terraform-provider-cache.html"/>
-    <id>https://www.iots.vip/post/terraform-provider-cache.html</id>
+    <link href="https://www.iots.vip/post/terraform-provider-cache"/>
+    <id>https://www.iots.vip/post/terraform-provider-cache</id>
     <published>2022-10-12T11:30:00.000Z</published>
     <updated>2022-10-12T11:30:00.000Z</updated>
     
@@ -336,8 +336,8 @@
   
   <entry>
     <title>filezilla-server批量创建用户</title>
-    <link href="https://www.iots.vip/post/batch-create-filezilla-server-ftp-user.html"/>
-    <id>https://www.iots.vip/post/batch-create-filezilla-server-ftp-user.html</id>
+    <link href="https://www.iots.vip/post/batch-create-filezilla-server-ftp-user"/>
+    <id>https://www.iots.vip/post/batch-create-filezilla-server-ftp-user</id>
     <published>2022-09-25T12:00:00.000Z</published>
     <updated>2022-09-25T12:00:00.000Z</updated>
     
@@ -355,8 +355,8 @@
   
   <entry>
     <title>其实可以做一个不那么“浑蛋”的人</title>
-    <link href="https://www.iots.vip/post/mind/be-a-less-ass-person.html"/>
-    <id>https://www.iots.vip/post/mind/be-a-less-ass-person.html</id>
+    <link href="https://www.iots.vip/post/mind/be-a-less-ass-person"/>
+    <id>https://www.iots.vip/post/mind/be-a-less-ass-person</id>
     <published>2022-09-12T11:22:33.000Z</published>
     <updated>2022-09-12T11:22:33.000Z</updated>
     
@@ -372,8 +372,8 @@
   
   <entry>
     <title>iterm2自动输入堡垒机TOTP验证码</title>
-    <link href="https://www.iots.vip/post/iterm2-jumpserver-totp-autocomplete.html"/>
-    <id>https://www.iots.vip/post/iterm2-jumpserver-totp-autocomplete.html</id>
+    <link href="https://www.iots.vip/post/iterm2-jumpserver-totp-autocomplete"/>
+    <id>https://www.iots.vip/post/iterm2-jumpserver-totp-autocomplete</id>
     <published>2022-08-18T10:31:01.000Z</published>
     <updated>2022-08-18T10:31:01.000Z</updated>
     
@@ -389,8 +389,8 @@
   
   <entry>
     <title>logrotate服务错误:read-only filesystem</title>
-    <link href="https://www.iots.vip/post/logrotate-service-read-only-filesystem.html"/>
-    <id>https://www.iots.vip/post/logrotate-service-read-only-filesystem.html</id>
+    <link href="https://www.iots.vip/post/logrotate-service-read-only-filesystem"/>
+    <id>https://www.iots.vip/post/logrotate-service-read-only-filesystem</id>
     <published>2022-08-18T10:30:01.000Z</published>
     <updated>2022-08-18T10:30:01.000Z</updated>
     
