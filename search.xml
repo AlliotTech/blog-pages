@@ -2949,7 +2949,7 @@
 
 <h3 id="Git-pages"><a href="#Git-pages" class="headerlink" title="Git pages"></a>Git pages</h3><p>　　很多用 hexo 的朋友都选择使用两个分支来分别存放站点的 source 与 public，然后 public 的分支用来构建 gitpages。由于 GitHub 已经有免费的私有仓库了，我这里是将 source 与 public 分开各开一个 repository，source 仓库为私有。我在 GitHub 新建了两个仓库分别为: wiki-source(私有)、hexo-wiki-pages(公有)。在 hexo-wiki-pages 仓库的设置里打开 gitpages。<br>　　将 themes&#x2F;Wikitten&#x2F;hexo&#x2F; 下的所有文件复制到 hexo 的目录下。</p>
 <ul>
-<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
+<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
 <li>修改 <code>.travis.yml</code> branch 字段指定你要构建的分支，如我的 wiki-source 仓库需要构建的分支为: master   </li>
 <li>修改 <code>travis_env_init.sh</code> 中 git 的配置信息（用户名与邮箱）。<br>之后就可以通过 <code>hexo s</code> 打开 <code>localhost:4000</code> 本地访问测试一下，成功则将 hexo 目录 push 到你的 source 仓库。</li>
 </ul>
@@ -3367,6 +3367,9 @@
 <p>执行：  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install gcc automake autoconf libtool make</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>服务器性能测试系列</category>
+      </categories>
       <tags>
         <tag>Linux</tag>
         <tag>系列</tag>
@@ -3385,6 +3388,9 @@
 <p><img data-src="https://static.iots.vip/2016/11/201611021421_4915.png" alt="测试完成截图">  </p>
 <h4 id="生成报表"><a href="#生成报表" class="headerlink" title="生成报表"></a>生成报表</h4><p>在当前目录下的：<br>write.throughput<br>read.throughput<br>randread.iops<br>randwrite.iops  </p>
 ]]></content>
+      <categories>
+        <category>服务器性能测试系列</category>
+      </categories>
       <tags>
         <tag>Linux</tag>
         <tag>系列</tag>
@@ -3421,6 +3427,9 @@
 <p>这是由于服务器端防火墙未放行导致的，临时禁用一下防火墙即可，执行:  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service iptables stop</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>服务器性能测试系列</category>
+      </categories>
       <tags>
         <tag>Linux</tag>
         <tag>网络</tag>
@@ -3781,6 +3790,9 @@
 <p>　　按 i 进入编辑模式，将 sn 字段后的部分改为前面我们获取到的 SN，顺便将 mac1 字段后的部分改为路由器中看到的群晖的 MAC 地址以便后面做局域网唤醒（WOL）。<br>　　之后按 ESC，切换为大写，输入 ZZ，即可保存。<br>　　重启系统，进入控制面板，搜索 <code>WOL</code>，勾选 <code>启用局域网唤醒</code>，至此，半洗白与局域网唤醒设置完成。关于局域网唤醒，可以将群晖关机，使用群晖助手中的唤醒或路由器后台中的唤醒来测试。   </p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　至此，我们已经完成了黑群晖的安装、半洗白与局域网唤醒的设置，本文提供的引导是目前 Alliot 正在使用的，蜗牛星际 D 版完美适配，一年了没有出现什么问题，如果是其他硬件平台，可以去找相应相应的引导尝试更换，这里就不多赘述。  </p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>系列</tag>
@@ -3831,6 +3843,9 @@
 <p>　　这样我们所有的容器就会更新到远端仓库最新的镜像版本了。<br>　　大致介绍一下上面的命令，我们知道 Docker 是 server+client 的架构，上述命令 <code>-v</code> 参数映射的 <code>/var/run/docker.sock</code> 就是 Docker client 与 daemon 通信的 socket 文件，<code>watchtower</code> 通过这个文件来监控当前的所有容器。<br>　　<code>watchetower</code> 还可以针对某一个容器进行监控，或是配置计划任务定时更新甚至邮件通知等。其他更多参数见官网 <a href="https://containrrr.dev/watchtower/arguments/">https://containrrr.dev/watchtower/arguments/</a>  </p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　Alliot 暂时就只有这些值得推荐给大家的了，还有更多值得尝试的镜像欢迎在博客留言补充。   </p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>Docker</tag>
@@ -3865,6 +3880,9 @@
 <h3 id="解决DSM6-2添加第三方套件源无效位置的问题"><a href="#解决DSM6-2添加第三方套件源无效位置的问题" class="headerlink" title="解决DSM6.2添加第三方套件源无效位置的问题"></a>解决DSM6.2添加第三方套件源无效位置的问题</h3><p>&emsp;&emsp;这是由于群晖内部的 CA 根证书库到期导致的，更新替换一下即可：<br><a href="/post/synology-series-1.html#ssh-%E8%BF%9E%E6%8E%A5%E5%B9%B6%E8%8E%B7%E5%BE%97-root-%E6%9D%83%E9%99%90">ssh 连接并群晖获取 root 权限</a>   </p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt.bak</span><br><span class="line">sudo curl -Lko /etc/ssl/certs/ca-certificates.crt https://curl.se/ca/cacert.pem</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>系列</tag>
@@ -3892,6 +3910,9 @@
 <h4 id="NAS存储策略推荐"><a href="#NAS存储策略推荐" class="headerlink" title="NAS存储策略推荐"></a>NAS存储策略推荐</h4><p>　　由于群晖系统的特性，为了减少倒腾系统与数据的风险，强烈推荐第一个存储空间使用 RAID 1 模式，并使用全新的硬盘（Alliot 是用的狗东自营 4T 紫盘 *2 ）。关于硬盘这里插一句： 紫盘完全是可以的，有人说监控盘忽略 CRC 错误会导致数据损坏，不适合做文件类存储，其实是不正确的，监控盘的忽略 CRC 错误的指令需要监控主机去主动开启，正常 PC 或 NAS 使用与其他盘没有区别。加上本身监控盘转速慢，也经常是 7*24 的环境，所以在我看来，给 NAS 使用没有一点问题（转速的原因，读写速度会比企业盘慢），不过钱包够的话，还是推荐企业级。<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E7%B4%AB%E7%9B%984T%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E6%88%AA%E5%9B%BE.png" alt="群晖-紫盘4T存储空间截图"><br>　　除去第一个存储空间外，其他的存储空间推荐 Basic 模式，并使用 HyperBackup 按照文件夹互相备份需要备份的内容，这样配置更加灵活，在一定程度上保证数据安全的同事，大大的节省了存储空间。<br>　　文件系统第一个存储空间还是推荐使用 Btrfs 格式，由于 Btrfs 文件系统本身的一些特性，群晖在这种类型下能够做更多的事情。（部分套件要求 Btrfs）<br>　　其他数据盘可以使用 ext4 或其他文件系统格式，但推荐程度一般。许多网友说的是方便在 Linux 下挂载并数据恢复等。但其实 Btrfs 在诸如 RedHat 等 Linux 发行版下都是原生支持 Btrfs 的，使用 <code>mount -t btrfs 设备名 挂载点</code> 是能够直接挂载的。  这个还是看个人喜好吧，区别不大。  </p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　其实 Alliot 早已经将蜗牛星际退休，攒成了六盘位的 ITX 黑群晖了，并且配上了 APC UPS，后面有空的话也会分享一下攒机的记录。互联网公司确实会忙很多，前面也在考证，所以这篇博客兜兜转转，直到今天才完成，文中可能也能感觉到明显的行文断层，见谅。群晖系列的下一篇会是网络安全方面的一些闲聊，谈谈对于群晖（或不仅仅是群晖）的一些基本的安全加固。  </p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>系列</tag>
@@ -3951,6 +3972,9 @@
 <figure class="highlight dos"><table><tr><td class="code"><pre><span class="line"># 按住 win 键 + R 输入 <span class="built_in">cmd</span>  </span><br><span class="line"><span class="built_in">ipconfig</span> /flushdns # 刷新dns解析缓存</span><br><span class="line"><span class="built_in">ping</span> synology.iots.vip </span><br></pre></td></tr></table></figure>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　至此，我们已经了解了怎样配置端口转发，并利用 DDNS 完成了公网 IP 解析的问题，下一篇将介绍针对 DSM 的一些小优化。  </p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>网络</tag>
@@ -3993,6 +4017,9 @@
 <p>出现报错则是因为墙又抽风了，可以手动下载 <a href="https://github.com/ronggang/transmission-web-control/blob/master/release/install-tr-control-cn.sh">install-tr-control-cn.sh</a> 上传后执行即可。<br>浏览器中 F5 强制刷新后，效果如下：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-transmission%E6%B1%89%E5%8C%96.png" alt="群晖-transmission汉化.png">  </p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　到这里，套件的修改折腾基本打止了，比较遗憾的是群晖另外一个监控平台套件 Surveillance 到现在为止还是没有新版本较为完善的破解方案（白群晖也需要购买授权，一个摄像头的授权大几百，对于普通人来说还是很贵的）。<br>　　下篇 Alliot 将介绍群晖上的 Docker，通过 Docker 我们才能够更好的发挥群晖的作用。  </p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>系列</tag>
@@ -4009,6 +4036,9 @@
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>　　<code>Easy Bootstrap Installer</code> 主要为 <code>ipkg</code> 或 <code>opkg</code> 环境，<code>iPKGui</code> 则为 <code>ipkg</code> 的图形界面。因此，我们需要先安装 <code>Easy Bootstrap Installer</code> 后安装 <code>iPKGui</code> 。<br>　　打开群晖 <code>套件中心</code>，选择 <code>手动安装</code>，选择刚才下载好的 <code>Easy Bootstrap Installer</code> spk 文件，依照提示安装后重启群晖即可。（需要注意的是，在装 <code>Easy Bootstrap Installer</code> 的过程中，由于会对源做刷新动作，而 <code>ipkg</code> 的源又被墙了，所以在网络状况不好的情况下，会非常慢。  ）<br>　　之后使用 <a href="/post/synology-series-1.html#ssh-%E8%BF%9E%E6%8E%A5%E5%B9%B6%E8%8E%B7%E5%BE%97-root-%E6%9D%83%E9%99%90">ssh 连接并群晖获取 root 权限</a> ，执行 <code>ipkg</code> 能够正确执行后，依照前面方式在套件中心安装 <code>iPKGui</code> 的 spk 文件即可。至此，整个流程结束，完成 <code>ipkg</code> 的环境配置。  </p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　其实网上不少大佬都是直接通过 <code>wget</code> 下来一些 ipkg 的包来进行安装的。Alliot 选择看起来低端许多的方法，目的还是为了保证环境的可控。在不需要使用后完全可以通过套件中心来卸载与停用。<br>　　由于软件仓库的存在，在拥有了 <code>ipkg</code> 后的群晖，可以做更多的事情了（比如安装最常用的 <code>lrzsz</code>与 <code>mlocate</code> 等实用工具，只要你愿意，甚至你都还可以搭建一个 <code>gcc</code> 编译环境做更多的事情）与一般发行版本的体验差距不大了。  </p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>系列</tag>
@@ -4027,6 +4057,9 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo tee /var/packages/Docker/etc/dockerd.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">   &quot;data-root&quot; : &quot;/var/packages/Docker/target/docker&quot;,</span><br><span class="line">   &quot;log-driver&quot; : &quot;db&quot;,</span><br><span class="line">   &quot;registry-mirrors&quot; : [ &quot;https://no1pfk8z.mirror.aliyuncs.com&quot; ], # 这里换成前面获得的地址 </span><br><span class="line">   &quot;storage-driver&quot; : &quot;btrfs&quot;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 <p>回到套件中心重启 <code>Docker</code> 套件即可（未生效请重启 DSM ）。  </p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>Docker</tag>
@@ -4059,6 +4092,9 @@
 　　</p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　Video Station 经过上面的完善后，由于其多平台客户端的支持，很适合在内网播放视频（如 DLNA），但是由于其功能过于简单，转码选择过少，无法选择码率等，不是很适合上行小的公网环境使用，因此，Alliot 是 Video Station 配合 Jellyfin 来管理视频库的，关于 Jellyfin 的问题，将在后面的文章讲到。  </p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>系列</tag>
@@ -4071,7 +4107,7 @@
     <content><![CDATA[<p>　　“No System Is Safe” – 《who am I》，群晖作为我们相对私人的小型服务器，在安全方面当然也要做一些考虑，上一篇我们已经讲到了关于数据存储方面的安全，这篇我们来聊聊一些基本的安全加固需要考虑的事情。尽管是本文作为群晖入门到进阶系列的完结篇，但是，在 Alliot 看来，安全从来都不是针对某一个单一的点能做到有效的，所以，文中所描述的应该是针对家庭或个人应用场景的一个面，而不是针对个人 NAS 这个点。当然，Alliot 并不是专业的网络安全从业者，网安的同学请忽略本文，或是轻点拍砖，多多指教。<span id="more"></span>   </p>
 <h4 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h4><p>　　从前面的 <a href="/post/synology-series-2.html">群晖入门到进阶系列（二）：DDNS与端口转发</a> 收到的反馈来看，绝大多数同学都会有从外部访问家里的 NAS 的需求，所以，路由器作为我们的第一道防线，可能是我们优先要考虑的点（当然，这里可能会有歧义，有同学会说光猫才是，但光猫（本名光调制解调器）其主要的功能在于光电信号的调制与解调，在我们将其改成桥接后，我们能对它做的事情很少）。<br>   当我们获得了公网 IP 后，我们的路由器便完完整整的暴露在了整个公网环境中，任何人都能够通过 IP 来访问到我们的路由器，Alliot 在此对其做了以下事情：  </p>
 <h5 id="修改默认用户名与密码"><a href="#修改默认用户名与密码" class="headerlink" title="修改默认用户名与密码"></a>修改默认用户名与密码</h5><p>　　“弱口令，永远滴神” 。这是网安朋友常挂在口中的一句话，因为真的有很大比例的入侵是通过弱口令跑字典来达成的，它是最愚蠢，同时也是最有效的方法。所以，默认的登陆用户名与密码是一定要修改的，同时，密码也至少要做到含有大小写字母&#x2F;数字&#x2F;特殊符号&#x2F;8位以上。  </p>
-<h5 id="限制后台管理页面"><a href="#限制后台管理页面" class="headerlink" title="限制后台管理页面"></a>限制后台管理页面</h5><p>　　从类似 shodan.io 等类似搜索引擎可以看到，全世界有数以万万计的网络设备毫无防备的暴露在了互联网上，许多扫描机器人就是从类似的地方拉取 IP 列表来做定向扫描。如果你的设备暴露在公网以久，恰好你的密码又是弱口令，那么，很有可能已经光荣的成为了一台肉鸡。  因此，我们需要关闭外网（公网）访问路由器后台的权限，部分路由系统还能针对配置白名单仅允许指定 MAC 地址的设备访问，这里 Alliot 使用的还是前面说到的 H 大的 padavan：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-padavan%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE.png" alt="群晖-padavan防火墙配置">  </p>
+<h5 id="限制后台管理页面"><a href="#限制后台管理页面" class="headerlink" title="限制后台管理页面"></a>限制后台管理页面</h5><p>　　从类似 shodan.io 等类似搜索引擎可以看到，全世界有数以万万计的网络设备毫无防备的暴露在了互联网上，许多扫描机器人就是从类似的地方拉取 IP 列表来做定向扫描。如果你的设备暴露在公网已久，恰好你的密码又是弱口令，那么，很有可能已经光荣的成为了一台肉鸡。  因此，我们需要关闭外网（公网）访问路由器后台的权限，部分路由系统还能针对配置白名单仅允许指定 MAC 地址的设备访问，这里 Alliot 使用的还是前面说到的 H 大的 padavan：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-padavan%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE.png" alt="群晖-padavan防火墙配置">  </p>
 <h5 id="禁用外部ICMP"><a href="#禁用外部ICMP" class="headerlink" title="禁用外部ICMP"></a>禁用外部ICMP</h5><p>　　部分扫描工具会使用ping来探测存活主机与存活主机类型（不同类型的操作系统被 ping 响应默认返回的 TTL 值是不同的，因此，大致可以通过这个来判断操作系统类型），提高扫描效率，因此，Alliot 也将路由器的外部 ICMP 关闭了（即禁止被ping）。不同的路由器系统关闭 ICMP 响应的方式不同，padavan 在上面的图中部分是有关闭“响应外部 ping 请求的”，其他的路由系统如果没有，如果有 iptables 可以新增规则：  </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP</span><br></pre></td></tr></table></figure>
 <h5 id="ssh-telnet服务"><a href="#ssh-telnet服务" class="headerlink" title="ssh&#x2F;telnet服务"></a>ssh&#x2F;telnet服务</h5><p>　　首先，这两者是一定要关闭公网访问的，openwrt 系的路由系统通常都能在后台中关闭（如前面的图中，padavan 便可以），或是通过 iptables 限制。 其次，ssh 尽量使用密钥方式来验证。<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-padavan-ssh%E5%AF%86%E9%92%A5%E7%99%BB%E9%99%86.png" alt="群晖-padavan-ssh密钥登陆"><br>最后，如果不是经常使用终端去操作，尽量是用完就关掉，尤其是 telnet。  </p>
@@ -4094,6 +4130,9 @@
 <p>　　大概说一下，这款机箱和蜗牛 C 款设计很像，不过，背板是满血背板，做工还是很到位的。之前捡漏 200 包邮到手。<br>　　电源如果不是其他特殊要求的话，建议直接买全新的 益横7030b，单路供电，不用担心负载问题。<br>　　CPU 本来是想上 i3 8100 但是奈何被炒的太高，G4600 核显是 HD630 对比 i3 8100 的 UHD630 差一点，不过基本够用。CPU 现在价格不同了，可以上 i5 8 代了，价格也还合适。<br>　　说说主板，其实就是他们说的蜗牛 D 款变种版，这款工控主板 itx 尺寸，带了 6 个 SATA 口，2 个千兆网口，1 个 m.2 接口，可以说非常适合我这套方案了。当时是捡漏 300+ 到手的，成色与做工都还算可以。<br>　　内存略过。<br>　　UPS 还是很推荐买一个的，确实省心不少。Alliot 这台 br 550 是找的二手的机头（即不带电池的），到手自己买蓄电池更换的，成本不到 300。不推荐网红款的 BK650，性价比较低，而且为后备式（相较于在线与在线互动式，后备式的切换时间更长，当然也更省电），最主要的是占地大，而且丑。。。<br>下面是晒图：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E7%9B%8A%E6%A8%AA7030b.jpg" alt="群晖-益横7030b"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E8%B1%86%E5%B8%8Cb365.jpg" alt="群晖-豆希b365"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%A4%A7%E8%9C%97%E7%89%9B.jpg" alt="群晖-大蜗牛">  </p>
 <h4 id="附"><a href="#附" class="headerlink" title="附"></a>附</h4><p><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.png" alt="群晖-安全加固思维导图"></p>
 ]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
       <tags>
         <tag>折腾</tag>
         <tag>系列</tag>
