@@ -759,6 +759,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux下/etc/fstab详解</title>
+    <url>//post/linux-fstab.html</url>
+    <content><![CDATA[<p>　　平时我们使用 <code>mount</code> 来对设备进行挂载的时候，都是临时挂载的，在系统重启后，需要重新进行挂载，如果我们需要对一个分区进行开机自动挂载，可以通过编辑 &#x2F;etc&#x2F;fstab 来完成，系统在启动时，会根据 &#x2F;etc&#x2F;fstab 文件对分区进行自动挂载。 <span id="more"></span>  </p>
+<h2 id="格式介绍"><a href="#格式介绍" class="headerlink" title="格式介绍"></a>格式介绍</h2><p>打开 &#x2F;etc&#x2F;fstab 内容如下：  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># /etc/fstab</span></span><br><span class="line"><span class="comment"># Created by anaconda on Thu Jul  4 17:55:46 2019</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Accessible filesystems, by reference, are maintained under &#x27;/dev/disk&#x27;</span></span><br><span class="line"><span class="comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">/dev/mapper/centos-root /                       ext4    defaults        1 1</span><br><span class="line">UUID=2e53b1ff-e2ce-460b-9029-309ce81e811f /boot                   ext4    defaults        1 2</span><br><span class="line">/dev/mapper/centos-home /home                   ext4    defaults        1 2</span><br><span class="line">/dev/mapper/centos-var  /var                    ext4    defaults        1 2</span><br><span class="line">/dev/mapper/centos-swap swap                    swap    defaults        0 0</span><br></pre></td></tr></table></figure>
+<p>格式为：  </p>
+<blockquote>
+<p>第一行：<br>设备名或 UUID 或 lable（设备卷标名）<br>第二行：<br>挂载点（要求目录为空）<br>第三行：<br>该分区文件系统格式，如 ext、ext2、msdos、iso9660、nfs、swap 等<br>第四行：<br>文件系统参数，即 mount 时要设定的状态，常用参数有 default、ro、rw、 suid、dev、exec、auto、nouser、async  等<br>第五行：<br>dump 备份设置 （0 不备份，1 每天进行 dump 备份，2 不定时进行 dump 备份）<br>第五行：<br>磁盘检查设置 （检查顺序，数值相同的同时检查，0 表示不自检，1 代表第一个检查，2 代表第二个检查，通常根目录是 1 的情况下，其他分区只能是 2）  </p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.cnblogs.com/simpman/archive/2013/05/28/3103070.html">https://www.cnblogs.com/simpman/archive/2013/05/28/3103070.html</a></p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>存储</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Jira与Confluence迁移至Docker</title>
     <url>//post/move-jira-confluence-to-docker.html</url>
     <content><![CDATA[<p>&emsp;&emsp;近期机房搬迁，帮忙将 Jira 与 Confluence 做了一次迁移。由于之前的维护人员几乎没有留下任何信息，环境比较乱，这里顺手改成了 Docker 方式部署。大问题没有，小坑比较多，此文用流水账的形式记录了一下搬迁时的大致步骤，以便不时之需。<span id="more"></span></p>
@@ -829,23 +846,6 @@
 ]]></content>
       <tags>
         <tag>折腾</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux下/etc/fstab详解</title>
-    <url>//post/linux-fstab.html</url>
-    <content><![CDATA[<p>　　平时我们使用 <code>mount</code> 来对设备进行挂载的时候，都是临时挂载的，在系统重启后，需要重新进行挂载，如果我们需要对一个分区进行开机自动挂载，可以通过编辑 &#x2F;etc&#x2F;fstab 来完成，系统在启动时，会根据 &#x2F;etc&#x2F;fstab 文件对分区进行自动挂载。 <span id="more"></span>  </p>
-<h2 id="格式介绍"><a href="#格式介绍" class="headerlink" title="格式介绍"></a>格式介绍</h2><p>打开 &#x2F;etc&#x2F;fstab 内容如下：  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># /etc/fstab</span></span><br><span class="line"><span class="comment"># Created by anaconda on Thu Jul  4 17:55:46 2019</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Accessible filesystems, by reference, are maintained under &#x27;/dev/disk&#x27;</span></span><br><span class="line"><span class="comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">/dev/mapper/centos-root /                       ext4    defaults        1 1</span><br><span class="line">UUID=2e53b1ff-e2ce-460b-9029-309ce81e811f /boot                   ext4    defaults        1 2</span><br><span class="line">/dev/mapper/centos-home /home                   ext4    defaults        1 2</span><br><span class="line">/dev/mapper/centos-var  /var                    ext4    defaults        1 2</span><br><span class="line">/dev/mapper/centos-swap swap                    swap    defaults        0 0</span><br></pre></td></tr></table></figure>
-<p>格式为：  </p>
-<blockquote>
-<p>第一行：<br>设备名或 UUID 或 lable（设备卷标名）<br>第二行：<br>挂载点（要求目录为空）<br>第三行：<br>该分区文件系统格式，如 ext、ext2、msdos、iso9660、nfs、swap 等<br>第四行：<br>文件系统参数，即 mount 时要设定的状态，常用参数有 default、ro、rw、 suid、dev、exec、auto、nouser、async  等<br>第五行：<br>dump 备份设置 （0 不备份，1 每天进行 dump 备份，2 不定时进行 dump 备份）<br>第五行：<br>磁盘检查设置 （检查顺序，数值相同的同时检查，0 表示不自检，1 代表第一个检查，2 代表第二个检查，通常根目录是 1 的情况下，其他分区只能是 2）  </p>
-</blockquote>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.cnblogs.com/simpman/archive/2013/05/28/3103070.html">https://www.cnblogs.com/simpman/archive/2013/05/28/3103070.html</a></p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>存储</tag>
       </tags>
   </entry>
   <entry>
@@ -1011,25 +1011,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux文件类型分类</title>
-    <url>//post/linux-files-types.html</url>
-    <content><![CDATA[<p> Linux文件类型常见的有：普通文件、目录、字符设备文件、块设备文件、符号链接文件等；本文来自@<a href="http://www.cnblogs.com/acpp/archive/2009/12/05/1617547.html">诗小蓝</a>  本人进行了一些增删与整理,作笔记用。<span id="more"></span><br><img data-src="https://static.iots.vip/2016/11/201611132719_3009.png"></p>
-<h2 id="普通文件"><a href="#普通文件" class="headerlink" title="普通文件"></a>普通文件</h2><p>用 ls -lh 来查看某个文件的属性，可以看到有类似 -rw-r–r– ，值得注意的是第一个符号是 - ，这样的文件在Linux中就是普通文件。这些文件一般是用一些相关的应用程序创建，比如图像工具、文档工具、归档工具… …. 或 cp工具等。这类文件的删除方式是用rm 命令；  </p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>目录在Linux是一个比较特殊的文件。注意它的第一个字符是d。创建目录的命令可以用 mkdir 命令，或cp命令，cp可以把一个目录复制为另一个目录。删除用rm 或rmdir命令。  </p>
-<h2 id="字符设备或块设备文件"><a href="#字符设备或块设备文件" class="headerlink" title="字符设备或块设备文件"></a>字符设备或块设备文件</h2><p>如进入&#x2F;dev目录，列一下文件，会看到类似如下的:  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ls -la /dev/tty</span></span><br><span class="line">crw-rw-rw- 1 root <span class="built_in">tty</span> 5, 0 04-19 08:29 /dev/tty</span><br><span class="line">[root@localhost ~]<span class="comment"># ls -la /dev/hda1</span></span><br><span class="line">brw-r----- 1 root disk 3, 1 2006-04-19 /dev/hda1</span><br></pre></td></tr></table></figure>
-<p>我们看到&#x2F;dev&#x2F;tty的属性是 crw-rw-rw- ，注意前面第一个字符是 c ，这表示字符设备文件。比如猫等串口设备。<br>我们看到 &#x2F;dev&#x2F;hda1 的属性是 brw-r—– ，注意前面的第一个字符是b，这表示块设备，比如硬盘，光驱等设备；<br>这个种类的文件，是用mknode来创建，用rm来删除。目前在最新的Linux发行版本中，我们一般不用自己来创建设备文件。因为这些文件是和内核相关联的。  </p>
-<h2 id="套接口文件"><a href="#套接口文件" class="headerlink" title="套接口文件"></a>套接口文件</h2><p>当我们启动MySQL服务器时，会产生一个mysql.sock的文件。  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ls -lh /var/lib/mysql/mysql.sock</span></span><br><span class="line">srwxrwxrwx 1 mysql mysql 0 04-19 11:12 /var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
-<p>注意这个文件的属性的第一个字符是s，是socket的缩写。  </p>
-<h2 id="符号链接文件"><a href="#符号链接文件" class="headerlink" title="符号链接文件"></a>符号链接文件</h2><p> 查看文件属性时，会看到有类似 lrwxrwxrwx,注意第一个字符是l，这类文件是链接文件。是通过ln -s 源文件名 新文件名。lrwxrwxrwx 1 root root 11 04-19 11:18 setup.log -&gt; install.log，表示setup.log是install.log的软链接文件。</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>转载</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux踢出当前登录的指定终端</title>
     <url>//post/linux-kill-other-terminal.html</url>
     <content><![CDATA[<p>　　Linux 下通常使用 <code>pkill</code> 掉终端来踢掉用户。 <span id="more"></span>  </p>
@@ -1046,6 +1027,25 @@
 <figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">apt-<span class="keyword">get</span> install reptyr</span><br><span class="line"></span><br><span class="line">reptyr -T [PID] <span class="comment"># 即可恢复会话</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux文件类型分类</title>
+    <url>//post/linux-files-types.html</url>
+    <content><![CDATA[<p> Linux文件类型常见的有：普通文件、目录、字符设备文件、块设备文件、符号链接文件等；本文来自@<a href="http://www.cnblogs.com/acpp/archive/2009/12/05/1617547.html">诗小蓝</a>  本人进行了一些增删与整理,作笔记用。<span id="more"></span><br><img data-src="https://static.iots.vip/2016/11/201611132719_3009.png"></p>
+<h2 id="普通文件"><a href="#普通文件" class="headerlink" title="普通文件"></a>普通文件</h2><p>用 ls -lh 来查看某个文件的属性，可以看到有类似 -rw-r–r– ，值得注意的是第一个符号是 - ，这样的文件在Linux中就是普通文件。这些文件一般是用一些相关的应用程序创建，比如图像工具、文档工具、归档工具… …. 或 cp工具等。这类文件的删除方式是用rm 命令；  </p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>目录在Linux是一个比较特殊的文件。注意它的第一个字符是d。创建目录的命令可以用 mkdir 命令，或cp命令，cp可以把一个目录复制为另一个目录。删除用rm 或rmdir命令。  </p>
+<h2 id="字符设备或块设备文件"><a href="#字符设备或块设备文件" class="headerlink" title="字符设备或块设备文件"></a>字符设备或块设备文件</h2><p>如进入&#x2F;dev目录，列一下文件，会看到类似如下的:  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ls -la /dev/tty</span></span><br><span class="line">crw-rw-rw- 1 root <span class="built_in">tty</span> 5, 0 04-19 08:29 /dev/tty</span><br><span class="line">[root@localhost ~]<span class="comment"># ls -la /dev/hda1</span></span><br><span class="line">brw-r----- 1 root disk 3, 1 2006-04-19 /dev/hda1</span><br></pre></td></tr></table></figure>
+<p>我们看到&#x2F;dev&#x2F;tty的属性是 crw-rw-rw- ，注意前面第一个字符是 c ，这表示字符设备文件。比如猫等串口设备。<br>我们看到 &#x2F;dev&#x2F;hda1 的属性是 brw-r—– ，注意前面的第一个字符是b，这表示块设备，比如硬盘，光驱等设备；<br>这个种类的文件，是用mknode来创建，用rm来删除。目前在最新的Linux发行版本中，我们一般不用自己来创建设备文件。因为这些文件是和内核相关联的。  </p>
+<h2 id="套接口文件"><a href="#套接口文件" class="headerlink" title="套接口文件"></a>套接口文件</h2><p>当我们启动MySQL服务器时，会产生一个mysql.sock的文件。  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ls -lh /var/lib/mysql/mysql.sock</span></span><br><span class="line">srwxrwxrwx 1 mysql mysql 0 04-19 11:12 /var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
+<p>注意这个文件的属性的第一个字符是s，是socket的缩写。  </p>
+<h2 id="符号链接文件"><a href="#符号链接文件" class="headerlink" title="符号链接文件"></a>符号链接文件</h2><p> 查看文件属性时，会看到有类似 lrwxrwxrwx,注意第一个字符是l，这类文件是链接文件。是通过ln -s 源文件名 新文件名。lrwxrwxrwx 1 root root 11 04-19 11:18 setup.log -&gt; install.log，表示setup.log是install.log的软链接文件。</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>转载</tag>
       </tags>
   </entry>
   <entry>
@@ -1665,6 +1665,25 @@
       </tags>
   </entry>
   <entry>
+    <title>Xmind8 Pro激活方法及补丁下载</title>
+    <url>//post/xmind8pro-crack.html</url>
+    <content><![CDATA[<p>　　Xmind 是一个非常不错的思维导图软件，本文记录了 Xmind8 Pro 激活方法及补丁 XMindCrack.jar 的下载地址。<span id="more"></span><br>整理于 haotianyi 博客，步骤进行了简化与修改。</p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>补丁与安装包  链接：<a href="https://pan.baidu.com/s/1FGCOeNBYCEzzk5ljy1UCjA">https://pan.baidu.com/s/1FGCOeNBYCEzzk5ljy1UCjA</a> 密码：c8c5 解压密码: <a href="http://www.iots.vip/">www.iots.vip</a><br>安装<code>xmind-8-update4-windows</code>安装包，推荐使用默认路径。将补丁<code>XMindCrack.jar</code>复制到 <code>Xmind</code> 的安装路径，默认安装路径为 <code>C:\Program Files (x86)\XMind</code>  </p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>打开安装路径，将 <code>XMind.ini</code> 使用记事本打开，如果你Xmind的安装路径自定义了（装到别的盘的），如我的是放在D:\XMind，那么请在最后面添加一行</p>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">-javaagent:D:<span class="regexp">/XMind/</span>XMindCrack.jar</span><br></pre></td></tr></table></figure>
+<p>这里非常重要，特别注意斜杠别弄反了，如果修改错误，将无法启动 Xmind。  </p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>以管理员身份运行 <code>xmind.bat</code> 脚本即可(该脚本作用为追加 <code>0.0.0.0 www.xmind.net</code> 到本机 hosts 文件)。  </p>
+<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>断网并打开 XMind,在 “编辑-首选项” 中取消勾选 “启动时检查更新和消息” 以及 “发送用户数据” 确认保存后，在 “帮助-序列号” 中，随便输入一个邮箱地址和下面的序列号激活软件。序列号： </p>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">XAka<span class="number">34</span>A<span class="number">2</span>rVRYJ<span class="number">4</span>XBIU<span class="number">35</span>UZMUEEF<span class="number">64</span>CMMIYZCK<span class="number">2</span>FZZUQ<span class="symbol">NODEKUHGJLFMSLIQMQUCUBXRENLK6</span><span class="symbol">NZL37</span>JXP<span class="number">4</span>PZXQFILMQ<span class="number">2</span>R<span class="name">G5</span>R<span class="number">7</span><span class="name">G4</span>Q<span class="symbol">NDO3</span>PSOEUBOCDRYSSXZGRARV<span class="number">6</span>MGA<span class="number">33</span>T<span class="symbol">N2</span>AMUBHEL<span class="number">4</span>FXMWYTTJDEI<span class="symbol">NJXUAV4</span>BAYKBDCZQWVF<span class="number">3</span>LWYXSDCXY<span class="number">546</span>U<span class="number">3</span><span class="symbol">NBGOI3</span>ZPAP<span class="number">2</span>S<span class="meta">O3</span>CSQF<span class="symbol">NB7</span>VVIY<span class="number">123456789012345</span>   </span><br></pre></td></tr></table></figure>
+<p>安装激活完成。   </p>
+<p><del>2018年6月23日更新：</del><br>已收到声称是某公司的人发来的法务邮件，如果发现链接再次被取消分享，不用怀疑是谁干的~请回复补充链接<br>附上法务邮件截图与回复：<br><img data-src="https://static.iots.vip/%E9%A9%AC%E5%85%8B%E4%B8%81-%E5%AE%83%E7%9A%84%E6%9D%A5%E4%BF%A1.png" alt="死妈杰丁克"><br><img data-src="https://static.iots.vip/%E9%A9%AC%E5%85%8B%E4%B8%81-%E6%88%91%E7%9A%84%E5%9B%9E%E5%A4%8D.png" alt="xmind8pro破解"><br>同时补充几个链接：<br><a href="https://www.zhihu.com/question/60166627">如何看待某公司对于盗版疯狂封杀的态度? - 知乎</a><br><a href="https://52huameng.com/tucao/1100">对于某公司威胁删帖的回应</a><br><a href="http://www.ssdtop.com/thread-1315-1-1.html">8号站被“某公司狗 ”在百度搜索付费删收录 删关键词 </a>  </p>
+<p><del>2018年9月19日更新</del><br>今天打开程序发现软件重新变为未激活的状态了，查看 hosts 正常，不知道是由于代理的锅还是什么，这里使用防火墙来阻止 Xmind 联网：<br>打开控制面板，点击其中的“系统与安全”；点击“Windows 防火墙”之后，打开“高级设置”；点击“出站规则”–新建规则；点击“程序”–浏览–找到 xmind 的路径。选择 <code>Xmind.exe</code>，勾选“阻止连接”，保存后，重新输入序列号，将邮箱换一下即可。  </p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows批处理操作注册表与组策略</title>
     <url>//post/windows-gpedit-regedit.html</url>
     <content><![CDATA[<p>　　最近需要写一些 Windows 相关的安全加固脚本，Alliot 批处理写的不多，在这过程中遇到了一些小坑，本文对此做一些记录。<span id="more"></span></p>
@@ -1683,25 +1702,6 @@
 ]]></content>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Xmind8 Pro激活方法及补丁下载</title>
-    <url>//post/xmind8pro-crack.html</url>
-    <content><![CDATA[<p>　　Xmind 是一个非常不错的思维导图软件，本文记录了 Xmind8 Pro 激活方法及补丁 XMindCrack.jar 的下载地址。<span id="more"></span><br>整理于 haotianyi 博客，步骤进行了简化与修改。</p>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>补丁与安装包  链接：<a href="https://pan.baidu.com/s/1FGCOeNBYCEzzk5ljy1UCjA">https://pan.baidu.com/s/1FGCOeNBYCEzzk5ljy1UCjA</a> 密码：c8c5 解压密码: <a href="http://www.iots.vip/">www.iots.vip</a><br>安装<code>xmind-8-update4-windows</code>安装包，推荐使用默认路径。将补丁<code>XMindCrack.jar</code>复制到 <code>Xmind</code> 的安装路径，默认安装路径为 <code>C:\Program Files (x86)\XMind</code>  </p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>打开安装路径，将 <code>XMind.ini</code> 使用记事本打开，如果你Xmind的安装路径自定义了（装到别的盘的），如我的是放在D:\XMind，那么请在最后面添加一行</p>
-<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">-javaagent:D:<span class="regexp">/XMind/</span>XMindCrack.jar</span><br></pre></td></tr></table></figure>
-<p>这里非常重要，特别注意斜杠别弄反了，如果修改错误，将无法启动 Xmind。  </p>
-<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>以管理员身份运行 <code>xmind.bat</code> 脚本即可(该脚本作用为追加 <code>0.0.0.0 www.xmind.net</code> 到本机 hosts 文件)。  </p>
-<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>断网并打开 XMind,在 “编辑-首选项” 中取消勾选 “启动时检查更新和消息” 以及 “发送用户数据” 确认保存后，在 “帮助-序列号” 中，随便输入一个邮箱地址和下面的序列号激活软件。序列号： </p>
-<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">XAka<span class="number">34</span>A<span class="number">2</span>rVRYJ<span class="number">4</span>XBIU<span class="number">35</span>UZMUEEF<span class="number">64</span>CMMIYZCK<span class="number">2</span>FZZUQ<span class="symbol">NODEKUHGJLFMSLIQMQUCUBXRENLK6</span><span class="symbol">NZL37</span>JXP<span class="number">4</span>PZXQFILMQ<span class="number">2</span>R<span class="name">G5</span>R<span class="number">7</span><span class="name">G4</span>Q<span class="symbol">NDO3</span>PSOEUBOCDRYSSXZGRARV<span class="number">6</span>MGA<span class="number">33</span>T<span class="symbol">N2</span>AMUBHEL<span class="number">4</span>FXMWYTTJDEI<span class="symbol">NJXUAV4</span>BAYKBDCZQWVF<span class="number">3</span>LWYXSDCXY<span class="number">546</span>U<span class="number">3</span><span class="symbol">NBGOI3</span>ZPAP<span class="number">2</span>S<span class="meta">O3</span>CSQF<span class="symbol">NB7</span>VVIY<span class="number">123456789012345</span>   </span><br></pre></td></tr></table></figure>
-<p>安装激活完成。   </p>
-<p><del>2018年6月23日更新：</del><br>已收到声称是某公司的人发来的法务邮件，如果发现链接再次被取消分享，不用怀疑是谁干的~请回复补充链接<br>附上法务邮件截图与回复：<br><img data-src="https://static.iots.vip/%E9%A9%AC%E5%85%8B%E4%B8%81-%E5%AE%83%E7%9A%84%E6%9D%A5%E4%BF%A1.png" alt="死妈杰丁克"><br><img data-src="https://static.iots.vip/%E9%A9%AC%E5%85%8B%E4%B8%81-%E6%88%91%E7%9A%84%E5%9B%9E%E5%A4%8D.png" alt="xmind8pro破解"><br>同时补充几个链接：<br><a href="https://www.zhihu.com/question/60166627">如何看待某公司对于盗版疯狂封杀的态度? - 知乎</a><br><a href="https://52huameng.com/tucao/1100">对于某公司威胁删帖的回应</a><br><a href="http://www.ssdtop.com/thread-1315-1-1.html">8号站被“某公司狗 ”在百度搜索付费删收录 删关键词 </a>  </p>
-<p><del>2018年9月19日更新</del><br>今天打开程序发现软件重新变为未激活的状态了，查看 hosts 正常，不知道是由于代理的锅还是什么，这里使用防火墙来阻止 Xmind 联网：<br>打开控制面板，点击其中的“系统与安全”；点击“Windows 防火墙”之后，打开“高级设置”；点击“出站规则”–新建规则；点击“程序”–浏览–找到 xmind 的路径。选择 <code>Xmind.exe</code>，勾选“阻止连接”，保存后，重新输入序列号，将邮箱换一下即可。  </p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
       </tags>
   </entry>
   <entry>
@@ -1752,6 +1752,31 @@
       </tags>
   </entry>
   <entry>
+    <title>filezilla-server批量创建用户</title>
+    <url>//post/batch-create-filezilla-server-ftp-user.html</url>
+    <content><![CDATA[<p>　　有一个比较奇怪的需求，需要给 FileZilla-server 新建大量的 ftp 用户，为其配置随机密码，指定单独家目录与用户组等。 <span id="more"></span>  </p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>　　查看文档后发现 FileZilla-server 官方没有提供用户管理的 api，所有的用户配置存储在  <code>C:\ProgramData\filezilla-server\users.xml</code> 下(其他平台可通过管理面板的日志查看到配置路径)。</p>
+<h3 id="查看配置文件"><a href="#查看配置文件" class="headerlink" title="查看配置文件"></a>查看配置文件</h3><p>我们先看看配置文件的内容：  </p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> standalone=<span class="string">&quot;yes&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filezilla</span> <span class="attr">xmlns:fz</span>=<span class="string">&quot;https://filezilla-project.org/&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;https://filezilla-project.org/&quot;</span> <span class="attr">fz:product_flavour</span>=<span class="string">&quot;standard&quot;</span> <span class="attr">fz:product_version</span>=<span class="string">&quot;1.5.1&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">default_impersonator</span> <span class="attr">index</span>=<span class="string">&quot;0&quot;</span> <span class="attr">enabled</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span><span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">password</span>&gt;</span><span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">default_impersonator</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">&quot;<span class="symbol">&amp;lt;</span>system user&gt;&quot;</span> <span class="attr">enabled</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mount_point</span> <span class="attr">tvfs_path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">native_path</span>=<span class="string">&quot;:h&quot;</span> <span class="attr">access</span>=<span class="string">&quot;1&quot;</span> <span class="attr">recursive</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">rate_limits</span> <span class="attr">inbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">outbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">session_inbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">session_outbound</span>=<span class="string">&quot;unlimited&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">allowed_ips</span>&gt;</span><span class="tag">&lt;/<span class="name">allowed_ips</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">disallowed_ips</span>&gt;</span><span class="tag">&lt;/<span class="name">disallowed_ips</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>This user can impersonate any system user.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">impersonation</span> <span class="attr">login_only</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">&quot;alliot&quot;</span> <span class="attr">enabled</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mount_point</span> <span class="attr">tvfs_path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">native_path</span>=<span class="string">&quot;D:\FTP\alliot&quot;</span> <span class="attr">access</span>=<span class="string">&quot;1&quot;</span> <span class="attr">recursive</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">rate_limits</span> <span class="attr">inbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">outbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">session_inbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">session_outbound</span>=<span class="string">&quot;unlimited&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">allowed_ips</span>&gt;</span><span class="tag">&lt;/<span class="name">allowed_ips</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">disallowed_ips</span>&gt;</span><span class="tag">&lt;/<span class="name">disallowed_ips</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span><span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">group</span>&gt;</span>SH<span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">password</span> <span class="attr">index</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">hash</span>&gt;</span>40yaXepMZ2hxjZUrVHYVfM15C2owZaJpL+lDOh7cqE8<span class="tag">&lt;/<span class="name">hash</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">salt</span>&gt;</span>5uNVtGVj9mLMAPQXzmMIHsZQrfS4mOBSv+3e6StrELg<span class="tag">&lt;/<span class="name">salt</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">iterations</span>&gt;</span>100000<span class="tag">&lt;/<span class="name">iterations</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们可以根据字段大致猜出:   </p>
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">用户名： alliot  </span><br><span class="line">密码： 未知，加密并且加盐过  </span><br><span class="line">挂载点: / -&gt; D:<span class="string">\FTP\alliot</span>  </span><br></pre></td></tr></table></figure>
+<p>　　所以想要批量创建用户只需要构造这个 xml 配置文件，生成对应用户的 <code>&lt;user&gt;</code> 块即可。  </p>
+<h4 id="密码字段怎样生成"><a href="#密码字段怎样生成" class="headerlink" title="密码字段怎样生成"></a>密码字段怎样生成</h4><p>　　找遍了 官方文档和 Google 也没能找到这个密码字段是怎样加密的。<br>好在找到论坛一篇关于直接调用 filezilla 的 <code>filezilla-server-crypt</code> 命令生成密码的 hash 与 salt 值的方法：<br><a href="https://forum.filezilla-project.org/viewtopic.php?f=6&t=54267&p=178461&hilit=Filezilla+server+crypt#p178461">How to import users from another FTP</a><br>课代表这里直接测试并提取了关键信息， 通过这样一条命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo [password] | /Applications/FileZilla\ Server.app/Contents/MacOS/filezilla-server-crypt [username]</span><br></pre></td></tr></table></figure>
+<p>会返回类似这样的信息：  </p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">--username@<span class="attribute">index</span>=1 --username.<span class="attribute">hash</span>=dNFbyPBgME2jurr17VCv05JikQvsN/ERLpbzr+OCefM --username.<span class="attribute">salt</span>=lmIeMEo9ZDLQY7JiGzSCgHR838u4jeGDJig+Oe2iFdc --username.<span class="attribute">iterations</span>=100000</span><br></pre></td></tr></table></figure>
+<p>那么答案就显而易见了。  </p>
+<h3 id="又不是不能用"><a href="#又不是不能用" class="headerlink" title="又不是不能用"></a>又不是不能用</h3><p>当没法优雅的通过代码加密实现密码加密生成 hash 与 salt的时候，不如就简单粗暴的调用命令来生成吧。  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">def password_generator(username, password) -&gt; list:</span><br><span class="line">    timeout = 3</span><br><span class="line">    </span><br><span class="line">    # 注意替换 filezilla-server-crypy 的路径（我这里是macOS）</span><br><span class="line">    cmd = f&quot;echo &#123;password&#125; | /Applications/FileZilla\ Server.app/Contents/MacOS/filezilla-server-crypt &#123;username&#125;&quot;</span><br><span class="line">    print(cmd)</span><br><span class="line">    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)</span><br><span class="line">    outs, errs = proc.communicate(timeout=timeout)</span><br><span class="line">    if proc.returncode != 0:</span><br><span class="line">        print(errs)</span><br><span class="line">        return [&quot;error&quot;]</span><br><span class="line">    else:</span><br><span class="line">        return [re.findall(r&quot;.hash=(.+?) &quot;, str(outs, encoding=&quot;utf-8&quot;))[0],</span><br><span class="line">            re.findall(r&quot;.salt=(.+?) &quot;, str(outs, encoding=&quot;utf-8&quot;))[0]]</span><br></pre></td></tr></table></figure>
+<p>之后 xml 直接通过类似 jinja2 之类的模板生成即可。  </p>
+<h3 id="为什么水一篇"><a href="#为什么水一篇" class="headerlink" title="为什么水一篇"></a>为什么水一篇</h3><p>　　主要是当时 Google 找了一大圈也没找到对应的方式，stackoverflow 与官方论坛也看到有类似的帖子未被回答与解决，耽误了挺多时间的。于是这里大致讲一下怎么达到目的，方便遇到同样问题的同学参考。（BTW：这上古时代的东西早该淘汰了） </p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>eclipse下的Android开发环境搭建</title>
     <url>//post/eclipse-android-DE.html</url>
     <content><![CDATA[<p>　　最近因为一个项目需要用到这方面的开发环境，由于对Java一窍不通，Android开发更是不用说了。折腾这个开发环境就费了很多时间（很尴尬。。。），试过了网上许多教程，各种报错，这里将整个环境的配置做一个总结与梳理，希望能够帮到和我一样需要帮助的朋友。<span id="more"></span></p>
@@ -1780,31 +1805,6 @@
       <tags>
         <tag>Java</tag>
         <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>filezilla-server批量创建用户</title>
-    <url>//post/batch-create-filezilla-server-ftp-user.html</url>
-    <content><![CDATA[<p>　　有一个比较奇怪的需求，需要给 FileZilla-server 新建大量的 ftp 用户，为其配置随机密码，指定单独家目录与用户组等。 <span id="more"></span>  </p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>　　查看文档后发现 FileZilla-server 官方没有提供用户管理的 api，所有的用户配置存储在  <code>C:\ProgramData\filezilla-server\users.xml</code> 下(其他平台可通过管理面板的日志查看到配置路径)。</p>
-<h3 id="查看配置文件"><a href="#查看配置文件" class="headerlink" title="查看配置文件"></a>查看配置文件</h3><p>我们先看看配置文件的内容：  </p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> standalone=<span class="string">&quot;yes&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filezilla</span> <span class="attr">xmlns:fz</span>=<span class="string">&quot;https://filezilla-project.org/&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;https://filezilla-project.org/&quot;</span> <span class="attr">fz:product_flavour</span>=<span class="string">&quot;standard&quot;</span> <span class="attr">fz:product_version</span>=<span class="string">&quot;1.5.1&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">default_impersonator</span> <span class="attr">index</span>=<span class="string">&quot;0&quot;</span> <span class="attr">enabled</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span><span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">password</span>&gt;</span><span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">default_impersonator</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">&quot;<span class="symbol">&amp;lt;</span>system user&gt;&quot;</span> <span class="attr">enabled</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mount_point</span> <span class="attr">tvfs_path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">native_path</span>=<span class="string">&quot;:h&quot;</span> <span class="attr">access</span>=<span class="string">&quot;1&quot;</span> <span class="attr">recursive</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">rate_limits</span> <span class="attr">inbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">outbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">session_inbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">session_outbound</span>=<span class="string">&quot;unlimited&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">allowed_ips</span>&gt;</span><span class="tag">&lt;/<span class="name">allowed_ips</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">disallowed_ips</span>&gt;</span><span class="tag">&lt;/<span class="name">disallowed_ips</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>This user can impersonate any system user.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">impersonation</span> <span class="attr">login_only</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">&quot;alliot&quot;</span> <span class="attr">enabled</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mount_point</span> <span class="attr">tvfs_path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">native_path</span>=<span class="string">&quot;D:\FTP\alliot&quot;</span> <span class="attr">access</span>=<span class="string">&quot;1&quot;</span> <span class="attr">recursive</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">rate_limits</span> <span class="attr">inbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">outbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">session_inbound</span>=<span class="string">&quot;unlimited&quot;</span> <span class="attr">session_outbound</span>=<span class="string">&quot;unlimited&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">allowed_ips</span>&gt;</span><span class="tag">&lt;/<span class="name">allowed_ips</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">disallowed_ips</span>&gt;</span><span class="tag">&lt;/<span class="name">disallowed_ips</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span><span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">group</span>&gt;</span>SH<span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">password</span> <span class="attr">index</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">hash</span>&gt;</span>40yaXepMZ2hxjZUrVHYVfM15C2owZaJpL+lDOh7cqE8<span class="tag">&lt;/<span class="name">hash</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">salt</span>&gt;</span>5uNVtGVj9mLMAPQXzmMIHsZQrfS4mOBSv+3e6StrELg<span class="tag">&lt;/<span class="name">salt</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">iterations</span>&gt;</span>100000<span class="tag">&lt;/<span class="name">iterations</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>我们可以根据字段大致猜出:   </p>
-<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">用户名： alliot  </span><br><span class="line">密码： 未知，加密并且加盐过  </span><br><span class="line">挂载点: / -&gt; D:<span class="string">\FTP\alliot</span>  </span><br></pre></td></tr></table></figure>
-<p>　　所以想要批量创建用户只需要构造这个 xml 配置文件，生成对应用户的 <code>&lt;user&gt;</code> 块即可。  </p>
-<h4 id="密码字段怎样生成"><a href="#密码字段怎样生成" class="headerlink" title="密码字段怎样生成"></a>密码字段怎样生成</h4><p>　　找遍了 官方文档和 Google 也没能找到这个密码字段是怎样加密的。<br>好在找到论坛一篇关于直接调用 filezilla 的 <code>filezilla-server-crypt</code> 命令生成密码的 hash 与 salt 值的方法：<br><a href="https://forum.filezilla-project.org/viewtopic.php?f=6&t=54267&p=178461&hilit=Filezilla+server+crypt#p178461">How to import users from another FTP</a><br>课代表这里直接测试并提取了关键信息， 通过这样一条命令：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo [password] | /Applications/FileZilla\ Server.app/Contents/MacOS/filezilla-server-crypt [username]</span><br></pre></td></tr></table></figure>
-<p>会返回类似这样的信息：  </p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">--username@<span class="attribute">index</span>=1 --username.<span class="attribute">hash</span>=dNFbyPBgME2jurr17VCv05JikQvsN/ERLpbzr+OCefM --username.<span class="attribute">salt</span>=lmIeMEo9ZDLQY7JiGzSCgHR838u4jeGDJig+Oe2iFdc --username.<span class="attribute">iterations</span>=100000</span><br></pre></td></tr></table></figure>
-<p>那么答案就显而易见了。  </p>
-<h3 id="又不是不能用"><a href="#又不是不能用" class="headerlink" title="又不是不能用"></a>又不是不能用</h3><p>当没法优雅的通过代码加密实现密码加密生成 hash 与 salt的时候，不如就简单粗暴的调用命令来生成吧。  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import subprocess</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">def password_generator(username, password) -&gt; list:</span><br><span class="line">    timeout = 3</span><br><span class="line">    </span><br><span class="line">    # 注意替换 filezilla-server-crypy 的路径（我这里是macOS）</span><br><span class="line">    cmd = f&quot;echo &#123;password&#125; | /Applications/FileZilla\ Server.app/Contents/MacOS/filezilla-server-crypt &#123;username&#125;&quot;</span><br><span class="line">    print(cmd)</span><br><span class="line">    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)</span><br><span class="line">    outs, errs = proc.communicate(timeout=timeout)</span><br><span class="line">    if proc.returncode != 0:</span><br><span class="line">        print(errs)</span><br><span class="line">        return [&quot;error&quot;]</span><br><span class="line">    else:</span><br><span class="line">        return [re.findall(r&quot;.hash=(.+?) &quot;, str(outs, encoding=&quot;utf-8&quot;))[0],</span><br><span class="line">            re.findall(r&quot;.salt=(.+?) &quot;, str(outs, encoding=&quot;utf-8&quot;))[0]]</span><br></pre></td></tr></table></figure>
-<p>之后 xml 直接通过类似 jinja2 之类的模板生成即可。  </p>
-<h3 id="为什么水一篇"><a href="#为什么水一篇" class="headerlink" title="为什么水一篇"></a>为什么水一篇</h3><p>　　主要是当时 Google 找了一大圈也没找到对应的方式，stackoverflow 与官方论坛也看到有类似的帖子未被回答与解决，耽误了挺多时间的。于是这里大致讲一下怎么达到目的，方便遇到同样问题的同学参考。（BTW：这上古时代的东西早该淘汰了） </p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1857,6 +1857,25 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo文章密码访问的&quot;破解&quot;方法</title>
+    <url>//post/hexo-password-crack.html</url>
+    <content><![CDATA[<p>　　很多hexo用户都用到了js阻塞机制来实现文章密码访问，这里谈谈这种方式的不安全。<span id="more"></span></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　昨天突然想用博客来写写生活类的随笔，但是又想只让自己看到，设置个访问密码应该是个不错的选择，但是hexo生成的博客是纯静态的，没有WordPress等动态博客这么方便的设置密码。于是到网上找了一下，发现了一位网友利用js来对文章进行一个简单的加密访问。  原文在<a href="https://blog.paddings.cn/2016/12/01/blog/hexo-password/">这里</a>  或者直接看我搬运的一部分:<a href="https://www.iots.vip/post/hexo-build-to-optimize.html#%E6%96%87%E7%AB%A0%E5%AF%86%E7%A0%81">链接</a><br>　　可以看到，这种加密是利用js的阻塞机制:  </p>
+<blockquote>
+<p>当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。  </p>
+</blockquote>
+<p>阻止页面的渲染(不是很懂js的我，表示这种思路很聪明哈)<br>　　但是转念一想，这种方法是不是太容易被”破解”了，通过阻止页面渲染来实现”加密”，不代表页面的源代码不能访问(毕竟这个script中的密码是以明文的形式写在源代码中间的)，这样的话我们是不是能够通过网页源代码来看到密码呢？  </p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>　　这里联想到Linux下的curl工具浏览网页是直接显示网页源代码的，于是直接通过  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L www.iots.vip (已加密的文章地址) <span class="comment"># 这里的 -L 是解决部分网站 30X 跳转的问题的  </span></span><br></pre></td></tr></table></figure>
+<p>回车换行查看<br><img data-src="https://static.iots.vip/hexo%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE-1.png" alt="hexo文章加密访问-1"><br>可以看到密码以明文形式表示出来了。<br>当然，类似于chinaz等站长工具中的模拟蜘蛛爬取指定页面等功能也能查看网页源代码。<a href="http://s.tool.chinaz.com/tools/pagecode.aspx">链接</a>  </p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>　　可以看出，这种加密方法是非常不安全的(实际上，静态网站怎么加密也没多大意义)，真正的安全的方法是在网站服务器端对访问加入一个认证步骤。(这类教程网上很多，很容易搜索到，比如Apache认证访问、Nginx认证访问等关键字)，所以一些重要的或者是隐私的东西还是不要想着靠这种方式来加密了，还有一个细思极恐的问题就是，这种方式加密对搜索引擎也是无效的，因为它抓取的就是源代码，因此，需要在robots.txt中限制一下特定URL或目录的抓取，可以<a href="https://www.iots.vip/post/hexo-build-to-optimize.html#1%E3%80%81%E6%B7%BB%E5%8A%A0robots-txt">点这里</a>。  </p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo使用CODING CI部署静态文件到服务器</title>
     <url>//post/hexo-coding-ci-scp-server.html</url>
     <content><![CDATA[<p>　　当时搭建 <a href="https://www.iots.vip/post/hexo-ci-wiki.html">wiki</a> 的时候，只注意到 travis-ci.com 支持私有仓库，但是没发现它是有免费次数限制的，这次 <a href="http://szhshp.org/">szhshp 同学</a> 提醒才发觉。另外，之前我的 wiki 一直是丢在 Git pages 上的，即使加上了 CDN，速度依然堪忧，于是重新在 CODING 部署持续集成服务，利用 CODING CI 将 hexo 的静态文件部署到 Web 服务器。<span id="more"></span>  </p>
@@ -1882,25 +1901,6 @@
         <tag>折腾</tag>
         <tag>hexo</tag>
         <tag>CI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo文章密码访问的&quot;破解&quot;方法</title>
-    <url>//post/hexo-password-crack.html</url>
-    <content><![CDATA[<p>　　很多hexo用户都用到了js阻塞机制来实现文章密码访问，这里谈谈这种方式的不安全。<span id="more"></span></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　昨天突然想用博客来写写生活类的随笔，但是又想只让自己看到，设置个访问密码应该是个不错的选择，但是hexo生成的博客是纯静态的，没有WordPress等动态博客这么方便的设置密码。于是到网上找了一下，发现了一位网友利用js来对文章进行一个简单的加密访问。  原文在<a href="https://blog.paddings.cn/2016/12/01/blog/hexo-password/">这里</a>  或者直接看我搬运的一部分:<a href="https://www.iots.vip/post/hexo-build-to-optimize.html#%E6%96%87%E7%AB%A0%E5%AF%86%E7%A0%81">链接</a><br>　　可以看到，这种加密是利用js的阻塞机制:  </p>
-<blockquote>
-<p>当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。  </p>
-</blockquote>
-<p>阻止页面的渲染(不是很懂js的我，表示这种思路很聪明哈)<br>　　但是转念一想，这种方法是不是太容易被”破解”了，通过阻止页面渲染来实现”加密”，不代表页面的源代码不能访问(毕竟这个script中的密码是以明文的形式写在源代码中间的)，这样的话我们是不是能够通过网页源代码来看到密码呢？  </p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>　　这里联想到Linux下的curl工具浏览网页是直接显示网页源代码的，于是直接通过  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L www.iots.vip (已加密的文章地址) <span class="comment"># 这里的 -L 是解决部分网站 30X 跳转的问题的  </span></span><br></pre></td></tr></table></figure>
-<p>回车换行查看<br><img data-src="https://static.iots.vip/hexo%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE-1.png" alt="hexo文章加密访问-1"><br>可以看到密码以明文形式表示出来了。<br>当然，类似于chinaz等站长工具中的模拟蜘蛛爬取指定页面等功能也能查看网页源代码。<a href="http://s.tool.chinaz.com/tools/pagecode.aspx">链接</a>  </p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>　　可以看出，这种加密方法是非常不安全的(实际上，静态网站怎么加密也没多大意义)，真正的安全的方法是在网站服务器端对访问加入一个认证步骤。(这类教程网上很多，很容易搜索到，比如Apache认证访问、Nginx认证访问等关键字)，所以一些重要的或者是隐私的东西还是不要想着靠这种方式来加密了，还有一个细思极恐的问题就是，这种方式加密对搜索引擎也是无效的，因为它抓取的就是源代码，因此，需要在robots.txt中限制一下特定URL或目录的抓取，可以<a href="https://www.iots.vip/post/hexo-build-to-optimize.html#1%E3%80%81%E6%B7%BB%E5%8A%A0robots-txt">点这里</a>。  </p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2194,23 +2194,6 @@
       </tags>
   </entry>
   <entry>
-    <title>typedef与#define的区别及取舍</title>
-    <url>//post/typedef-define-c.html</url>
-    <content><![CDATA[<p>　　今天在看郭天祥老师的代码与普中科技的源码的时候发现两者分别采用了#define与typedef两种不同的方式来对数据类型声明与自定义，于是查了一下两者的区别 <span id="more"></span>  </p>
-<blockquote>
-<p>typedef是一种在计算机编程语言中用来声明自定义数据类型，配合各种原有数据类型来达到简化编程的目的的类型定义关键字。 #define是预处理指令。  </p>
-</blockquote>
-<p> #define是C中定义的语法，typedef是C++中定义的语法，二者在C++中可以通用，但#define成了预编译指令，typedef当成语句处理。Typedef和define都可以用来给对象取一个别名，但是两者却有着很大不同。  </p>
-<h2 id="区别如下"><a href="#区别如下" class="headerlink" title="区别如下"></a>区别如下</h2><h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><p>typedef只能用来定义类型的别名，而#define作为宏定义，可替换任意字符。  </p>
-<h3 id="作用域："><a href="#作用域：" class="headerlink" title="作用域："></a>作用域：</h3><p>typedef的作用域类似于定义变量的类型一样，若在main函数前，则相当于全局变量的作用域，若在函数中，则只在所在函数中作用。<br> #define则没有定义域的限制，只要是定义过的宏，在所有的地方都能使用。  </p>
-<h3 id="作用时间："><a href="#作用时间：" class="headerlink" title="作用时间："></a>作用时间：</h3><p>#define作为宏替换，作用在预处理阶段，即编译之前，只进行机械式的字符串替换，而不进行任何检查。而typedef则在编译阶段作用，因此具有类型检查的作用。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>　　结合上文，不难看出，在对数据类型名进行自定义时，采用typedef更为保险，当然也非一成不变的规律，主要是理解二者的区别，依情况选用。</p>
-]]></content>
-      <tags>
-        <tag>C</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【救火】误动libc.so.6的补救措施</title>
     <url>//post/do-not-modify-libc-so-6.html</url>
     <content><![CDATA[<p>　　国庆假期闲来无事，对自己的群晖 NAS（非生产环境） 内的一个内置软件包做编译升级。在不明确该动态库具体作用的情况下，误操作将 <code>/lib/libc.so.6</code> 这个动态库文件重命名为了 <code>libc.so.6.bak</code>，导致 <code>ls</code>、<code>mv</code>、<code>cp</code> 等一系列基础命令无法使用，本文记录一下解决方案。<span id="more"></span></p>
@@ -2233,6 +2216,23 @@
       <tags>
         <tag>折腾</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>typedef与#define的区别及取舍</title>
+    <url>//post/typedef-define-c.html</url>
+    <content><![CDATA[<p>　　今天在看郭天祥老师的代码与普中科技的源码的时候发现两者分别采用了#define与typedef两种不同的方式来对数据类型声明与自定义，于是查了一下两者的区别 <span id="more"></span>  </p>
+<blockquote>
+<p>typedef是一种在计算机编程语言中用来声明自定义数据类型，配合各种原有数据类型来达到简化编程的目的的类型定义关键字。 #define是预处理指令。  </p>
+</blockquote>
+<p> #define是C中定义的语法，typedef是C++中定义的语法，二者在C++中可以通用，但#define成了预编译指令，typedef当成语句处理。Typedef和define都可以用来给对象取一个别名，但是两者却有着很大不同。  </p>
+<h2 id="区别如下"><a href="#区别如下" class="headerlink" title="区别如下"></a>区别如下</h2><h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><p>typedef只能用来定义类型的别名，而#define作为宏定义，可替换任意字符。  </p>
+<h3 id="作用域："><a href="#作用域：" class="headerlink" title="作用域："></a>作用域：</h3><p>typedef的作用域类似于定义变量的类型一样，若在main函数前，则相当于全局变量的作用域，若在函数中，则只在所在函数中作用。<br> #define则没有定义域的限制，只要是定义过的宏，在所有的地方都能使用。  </p>
+<h3 id="作用时间："><a href="#作用时间：" class="headerlink" title="作用时间："></a>作用时间：</h3><p>#define作为宏替换，作用在预处理阶段，即编译之前，只进行机械式的字符串替换，而不进行任何检查。而typedef则在编译阶段作用，因此具有类型检查的作用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>　　结合上文，不难看出，在对数据类型名进行自定义时，采用typedef更为保险，当然也非一成不变的规律，主要是理解二者的区别，依情况选用。</p>
+]]></content>
+      <tags>
+        <tag>C</tag>
       </tags>
   </entry>
   <entry>
@@ -2930,6 +2930,25 @@
       </tags>
   </entry>
   <entry>
+    <title>入坑一只 Kindle</title>
+    <url>//post/you-need-kindle.html</url>
+    <content><![CDATA[<p>　　心血来潮，咸鱼入手了种草了很久的泡面伴侣 Kindle PaperWhite 3，总体来说体验很不错。<span id="more"></span></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>　　Kindle 更适合看那种不需要来回翻的纯文字的书，类似专业书籍等非常不推荐，对 PDF 支持也很差，所以，入坑前最好清楚一下自己的需求，有没有这个必要，否则，真的会是个泡面盖。   </p>
+<h3 id="闲鱼"><a href="#闲鱼" class="headerlink" title="闲鱼"></a>闲鱼</h3><p>　　电子产品可能是闲鱼上最适合捡的东西了，尤其是像 Kindle 这种不是很看重性能与配置的。在我看来，目前最适合捡的版本就是 KPW 3 了，更低端更老的机型，一般都是屏幕的 PPi 不太够，而更新的 KPW 4、或是高端点的 Oasis 等，屏幕分辨率其实是与 KPW 3 一样，均为 300 PPi，但是价格却会贵上不少，所以说，可以，但…没必要。<br>　　Kindle 的产品更新迭代速度较其他电子产品慢，所以价格幅度一般也不会太大，KPW 4 推出后，闲鱼上 KPW 3 价格一般在 400 至 450 左右，性价比还是挺高的，总的来说，在闲鱼上捡 Kindle 需要注意的有以下几点：</p>
+<ul>
+<li>不要看那种专门卖的用户，最好选择个人用户，坑比较少  </li>
+<li>注意分清是不是国行，是否越狱，能否登陆，是否在保，要问清楚，可以通过 Kindle 客服电话利用序列号询问保修等信息，越狱了的原版系统的话，个人觉得更好，可以更换屏保与安装插件，但是不推荐刷多看的</li>
+</ul>
+<p>　　Alliot 的是 420 面交的，卖家估计也是没看过几次，保护套什么的都很新，总体来说挺满意，上班挤地铁的路上能够少玩点手机多看几本书了。  </p>
+<h3 id="部分资源"><a href="#部分资源" class="headerlink" title="部分资源"></a>部分资源</h3><h4 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h4><p>　　首推的是 calibre，图书管理、格式管理、书籍编辑、推送等功能，基本满足需求，其次，推荐用 KindleMate 来对看书时标注的笔记进行管理。<br>　　另外的，如果对 RSS 推送比较热衷且有优质 RSS 源的童鞋，可以尝试搭建一个 <a href="https://bookfere.com/post/19.html">KindleEar</a>。  </p>
+<h4 id="网站推荐"><a href="#网站推荐" class="headerlink" title="网站推荐"></a>网站推荐</h4><p>　　<a href="http://bookfere.com/">书伴</a> 许多的技巧教程与资源。<br>　　<a href="https://my.clippings.io/#">Clipping</a> 管理标注的笔记，支持推送到印象笔记等。<br>其他的，还是那句话，可以… 但是没必要。Kindle 的主要优点还是因为它的功能单一，太多折腾就失去了它原本的意义。</p>
+]]></content>
+      <tags>
+        <tag>硬件</tag>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用hexo+CI构建wiki知识管理系统</title>
     <url>//post/hexo-ci-wiki.html</url>
     <content><![CDATA[<p>　　使用 hexo+CI 快速构建一个 wiki 在线知识管理系统。<span id="more"></span></p>
@@ -2949,7 +2968,7 @@
 
 <h3 id="Git-pages"><a href="#Git-pages" class="headerlink" title="Git pages"></a>Git pages</h3><p>　　很多用 hexo 的朋友都选择使用两个分支来分别存放站点的 source 与 public，然后 public 的分支用来构建 gitpages。由于 GitHub 已经有免费的私有仓库了，我这里是将 source 与 public 分开各开一个 repository，source 仓库为私有。我在 GitHub 新建了两个仓库分别为: wiki-source(私有)、hexo-wiki-pages(公有)。在 hexo-wiki-pages 仓库的设置里打开 gitpages。<br>　　将 themes&#x2F;Wikitten&#x2F;hexo&#x2F; 下的所有文件复制到 hexo 的目录下。</p>
 <ul>
-<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
+<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
 <li>修改 <code>.travis.yml</code> branch 字段指定你要构建的分支，如我的 wiki-source 仓库需要构建的分支为: master   </li>
 <li>修改 <code>travis_env_init.sh</code> 中 git 的配置信息（用户名与邮箱）。<br>之后就可以通过 <code>hexo s</code> 打开 <code>localhost:4000</code> 本地访问测试一下，成功则将 hexo 目录 push 到你的 source 仓库。</li>
 </ul>
@@ -2960,25 +2979,6 @@
         <tag>折腾</tag>
         <tag>hexo</tag>
         <tag>CI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>入坑一只 Kindle</title>
-    <url>//post/you-need-kindle.html</url>
-    <content><![CDATA[<p>　　心血来潮，咸鱼入手了种草了很久的泡面伴侣 Kindle PaperWhite 3，总体来说体验很不错。<span id="more"></span></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>　　Kindle 更适合看那种不需要来回翻的纯文字的书，类似专业书籍等非常不推荐，对 PDF 支持也很差，所以，入坑前最好清楚一下自己的需求，有没有这个必要，否则，真的会是个泡面盖。   </p>
-<h3 id="闲鱼"><a href="#闲鱼" class="headerlink" title="闲鱼"></a>闲鱼</h3><p>　　电子产品可能是闲鱼上最适合捡的东西了，尤其是像 Kindle 这种不是很看重性能与配置的。在我看来，目前最适合捡的版本就是 KPW 3 了，更低端更老的机型，一般都是屏幕的 PPi 不太够，而更新的 KPW 4、或是高端点的 Oasis 等，屏幕分辨率其实是与 KPW 3 一样，均为 300 PPi，但是价格却会贵上不少，所以说，可以，但…没必要。<br>　　Kindle 的产品更新迭代速度较其他电子产品慢，所以价格幅度一般也不会太大，KPW 4 推出后，闲鱼上 KPW 3 价格一般在 400 至 450 左右，性价比还是挺高的，总的来说，在闲鱼上捡 Kindle 需要注意的有以下几点：</p>
-<ul>
-<li>不要看那种专门卖的用户，最好选择个人用户，坑比较少  </li>
-<li>注意分清是不是国行，是否越狱，能否登陆，是否在保，要问清楚，可以通过 Kindle 客服电话利用序列号询问保修等信息，越狱了的原版系统的话，个人觉得更好，可以更换屏保与安装插件，但是不推荐刷多看的</li>
-</ul>
-<p>　　Alliot 的是 420 面交的，卖家估计也是没看过几次，保护套什么的都很新，总体来说挺满意，上班挤地铁的路上能够少玩点手机多看几本书了。  </p>
-<h3 id="部分资源"><a href="#部分资源" class="headerlink" title="部分资源"></a>部分资源</h3><h4 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h4><p>　　首推的是 calibre，图书管理、格式管理、书籍编辑、推送等功能，基本满足需求，其次，推荐用 KindleMate 来对看书时标注的笔记进行管理。<br>　　另外的，如果对 RSS 推送比较热衷且有优质 RSS 源的童鞋，可以尝试搭建一个 <a href="https://bookfere.com/post/19.html">KindleEar</a>。  </p>
-<h4 id="网站推荐"><a href="#网站推荐" class="headerlink" title="网站推荐"></a>网站推荐</h4><p>　　<a href="http://bookfere.com/">书伴</a> 许多的技巧教程与资源。<br>　　<a href="https://my.clippings.io/#">Clipping</a> 管理标注的笔记，支持推送到印象笔记等。<br>其他的，还是那句话，可以… 但是没必要。Kindle 的主要优点还是因为它的功能单一，太多折腾就失去了它原本的意义。</p>
-]]></content>
-      <tags>
-        <tag>硬件</tag>
-        <tag>杂谈</tag>
       </tags>
   </entry>
   <entry>
