@@ -1,0 +1,36 @@
+# www.iots.vip 
+User-agent: *
+Allow: /
+Allow: /about/
+Allow: /post/
+
+Disallow: /post/mind/
+
+Disallow: /archives/
+Disallow: /page/
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /reward/
+Disallow: /movies/
+Disallow: /books/
+
+Disallow: /vendors/
+Disallow: /lib/
+Disallow: /down/
+
+Disallow: /*.txt
+Disallow: /*.json
+Disallow: /404.html
+Disallow: /loading.gif
+Disallow: /search.xml
+
+Sitemap: https://www.iots.vip/sitemap.xml
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
