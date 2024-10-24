@@ -4,7 +4,7 @@
   
   <subtitle>Maker &amp; Developer</subtitle>
   <link href="https://www.iots.vip/atom.xml" rel="self"/>
-  
+  <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://www.iots.vip/"/>
   <updated>2024-09-01T11:00:00.000Z</updated>
   <id>https://www.iots.vip/</id>
