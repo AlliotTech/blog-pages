@@ -6,7 +6,7 @@
   <link href="https://www.iots.vip/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://www.iots.vip/"/>
-  <updated>2024-09-01T11:00:00.000Z</updated>
+  <updated>2024-11-24T07:42:07.000Z</updated>
   <id>https://www.iots.vip/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible使用Bitwarden存储Vault密码</title>
+    <link href="https://www.iots.vip/post/ansible-vault-bitwarden-integration"/>
+    <id>https://www.iots.vip/post/ansible-vault-bitwarden-integration</id>
+    <published>2024-11-24T07:42:07.000Z</published>
+    <updated>2024-11-24T07:42:07.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;　　Bitwarden(Vaultwarden) 提供了命令行版本的&lt;a href=&quot;https://github.com/bitwarden/clients&quot;&gt;客户端&lt;/a&gt;, 利用 Ansible 的 &lt;code&gt;vault_password_file&lt;/code&gt;, 我们可以很方便的在使用 &lt;code&gt;ansible-vault&lt;/code&gt; 时调用 Bitwarden 里的密码。</summary>
+    
+    
+    
+    
+    <category term="Ansible" scheme="https://www.iots.vip/tags/Ansible/"/>
+    
+    <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>Cloudflare Tunnel前置代理支持</title>
@@ -384,23 +403,6 @@
     
     
     <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>logrotate服务错误:read-only filesystem</title>
-    <link href="https://www.iots.vip/post/logrotate-service-read-only-filesystem"/>
-    <id>https://www.iots.vip/post/logrotate-service-read-only-filesystem</id>
-    <published>2022-08-18T10:30:01.000Z</published>
-    <updated>2022-08-18T10:30:01.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;　　一台服务器配置了 logrotate 来对 tomcat 日志进行切割，手动执行 &lt;code&gt;logrotate /etc/logrotate.conf&lt;/code&gt; 的时候是正常,但是&lt;code&gt;systemd timer&lt;/code&gt; 触发的  &lt;code&gt;logrotate.service&lt;/code&gt; 状态为 failure， 手动执行 &lt;code&gt;systemctl status logrotate.service&lt;/code&gt; 可以看到报错信息：&lt;code&gt;logrotate[2870734]: error: error opening /usr/local/tomcat/logs/catalina.out: Read-only file system&lt;/code&gt;</summary>
-    
-    
-    
-    
-    <category term="Linux" scheme="https://www.iots.vip/tags/Linux/"/>
     
   </entry>
   
