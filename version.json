@@ -1,5 +1,5 @@
 {
-  "commit_id": "d60619a",
-  "message": "revert: nodejs 22.14.0 have dependency capability issue.",
-  "date": "2025-02-24 17:13:35"
+  "commit_id": "e0d7583",
+  "message": "fix: pnpm install dependency https://github.com/pnpm/pnpm/releases/tag/v10.0.0",
+  "date": "2025-02-24 17:16:22"
 }
