@@ -119,6 +119,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Ansible使用Bitwarden存储Vault密码</title>
+    <url>//post/ansible-vault-bitwarden-integration.html</url>
+    <content><![CDATA[<p>　　Bitwarden(Vaultwarden) 提供了命令行版本的<a href="https://github.com/bitwarden/clients">客户端</a>, 利用 Ansible 的 <code>vault_password_file</code>, 我们可以很方便的在使用 <code>ansible-vault</code> 时调用 Bitwarden 里的密码。<span id="more"></span>  </p>
+<h3 id="配置-bitwarden-cli"><a href="#配置-bitwarden-cli" class="headerlink" title="配置 bitwarden-cli"></a>配置 bitwarden-cli</h3><p>　　这里仅以 macOS 为例，其他的操作系统直接参考官方文档即可: <a href="https://bitwarden.com/help/cli/">安装bitwarden-cli|官方文档</a>  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装</span></span><br><span class="line">brew install bitwarden-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置server地址</span></span><br><span class="line">bw config server https://xxx.xxx</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">登录</span></span><br><span class="line">bw login</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">登录完成后可以查看一下状态</span></span><br><span class="line">bw status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">正常来说, 即使是登录了, `bw` 每次执行可能也都会要求输入主密码, 这时候你可以使用如下命令让当前shell会话免密码:</span> </span><br><span class="line">export BW_SESSION=$(bw unlock --raw)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试创建一个密码item   <span class="comment"># 参考 https://bitwarden.com/help/cli/#create</span></span></span><br><span class="line">bw get template item | jq &quot;.name=\&quot;Ansible-test-alliot-blog\&quot; | .login=$(bw get template item.login | jq &#x27;.username=&quot;alliot&quot; | .password=&quot;password123&quot;&#x27;)&quot; | bw encode | bw create item</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取这个密码</span></span><br><span class="line">bw get password Ansible-test-alliot-blog</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Ansible"><a href="#配置-Ansible" class="headerlink" title="配置 Ansible"></a>配置 Ansible</h3><p>　　通过上一步的配置，我们已经可以在终端通过 <code>bw</code> 命令创建和获取密码了, 在 Ansible 这边，我们测试使用 <code>ansible-vault</code> 来加密一个文件，并将密码存储到 Bitwarden, 随后使用 Bitwarden 密码来完成对加密文件的解密。<br>　　首先我们在当前项目路径或是家目录创建一个 <code>ansible.cfg</code>。(具体在哪里创建取决于你想要的作用域, 优先级参考 <a href="https://docs.ansible.com/ansible/latest/reference_appendices/config.html#the-configuration-file">Ansible官方文档: config</a>) ,我这里直接以家目录为例。 <code>vim ~/.ansible.cfg</code> 内容如下: </p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[defaults]</span></span><br><span class="line"><span class="attr">nocows</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">host_key_checking</span> = <span class="literal">False</span></span><br><span class="line"><span class="attr">inventory</span> = inventory/inventory.ini</span><br><span class="line"><span class="attr">ansible_ssh_user</span> = root</span><br><span class="line"><span class="attr">interpreter_python</span> = auto_silent</span><br><span class="line"><span class="attr">stdout_callback</span> = debug</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 支持脚本执行获得密码   &lt;&lt;&lt;======= 新增这行即可</span></span><br><span class="line"><span class="attr">vault_password_file</span> = ~/vault-pass.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh_connection]</span></span><br><span class="line"><span class="attr">pipelining</span> =<span class="literal">True</span></span><br><span class="line"><span class="attr">ssh_args</span>=-o ControlMaster=auto -o ControlPersist=<span class="number">60</span>s</span><br></pre></td></tr></table></figure>
+<p>　　在配置文件中, 指定 <code>~/vault-pass.sh</code> 为 <code>vault_password_file</code>, 该脚本如下:  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要先安装bitwarden-cli</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">brew install bitwarden-cli</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bw config server https://xx.xxx</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bw login  <span class="comment"># 登录</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bw <span class="built_in">sync</span>   <span class="comment"># sync密钥</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bw <span class="built_in">logout</span> <span class="comment"># 退出</span></span>  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">export</span> BW_SESSION=$(bw unlock --raw)</span>   </span><br><span class="line">bw get password &quot;Ansible-test-alliot-blog&quot;</span><br></pre></td></tr></table></figure>
+<p>　　别忘了赋予它可执行权限: <code>chmod +x ~/vault-pass.sh</code></p>
+<h3 id="使用-Ansible-vault"><a href="#使用-Ansible-vault" class="headerlink" title="使用 Ansible-vault"></a>使用 Ansible-vault</h3><p>　　假设我现在有一个文件需要使用 <code>ansible-vault</code> 加密: <code>alliot-blog.yaml</code>, 我们可以直接使用 <code>ansible-vault</code> 命令行执行:  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible-vault encrypt alliot-blog.yaml</span><br><span class="line">New Vault password:  </span><br></pre></td></tr></table></figure>
+<p>　　这是默认 <code>ansible-vault</code> 配置提示的交互式输入加密用的 Vault password, 在我们配置了上述脚本集成 Bitwarden 后，这个命令交互将变成如下: </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible-vault encrypt alliot-blog.yaml         </span><br><span class="line"></span><br><span class="line">? Master password: [input is hidden] </span><br></pre></td></tr></table></figure>
+<p>　　这里交互要求输入的是 Bitwarden 的密码, 完成登录后，将直接调用前面我们在 Bitwarden 中配置的 “Ansible-test-alliot-blog” 作为加密用的 Vault password。<br>　　至此, 便实现了 Ansible-vault 调用 Bitwarden 中的密码。  </p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　Bitwarden 提供了多平台的客户端, 以及完善的 <a href="https://bitwarden.com/help/vault-management-api/">API</a>, 利用这些开放的接口, 我们可以实现很多集成, 将零散的密码、凭证统一管理。<br>不过, 享受这种集中化管理带来的便利的同时, 也要防止被 “一锅端”, 别忘了<a href="/post/configuration-vaultwarden-enable-fail2ban-over-cdn">安全加固</a>与备份。  </p>
+]]></content>
+      <tags>
+        <tag>Ansible</tag>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Atlassian全家桶及其插件激活方法</title>
     <url>//post/atlassian-series-crack.html</url>
     <content><![CDATA[<p>　　很多团队都采用 Atlassian 公司出品的 Jira、Confluence 作为团队的项目管理、知识管理平台，<a href="https://zhile.io/2018/12/20/atlassian-license-crack.html">zhile</a> 大佬对其写了一个通杀的 agent，并于GitHub、码云上开源（可惜目前均已由于<a href="https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act">DMCA</a> 被BAN）。Alliot 大致帮小伙伴整理了一下该 agent 的使用方法以及在已用其他方式激活过的情景下，如何使用该 agent 激活我们所需要的插件。<span id="more"></span>  </p>
@@ -217,30 +241,6 @@
         <tag>折腾</tag>
         <tag>Linux</tag>
         <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ansible使用Bitwarden存储Vault密码</title>
-    <url>//post/ansible-vault-bitwarden-integration.html</url>
-    <content><![CDATA[<p>　　Bitwarden(Vaultwarden) 提供了命令行版本的<a href="https://github.com/bitwarden/clients">客户端</a>, 利用 Ansible 的 <code>vault_password_file</code>, 我们可以很方便的在使用 <code>ansible-vault</code> 时调用 Bitwarden 里的密码。<span id="more"></span>  </p>
-<h3 id="配置-bitwarden-cli"><a href="#配置-bitwarden-cli" class="headerlink" title="配置 bitwarden-cli"></a>配置 bitwarden-cli</h3><p>　　这里仅以 macOS 为例，其他的操作系统直接参考官方文档即可: <a href="https://bitwarden.com/help/cli/">安装bitwarden-cli|官方文档</a>  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装</span></span><br><span class="line">brew install bitwarden-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置server地址</span></span><br><span class="line">bw config server https://xxx.xxx</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">登录</span></span><br><span class="line">bw login</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">登录完成后可以查看一下状态</span></span><br><span class="line">bw status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">正常来说, 即使是登录了, `bw` 每次执行可能也都会要求输入主密码, 这时候你可以使用如下命令让当前shell会话免密码:</span> </span><br><span class="line">export BW_SESSION=$(bw unlock --raw)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试创建一个密码item   <span class="comment"># 参考 https://bitwarden.com/help/cli/#create</span></span></span><br><span class="line">bw get template item | jq &quot;.name=\&quot;Ansible-test-alliot-blog\&quot; | .login=$(bw get template item.login | jq &#x27;.username=&quot;alliot&quot; | .password=&quot;password123&quot;&#x27;)&quot; | bw encode | bw create item</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取这个密码</span></span><br><span class="line">bw get password Ansible-test-alliot-blog</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="配置-Ansible"><a href="#配置-Ansible" class="headerlink" title="配置 Ansible"></a>配置 Ansible</h3><p>　　通过上一步的配置，我们已经可以在终端通过 <code>bw</code> 命令创建和获取密码了, 在 Ansible 这边，我们测试使用 <code>ansible-vault</code> 来加密一个文件，并将密码存储到 Bitwarden, 随后使用 Bitwarden 密码来完成对加密文件的解密。<br>　　首先我们在当前项目路径或是家目录创建一个 <code>ansible.cfg</code>。(具体在哪里创建取决于你想要的作用域, 优先级参考 <a href="https://docs.ansible.com/ansible/latest/reference_appendices/config.html#the-configuration-file">Ansible官方文档: config</a>) ,我这里直接以家目录为例。 <code>vim ~/.ansible.cfg</code> 内容如下: </p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[defaults]</span></span><br><span class="line"><span class="attr">nocows</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">host_key_checking</span> = <span class="literal">False</span></span><br><span class="line"><span class="attr">inventory</span> = inventory/inventory.ini</span><br><span class="line"><span class="attr">ansible_ssh_user</span> = root</span><br><span class="line"><span class="attr">interpreter_python</span> = auto_silent</span><br><span class="line"><span class="attr">stdout_callback</span> = debug</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 支持脚本执行获得密码   &lt;&lt;&lt;======= 新增这行即可</span></span><br><span class="line"><span class="attr">vault_password_file</span> = ~/vault-pass.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh_connection]</span></span><br><span class="line"><span class="attr">pipelining</span> =<span class="literal">True</span></span><br><span class="line"><span class="attr">ssh_args</span>=-o ControlMaster=auto -o ControlPersist=<span class="number">60</span>s</span><br></pre></td></tr></table></figure>
-<p>　　在配置文件中, 指定 <code>~/vault-pass.sh</code> 为 <code>vault_password_file</code>, 该脚本如下:  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要先安装bitwarden-cli</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">brew install bitwarden-cli</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bw config server https://xx.xxx</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bw login  <span class="comment"># 登录</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bw <span class="built_in">sync</span>   <span class="comment"># sync密钥</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bw <span class="built_in">logout</span> <span class="comment"># 退出</span></span>  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">export</span> BW_SESSION=$(bw unlock --raw)</span>   </span><br><span class="line">bw get password &quot;Ansible-test-alliot-blog&quot;</span><br></pre></td></tr></table></figure>
-<p>　　别忘了赋予它可执行权限: <code>chmod +x ~/vault-pass.sh</code></p>
-<h3 id="使用-Ansible-vault"><a href="#使用-Ansible-vault" class="headerlink" title="使用 Ansible-vault"></a>使用 Ansible-vault</h3><p>　　假设我现在有一个文件需要使用 <code>ansible-vault</code> 加密: <code>alliot-blog.yaml</code>, 我们可以直接使用 <code>ansible-vault</code> 命令行执行:  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible-vault encrypt alliot-blog.yaml</span><br><span class="line">New Vault password:  </span><br></pre></td></tr></table></figure>
-<p>　　这是默认 <code>ansible-vault</code> 配置提示的交互式输入加密用的 Vault password, 在我们配置了上述脚本集成 Bitwarden 后，这个命令交互将变成如下: </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible-vault encrypt alliot-blog.yaml         </span><br><span class="line"></span><br><span class="line">? Master password: [input is hidden] </span><br></pre></td></tr></table></figure>
-<p>　　这里交互要求输入的是 Bitwarden 的密码, 完成登录后，将直接调用前面我们在 Bitwarden 中配置的 “Ansible-test-alliot-blog” 作为加密用的 Vault password。<br>　　至此, 便实现了 Ansible-vault 调用 Bitwarden 中的密码。  </p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　Bitwarden 提供了多平台的客户端, 以及完善的 <a href="https://bitwarden.com/help/vault-management-api/">API</a>, 利用这些开放的接口, 我们可以实现很多集成, 将零散的密码、凭证统一管理。<br>不过, 享受这种集中化管理带来的便利的同时, 也要防止被 “一锅端”, 别忘了<a href="/post/configuration-vaultwarden-enable-fail2ban-over-cdn">安全加固</a>与备份。  </p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
-        <tag>Ansible</tag>
       </tags>
   </entry>
   <entry>
@@ -426,6 +426,25 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS服务器设置自动时间同步</title>
+    <url>//post/centos-ntpdate.html</url>
+    <content><![CDATA[<p>在虚拟机中使用centos的时候，经常进行挂起等操作，这样导致时间经常不准确，于是进行自动时间同步的设置，服务器同理。<span id="more"></span>  </p>
+<h2 id="安装ntpdate"><a href="#安装ntpdate" class="headerlink" title="安装ntpdate"></a>安装ntpdate</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install ntp</span><br></pre></td></tr></table></figure>
+<p>安装完成后，无需其他配置，直接执行  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ntpdate time.nist.gov</span><br></pre></td></tr></table></figure>
+<p>如果出现以下内容，说明同步成功了。  </p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">15 </span>Jan <span class="number">11</span>:<span class="number">40</span>:<span class="number">25</span> ntpdate[<span class="number">804</span>]: adjust time server <span class="number">132.163</span>.<span class="number">4.101</span> offset <span class="number">0.093992</span> sec</span><br></pre></td></tr></table></figure>
+<p>然后在crontab里面加上以下内容  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">*/10 * * * * ntpdate time.nist.gov   <span class="comment">#域名或IP</span></span><br></pre></td></tr></table></figure>
+<p>每隔十分钟同步一次。推荐几个时间服务器:  </p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">time</span><span class="selector-class">.nist</span><span class="selector-class">.gov</span></span><br><span class="line"><span class="selector-tag">time</span><span class="selector-class">.nuri</span><span class="selector-class">.net</span></span><br><span class="line">asia<span class="selector-class">.pool</span><span class="selector-class">.ntp</span><span class="selector-class">.org</span></span><br><span class="line">asia<span class="selector-class">.pool</span><span class="selector-class">.ntp</span><span class="selector-class">.org</span></span><br><span class="line">asia<span class="selector-class">.pool</span><span class="selector-class">.ntp</span><span class="selector-class">.org</span></span><br><span class="line">asia<span class="selector-class">.pool</span><span class="selector-class">.ntp</span>.org</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cloudflare Tunnel前置代理支持</title>
     <url>//post/cloudflare-tunnel-proxy-support.html</url>
     <content><![CDATA[<p>　　赛博大善人的 Cloudflare Tunnel(前 Argo Tunnel) 只需要一个域名、一个 Cloudflare 帐号便可以将服务接入到 Cloudflare 的网络，提供了非常方便的内网穿透方式， 同时还提供了 ZeroTrust、防护等功能， 而这一切基本几乎都是免费的，相信看到此文的小伙伴已经薅上一段时间了，不过由于 Cloudflare Tunnel 官方的服务节点分布有限，在部分时空&#x2F;场景下，Tunnel 连通性会面临一些挑战， 这时候要是能够通过前置代理去连接到 Tunnel 服务，问题便能得到解决，可惜<a href="https://github.com/cloudflare/cloudflared/issues/350#issuecomment-1706842883">官方目前并没打算支持这个特性</a>。<span id="more"></span></p>
@@ -447,25 +466,6 @@
         <tag>折腾</tag>
         <tag>Docker</tag>
         <tag>Cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS服务器设置自动时间同步</title>
-    <url>//post/centos-ntpdate.html</url>
-    <content><![CDATA[<p>在虚拟机中使用centos的时候，经常进行挂起等操作，这样导致时间经常不准确，于是进行自动时间同步的设置，服务器同理。<span id="more"></span>  </p>
-<h2 id="安装ntpdate"><a href="#安装ntpdate" class="headerlink" title="安装ntpdate"></a>安装ntpdate</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install ntp</span><br></pre></td></tr></table></figure>
-<p>安装完成后，无需其他配置，直接执行  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ntpdate time.nist.gov</span><br></pre></td></tr></table></figure>
-<p>如果出现以下内容，说明同步成功了。  </p>
-<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">15 </span>Jan <span class="number">11</span>:<span class="number">40</span>:<span class="number">25</span> ntpdate[<span class="number">804</span>]: adjust time server <span class="number">132.163</span>.<span class="number">4.101</span> offset <span class="number">0.093992</span> sec</span><br></pre></td></tr></table></figure>
-<p>然后在crontab里面加上以下内容  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">*/10 * * * * ntpdate time.nist.gov   <span class="comment">#域名或IP</span></span><br></pre></td></tr></table></figure>
-<p>每隔十分钟同步一次。推荐几个时间服务器:  </p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">time</span><span class="selector-class">.nist</span><span class="selector-class">.gov</span></span><br><span class="line"><span class="selector-tag">time</span><span class="selector-class">.nuri</span><span class="selector-class">.net</span></span><br><span class="line">asia<span class="selector-class">.pool</span><span class="selector-class">.ntp</span><span class="selector-class">.org</span></span><br><span class="line">asia<span class="selector-class">.pool</span><span class="selector-class">.ntp</span><span class="selector-class">.org</span></span><br><span class="line">asia<span class="selector-class">.pool</span><span class="selector-class">.ntp</span><span class="selector-class">.org</span></span><br><span class="line">asia<span class="selector-class">.pool</span><span class="selector-class">.ntp</span>.org</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -1207,22 +1207,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Nginx反向代理将某端口反向代理到80端口</title>
-    <url>//post/nginx-proxy.html</url>
-    <content><![CDATA[<p>　　最近使用 <code>Docker</code> 部署了一个网站应用，然而服务器上的 80 端口已经被占用了，所以给这个容器分配了一个端口 x,但是又不想通过 ip:x 的方式来访问该网站应用，所以需要将 x 端口反向代理到 80 端口，这样在绑定二级域名后能够直接进行访问。<span id="more"></span>  </p>
-<h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><p>新建 <code>Nginx</code> 的 vhost.conf 配置文件，内容如下:  </p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> localhost xxx.iots.vip;<span class="comment">#这里将域名改为自己的二级域名</span></span><br><span class="line">	<span class="section">location</span> / &#123;</span><br><span class="line">	<span class="attribute">proxy_pass</span> http://localhost:x; <span class="comment">#这里是你的端口 x</span></span><br><span class="line">	<span class="attribute">proxy_redirect</span> default;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="重载配置"><a href="#重载配置" class="headerlink" title="重载配置"></a>重载配置</h2><p>执行：  </p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">nginx -s reload</span></span><br></pre></td></tr></table></figure>
-<p>即可。</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Nginx</tag>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Nginx proxy_pass到AWS ALB的504问题</title>
     <url>//post/nginx-proxy-pass-aws-alb-504-issue.html</url>
     <content><![CDATA[<p>　　我们的部分后端服务正在经历容器化的改造， 由于历史包袱，现网的网关等设施无法一次性迁移到 k8s 集群中， 因此使用 Nginx <code>proxy_pass</code> 转发到 AWS ALB 这样一个曲线救国的临时方案。<br>　　但是在使用时，我们发现一段时间后 Nginx 出现了 504 的错误，检查后端服务均是正常的，而单独访问 ALB 也是正常响应的，因此便有了此文。  <span id="more"></span></p>
@@ -1298,6 +1282,22 @@
         <tag>AWS</tag>
         <tag>Linux</tag>
         <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx反向代理将某端口反向代理到80端口</title>
+    <url>//post/nginx-proxy.html</url>
+    <content><![CDATA[<p>　　最近使用 <code>Docker</code> 部署了一个网站应用，然而服务器上的 80 端口已经被占用了，所以给这个容器分配了一个端口 x,但是又不想通过 ip:x 的方式来访问该网站应用，所以需要将 x 端口反向代理到 80 端口，这样在绑定二级域名后能够直接进行访问。<span id="more"></span>  </p>
+<h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><p>新建 <code>Nginx</code> 的 vhost.conf 配置文件，内容如下:  </p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> localhost xxx.iots.vip;<span class="comment">#这里将域名改为自己的二级域名</span></span><br><span class="line">	<span class="section">location</span> / &#123;</span><br><span class="line">	<span class="attribute">proxy_pass</span> http://localhost:x; <span class="comment">#这里是你的端口 x</span></span><br><span class="line">	<span class="attribute">proxy_redirect</span> default;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="重载配置"><a href="#重载配置" class="headerlink" title="重载配置"></a>重载配置</h2><p>执行：  </p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">nginx -s reload</span></span><br></pre></td></tr></table></figure>
+<p>即可。</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Nginx</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -1469,6 +1469,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Openwrt出现md5sum mismatch错误的解决方法</title>
+    <url>//post/linux-drcom-openwrt.html</url>
+    <content><![CDATA[<p> 之前路由器刷潘多拉玩<a href="http://http//www.iots.vip/tags/Drcom/">drcom认证</a>的时候，装ipk出现</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Collected errors:</span><br><span class="line">* opkg_install_pkg: <span class="keyword">Package</span> <span class="title">******* md5sum m</span>ismatch. Either the opkg <span class="keyword">or</span> the <span class="keyword">package</span> <span class="title">index are corrupt. Try ‘opkg update’.</span></span><br><span class="line">* opkg_install_cmd: Cannot install <span class="keyword">package</span> <span class="title">*******.</span></span><br></pre></td></tr></table></figure>
+<p>这是由于从源列表安装软件必须校验md5，于是手动下载了ipk，安装时同样错误提示，后来找到解决办法：<br>只需要注释掉&#x2F;etc&#x2F;opkg.conf里面第一行src pacages这一句即可，这样可以直接安装本地或者其他的ipk，而不需要校验源里面的md5值。<span id="more"></span></p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Drcom</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Prometheus relabel实现动态metrics path</title>
     <url>//post/prometheus-metrics-path-relabel.html</url>
     <content><![CDATA[<p>　　Prometheus 的 relabel 功能可以在目标的 label 被抓取之前重写它，每个采集配置可以配置多个 relabel，并按照配置的顺序来应用于每个 target 的 label。利用这个特性，我们可以实现动态的 metrics-path。<span id="more"></span></p>
@@ -1518,18 +1530,6 @@
 ]]></content>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Openwrt出现md5sum mismatch错误的解决方法</title>
-    <url>//post/linux-drcom-openwrt.html</url>
-    <content><![CDATA[<p> 之前路由器刷潘多拉玩<a href="http://http//www.iots.vip/tags/Drcom/">drcom认证</a>的时候，装ipk出现</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Collected errors:</span><br><span class="line">* opkg_install_pkg: <span class="keyword">Package</span> <span class="title">******* md5sum m</span>ismatch. Either the opkg <span class="keyword">or</span> the <span class="keyword">package</span> <span class="title">index are corrupt. Try ‘opkg update’.</span></span><br><span class="line">* opkg_install_cmd: Cannot install <span class="keyword">package</span> <span class="title">*******.</span></span><br></pre></td></tr></table></figure>
-<p>这是由于从源列表安装软件必须校验md5，于是手动下载了ipk，安装时同样错误提示，后来找到解决办法：<br>只需要注释掉&#x2F;etc&#x2F;opkg.conf里面第一行src pacages这一句即可，这样可以直接安装本地或者其他的ipk，而不需要校验源里面的md5值。<span id="more"></span></p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Drcom</tag>
       </tags>
   </entry>
   <entry>
@@ -1956,21 +1956,6 @@
       </tags>
   </entry>
   <entry>
-    <title>iterm2自动输入堡垒机TOTP验证码</title>
-    <url>//post/iterm2-jumpserver-totp-autocomplete.html</url>
-    <content><![CDATA[<p>　　堡垒机强制启用了 MFA 双因子认证，每次都需要打开 APP 输入验证码，对于登录频繁的人来说非常不方便，于是利用 <code>expect</code> 与 <code>oath-toolkit</code> 完成了自动登录。（友情提示：本处堡垒机为仅内网可访问，且为边缘测试系统环境，出于安全考虑请不要在重要环境下使用）。 <span id="more"></span>  </p>
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">brew install oath-toolkit</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此处secret为绑定 MFA 时的二维码扫描出来后的结果</span></span><br><span class="line">oathtool --totp -b [secret]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行上一行命令会产生一个动态验证码，对比手机APP上的验证码</span></span><br><span class="line"></span><br><span class="line">brew install expect</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>保存为 <code>jump.sh</code>，并 <code>chmod +x jump.sh</code> 给予执行权限即可。  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/usr/bin/expect</span><br><span class="line"></span><br><span class="line">catch &#123;spawn ssh -p 2222 alliot@xx.com&#125;</span><br><span class="line">expect &quot;*password:*&quot;</span><br><span class="line">send &quot;密码\r&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">expect &quot;*OTP*&quot; &#123;</span><br><span class="line">        set code [exec sh -c &#123;oathtool --totp -b 上面扫描出来的密钥&#125;]</span><br><span class="line">        send &quot;$code\r&quot;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">interact</span><br></pre></td></tr></table></figure>
-<p>脚本非常简单，捕捉 <code>ssh -p xx</code> 的输出，匹配到 <code>password</code> 时发送密码，匹配到 <code>OTP</code> 时，发送 <code>oathtool</code> 生成的 TOTP 验证码。 之后直接执行 <code>jump.sh</code> 脚本即可登录堡垒机。</p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo的搭建、设置与部分优化</title>
     <url>//post/hexo-build-to-optimize.html</url>
     <content><![CDATA[<p>　　hexo 是一个“快速、简洁且高效的博客框架”。其最大的特点是在本地直接生成静态文件，将静态文件上传到服务器端，这样服务器端只有静态的文件，给网站的 SEO 优化带来了极大的便利，同时，网站的安全性也有了很大的提高，由于静态的网页对环境要求非常小，在流量较小的情况下，甚至可以不需要独立的服务器而直接丢于 GitHub 或虚拟主机上，对个人博主来说，能够有效的节省服务器开支；markdown 的支持让写作更加方便快捷；同时，hexo 拥有强大的插件系统与优质的主题（Alliot 就是因为 NexT 这个主题才知道的 hexo），高度可定制。官网：hexo.io  <span id="more"></span></p>
@@ -2120,6 +2105,21 @@
       <tags>
         <tag>折腾</tag>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iterm2自动输入堡垒机TOTP验证码</title>
+    <url>//post/iterm2-jumpserver-totp-autocomplete.html</url>
+    <content><![CDATA[<p>　　堡垒机强制启用了 MFA 双因子认证，每次都需要打开 APP 输入验证码，对于登录频繁的人来说非常不方便，于是利用 <code>expect</code> 与 <code>oath-toolkit</code> 完成了自动登录。（友情提示：本处堡垒机为仅内网可访问，且为边缘测试系统环境，出于安全考虑请不要在重要环境下使用）。 <span id="more"></span>  </p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">brew install oath-toolkit</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此处secret为绑定 MFA 时的二维码扫描出来后的结果</span></span><br><span class="line">oathtool --totp -b [secret]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行上一行命令会产生一个动态验证码，对比手机APP上的验证码</span></span><br><span class="line"></span><br><span class="line">brew install expect</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>保存为 <code>jump.sh</code>，并 <code>chmod +x jump.sh</code> 给予执行权限即可。  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/usr/bin/expect</span><br><span class="line"></span><br><span class="line">catch &#123;spawn ssh -p 2222 alliot@xx.com&#125;</span><br><span class="line">expect &quot;*password:*&quot;</span><br><span class="line">send &quot;密码\r&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">expect &quot;*OTP*&quot; &#123;</span><br><span class="line">        set code [exec sh -c &#123;oathtool --totp -b 上面扫描出来的密钥&#125;]</span><br><span class="line">        send &quot;$code\r&quot;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">interact</span><br></pre></td></tr></table></figure>
+<p>脚本非常简单，捕捉 <code>ssh -p xx</code> 的输出，匹配到 <code>password</code> 时发送密码，匹配到 <code>OTP</code> 时，发送 <code>oathtool</code> 生成的 TOTP 验证码。 之后直接执行 <code>jump.sh</code> 脚本即可登录堡垒机。</p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
       </tags>
   </entry>
   <entry>
@@ -3041,7 +3041,7 @@
 
 <h3 id="Git-pages"><a href="#Git-pages" class="headerlink" title="Git pages"></a>Git pages</h3><p>　　很多用 hexo 的朋友都选择使用两个分支来分别存放站点的 source 与 public，然后 public 的分支用来构建 gitpages。由于 GitHub 已经有免费的私有仓库了，我这里是将 source 与 public 分开各开一个 repository，source 仓库为私有。我在 GitHub 新建了两个仓库分别为: wiki-source(私有)、hexo-wiki-pages(公有)。在 hexo-wiki-pages 仓库的设置里打开 gitpages。<br>　　将 themes&#x2F;Wikitten&#x2F;hexo&#x2F; 下的所有文件复制到 hexo 的目录下。</p>
 <ul>
-<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">git@github.com</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
+<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">git@github.com</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
 <li>修改 <code>.travis.yml</code> branch 字段指定你要构建的分支，如我的 wiki-source 仓库需要构建的分支为: master   </li>
 <li>修改 <code>travis_env_init.sh</code> 中 git 的配置信息（用户名与邮箱）。<br>之后就可以通过 <code>hexo s</code> 打开 <code>localhost:4000</code> 本地访问测试一下，成功则将 hexo 目录 push 到你的 source 仓库。</li>
 </ul>
@@ -3052,20 +3052,6 @@
         <tag>折腾</tag>
         <tag>hexo</tag>
         <tag>CI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于开启CDN时的一些问题</title>
-    <url>//post/open-cnd-problem.html</url>
-    <content><![CDATA[<p>虽说换回国内服务器了，延时低了很多，但是放着免费的CDN不用干嘛。。于是开启了CDN，其中在做cname域名解析的时候，发现cname与mx不能共存。<span id="more"></span></p>
-<p><img data-src="https://static.iots.vip/2016/12/201612253395_1078.jpg">  </p>
-<blockquote>
-<p>RFC 1034（<a href="http://tools.ietf.org/pdf/rfc1034%EF%BC%89">http://tools.ietf.org/pdf/rfc1034）</a> 章节3.6.2中指出<br>If aCNAME RR is present at a node, no other data should be present; this ensuresthat the data for a canonical name and its aliases cannot be different.<br>大意就是说如果CNAME资源记录出现在一个域名节点，为了确保不会出现不同的解析结果，这个域名节点将不再接受其他记录值。  </p>
-</blockquote>
-<p>看了好多网上的文档说301是最简单的办法了。<br>　　然后一般来说mx记录都是@的主机记录。。  这就意味着cname只能添加www记录，所以我觉得还是把主域名301到www比较好~这样就能同时兼顾mx与cname  而所有内容都通过cdn了。</p>
-]]></content>
-      <tags>
-        <tag>SEO</tag>
       </tags>
   </entry>
   <entry>
@@ -3085,6 +3071,20 @@
       <tags>
         <tag>硬件</tag>
         <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于开启CDN时的一些问题</title>
+    <url>//post/open-cnd-problem.html</url>
+    <content><![CDATA[<p>虽说换回国内服务器了，延时低了很多，但是放着免费的CDN不用干嘛。。于是开启了CDN，其中在做cname域名解析的时候，发现cname与mx不能共存。<span id="more"></span></p>
+<p><img data-src="https://static.iots.vip/2016/12/201612253395_1078.jpg">  </p>
+<blockquote>
+<p>RFC 1034（<a href="http://tools.ietf.org/pdf/rfc1034%EF%BC%89">http://tools.ietf.org/pdf/rfc1034）</a> 章节3.6.2中指出<br>If aCNAME RR is present at a node, no other data should be present; this ensuresthat the data for a canonical name and its aliases cannot be different.<br>大意就是说如果CNAME资源记录出现在一个域名节点，为了确保不会出现不同的解析结果，这个域名节点将不再接受其他记录值。  </p>
+</blockquote>
+<p>看了好多网上的文档说301是最简单的办法了。<br>　　然后一般来说mx记录都是@的主机记录。。  这就意味着cname只能添加www记录，所以我觉得还是把主域名301到www比较好~这样就能同时兼顾mx与cname  而所有内容都通过cdn了。</p>
+]]></content>
+      <tags>
+        <tag>SEO</tag>
       </tags>
   </entry>
   <entry>
