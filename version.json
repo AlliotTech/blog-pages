@@ -1,5 +1,5 @@
 {
-  "commit_id": "252279f",
-  "message": "[skip ci]fix: tittle error",
-  "date": "2025-02-24 16:52:30"
+  "commit_id": "d60619a",
+  "message": "revert: nodejs 22.14.0 have dependency capability issue.",
+  "date": "2025-02-24 17:13:35"
 }
