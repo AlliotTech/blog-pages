@@ -1,5 +1,5 @@
 {
-  "commit_id": "e0d7583",
-  "message": "fix: pnpm install dependency https://github.com/pnpm/pnpm/releases/tag/v10.0.0",
-  "date": "2025-02-24 17:16:22"
+  "commit_id": "03fa8da",
+  "message": "feat: [ci]优化版本生成命名",
+  "date": "2025-02-25 17:04:35"
 }

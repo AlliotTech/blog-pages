@@ -355,6 +355,20 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS修改语言环境为中文</title>
+    <url>//post/centos-language-chinese.html</url>
+    <content><![CDATA[<p>　　服务器默认安装的是英文语言，这次部署一个Python爬虫的时候涉及到中文读取，出现乱码，于是修改系统语言环境解决。<span id="more"></span></p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>　　修改 <code>/etc/locale.conf</code> 内容为 LANG&#x3D;”zh_CN.UTF-8” 并重新登录终端  </p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>　　查看当前区域配置，执行：  </p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">localectl status</span></span><br></pre></td></tr></table></figure>
+<p>System Locale项为”LANG&#x3D;zh_CN.UTF-8”即可。</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS启用ssh密钥登录</title>
     <url>//post/centos-use-ssh-keygen.html</url>
     <content><![CDATA[<p>　　在某些时候，使用密码作为登录服务器的认证方式是不太安全的，为避免密码被暴力破解，许多时候可以采用ssh密钥登录服务器，这里以CentOS为例。<span id="more"></span>     </p>
@@ -383,20 +397,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -i ~/.ssh/id_rsa alliot@192.168.1.1 -p 22</span><br></pre></td></tr></table></figure>
 <p>~&#x2F;.ssh&#x2F;id_rsa: 你的私钥路径<br>alliot: 用户名<br>192.168.1.1: 远程ip<br>22: 远程ssh端口</p>
 <p>　　</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS修改语言环境为中文</title>
-    <url>//post/centos-language-chinese.html</url>
-    <content><![CDATA[<p>　　服务器默认安装的是英文语言，这次部署一个Python爬虫的时候涉及到中文读取，出现乱码，于是修改系统语言环境解决。<span id="more"></span></p>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>　　修改 <code>/etc/locale.conf</code> 内容为 LANG&#x3D;”zh_CN.UTF-8” 并重新登录终端  </p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>　　查看当前区域配置，执行：  </p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">localectl status</span></span><br></pre></td></tr></table></figure>
-<p>System Locale项为”LANG&#x3D;zh_CN.UTF-8”即可。</p>
 ]]></content>
       <tags>
         <tag>Linux</tag>
@@ -1443,18 +1443,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Openwrt出现md5sum mismatch错误的解决方法</title>
-    <url>//post/linux-drcom-openwrt.html</url>
-    <content><![CDATA[<p> 之前路由器刷潘多拉玩<a href="http://http//www.iots.vip/tags/Drcom/">drcom认证</a>的时候，装ipk出现</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Collected errors:</span><br><span class="line">* opkg_install_pkg: <span class="keyword">Package</span> <span class="title">******* md5sum m</span>ismatch. Either the opkg <span class="keyword">or</span> the <span class="keyword">package</span> <span class="title">index are corrupt. Try ‘opkg update’.</span></span><br><span class="line">* opkg_install_cmd: Cannot install <span class="keyword">package</span> <span class="title">*******.</span></span><br></pre></td></tr></table></figure>
-<p>这是由于从源列表安装软件必须校验md5，于是手动下载了ipk，安装时同样错误提示，后来找到解决办法：<br>只需要注释掉&#x2F;etc&#x2F;opkg.conf里面第一行src pacages这一句即可，这样可以直接安装本地或者其他的ipk，而不需要校验源里面的md5值。<span id="more"></span></p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Drcom</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OpenV**手动指定路由规则</title>
     <url>//post/openvxx-manual-static-route-configuration.html</url>
     <content><![CDATA[<p>　　我们在远程办公时通常需要通过内部 OpenV** 来访问公司内部的敏感系统， 默认情况下， OpenV** 会临时修改本地路由表，将所有流量都指向了 v**_gateway，导致一些本地规则被覆盖，甚至无法打开部分国内的网站，带来了很多不便。这里记录一下手动指定路由规则的配置，仅让指定的网段或域名走 gateway。 <span id="more"></span>  </p>
@@ -1478,6 +1466,18 @@
         <tag>折腾</tag>
         <tag>Linux</tag>
         <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Openwrt出现md5sum mismatch错误的解决方法</title>
+    <url>//post/linux-drcom-openwrt.html</url>
+    <content><![CDATA[<p> 之前路由器刷潘多拉玩<a href="http://http//www.iots.vip/tags/Drcom/">drcom认证</a>的时候，装ipk出现</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Collected errors:</span><br><span class="line">* opkg_install_pkg: <span class="keyword">Package</span> <span class="title">******* md5sum m</span>ismatch. Either the opkg <span class="keyword">or</span> the <span class="keyword">package</span> <span class="title">index are corrupt. Try ‘opkg update’.</span></span><br><span class="line">* opkg_install_cmd: Cannot install <span class="keyword">package</span> <span class="title">*******.</span></span><br></pre></td></tr></table></figure>
+<p>这是由于从源列表安装软件必须校验md5，于是手动下载了ipk，安装时同样错误提示，后来找到解决办法：<br>只需要注释掉&#x2F;etc&#x2F;opkg.conf里面第一行src pacages这一句即可，这样可以直接安装本地或者其他的ipk，而不需要校验源里面的md5值。<span id="more"></span></p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Drcom</tag>
       </tags>
   </entry>
   <entry>
@@ -1533,30 +1533,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python实现i人事自动打卡</title>
-    <url>//post/python-ihr360-auto-doSign.html</url>
-    <content><![CDATA[<p>　　我司使用的打卡软件是 i 人事，不过我这记性，经常漏了打卡签退，定了闹钟都会忘，今天又被老大屌了。于是准备抓一下签到接口，利用 crontab 来实现自动签到签退。<span id="more"></span>  </p>
-<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>　　这里使用的是 Fiddler 进行抓包，Fiddler 是一个 HTTP 调试代理工具，以代理服务器的形式实现对网络数据流的监听。之所以没有用 Wireshark，一是因为我不是很熟悉 wireshark 的筛选器，二是因为本文使用模拟器（手机应用后台流量多，不便于分析）来抓包，代理服务器方式更方便。</p>
-<h4 id="安装Fiddler"><a href="#安装Fiddler" class="headerlink" title="安装Fiddler"></a>安装Fiddler</h4><p>　　先安装 Fiddler(<a href="https://www.telerik.com/download/fiddler">官网地址</a>)，安装完成之后需要安装 fiddlercertmaker 证书生成工具(<a href="http://www.telerik.com/docs/default-source/fiddler/addons/fiddlercertmaker.exe?sfvrsn=2">官网地址</a>)  </p>
-<h4 id="Fiddler配置"><a href="#Fiddler配置" class="headerlink" title="Fiddler配置"></a>Fiddler配置</h4><p>　　如图，打开Fiddler，Tools 选择 Fiddler Options，将图中所标识地方勾选，配置后点击 OK 保存并重启 Fiddler<img data-src="https://static.iots.vip/%E9%85%8D%E7%BD%AEFiddler.png" alt="配置Fiddler.png"><br>　　再次打开该选项卡，点击 Action 生成证书到桌面(文件名 FiddlerRoot.cer) <img data-src="https://static.iots.vip/%E5%AF%BC%E5%87%BAFiddler%E8%AF%81%E4%B9%A6.png" alt="导出Fiddler证书.png"><br>　　将该证书文件上传到模拟器即可。  </p>
-<h4 id="模拟器配置"><a href="#模拟器配置" class="headerlink" title="模拟器配置"></a>模拟器配置</h4><p>　　记录 Windows 当前网卡的 IP 备用。<br>　　打开模拟器，在模拟器内的系统设置中选择 “安全”，选择 “从 SD 卡安装”，选择前面上传的证书，安装即可。（过程中会要求设置屏保密码，设置即可）<br>　　选择模拟器内的 WiFi 连接，长按当前的 WiFi，选择修改网络，选择手动配置代理，地址填前面记录的 Windows 本地 IP，端口为 8888，保存后重启模拟器即可。  <img data-src="https://static.iots.vip/%E6%A8%A1%E6%8B%9F%E5%99%A8WiFi%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE.png" alt="模拟器WiFi代理设置.png">  </p>
-<h3 id="开始抓包"><a href="#开始抓包" class="headerlink" title="开始抓包"></a>开始抓包</h3><h4 id="配置过滤器"><a href="#配置过滤器" class="headerlink" title="配置过滤器"></a>配置过滤器</h4><p>　　打开 Fiddler 后，打开模拟器，这时候在 Fiddler 会监听到大量的流量信息，便于查找，我们需要使用过滤器，如图，在 Fiddler 界面右侧，选择 “Filters”并勾选，选择 “Use Filters”，在 “Hosts” 项目中，选择 “Show only the following Hosts”，并填入 “<a href="http://www.ihr360.com/">www.ihr360.com</a>“ 这样能过滤掉除 i 人事以外的域名流量信息，同时，在 “Request Headers” 中，勾选 “Show only if URL contains”，填入 “gateway&#x2F;attendance&#x2F;aggregate&#x2F;attendance&#x2F;api&#x2F;sign&#x2F;doSign” ，点击右上角的 Actions，选择 “Run Filterset now” 以生效过滤器。在 Fiddler 左侧的流量信息栏中，使用 Ctrl + X 清除当前所有流量信息。<img data-src="https://static.iots.vip/Fiddler%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%8A%93%E5%8C%85%E9%85%8D%E7%BD%AE.png" alt="Fiddler模拟器抓包配置.png">  </p>
-<h4 id="模拟器签到"><a href="#模拟器签到" class="headerlink" title="模拟器签到"></a>模拟器签到</h4><p>　　将模拟器的模拟定位定位到需要打卡的位置，打开 i 人事，点击考勤打卡，打卡签到，这时候在 Fiddler 中会出现一条监听到的请求，双击打开，如图所示，<img data-src="https://static.iots.vip/Fiddler%E6%8A%93%E5%8C%85%E6%88%90%E5%8A%9F%E8%BF%94%E5%9B%9E.png" alt="Fiddler抓包成功返回.png"><br>　　可以看到，实际上打卡签到动作就是一条 POST 请求。我们了解了这条 POST 请求的基本内容后就可以利用 Python 的 requests 模块来模拟提交了。  </p>
-<h3 id="模拟请求"><a href="#模拟请求" class="headerlink" title="模拟请求"></a>模拟请求</h3><p>　　模拟 POST 请求很简单，这里就不多说，直接贴代码（很烂&#x3D;.&#x3D;! ,能用就行啦…勿喷…）：  </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># www.iots.vip  </span></span><br><span class="line"><span class="comment"># Alliot  </span></span><br><span class="line"><span class="comment"># 2020-1-8  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> formataddr</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> strftime, localtime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略 requests 请求认证警告</span></span><br><span class="line">requests.packages.urllib3.disable_warnings()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 邮件设置</span></span><br><span class="line">server = <span class="string">&#x27;smtp.163.com&#x27;</span></span><br><span class="line">port = <span class="string">&#x27;25&#x27;</span></span><br><span class="line">sender = <span class="string">&#x27;发件人邮箱&#x27;</span></span><br><span class="line">passwd = <span class="string">&#x27;密码(授权码)&#x27;</span></span><br><span class="line">receiver = <span class="string">&#x27;收件人&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># i 人事签到接口地址</span></span><br><span class="line">url = <span class="string">&quot;https://www.ihr360.com/gateway/attendance/aggregate/attendance/api/sign/doSign&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 抓包签到请求头</span></span><br><span class="line">headersValue = &#123;</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;SESSION=XXXXXXXXXXXXXX; Path=/; HttpOnly&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;accept&#x27;</span>: <span class="string">&#x27;application/json;charset=UTF-8&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;appKey&#x27;</span>: <span class="string">&#x27;com.irenshi.personneltreasure&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;appVersion&#x27;</span>: <span class="string">&#x27;XXXX&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;osVersion&#x27;</span>: <span class="string">&#x27;XXXX&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;udid&#x27;</span>: <span class="string">&#x27;XXXXXX&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;IRENSHI_APP_AGENT&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;os&#x27;</span>: <span class="string">&#x27;Android&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;irenshilocale&#x27;</span>: <span class="string">&#x27;zh_CN&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json; charset=utf-8&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Content-Length&#x27;</span>: <span class="string">&#x27;272&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;www.ihr360.com&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;Keep-Alive&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 抓包请求 json</span></span><br><span class="line">jsonValue = &#123;</span><br><span class="line">    <span class="string">&quot;deviceToken&quot;</span>: <span class="string">&quot; &quot;</span>,</span><br><span class="line">    <span class="string">&quot;deviceType&quot;</span>: <span class="string">&quot;NORMAL&quot;</span>,</span><br><span class="line">    <span class="string">&quot;latitude&quot;</span>: XXX,</span><br><span class="line">    <span class="string">&quot;locationName&quot;</span>: <span class="string">&quot;XXX&quot;</span>,</span><br><span class="line">    <span class="string">&quot;longitude&quot;</span>: XXX,</span><br><span class="line">    <span class="string">&quot;phoneName&quot;</span>: <span class="string">&quot;MI6&quot;</span>,</span><br><span class="line">    <span class="string">&quot;signSource&quot;</span>: <span class="string">&quot;APP&quot;</span>,</span><br><span class="line">    <span class="string">&quot;wifiMac&quot;</span>: <span class="string">&quot;XXX&quot;</span>,</span><br><span class="line">    <span class="string">&quot;wifiName&quot;</span>: <span class="string">&quot;Alliot&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 签到方法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">doSign</span>(<span class="params">url, jsonValue, headersValue</span>):</span><br><span class="line">    r = requests.post(url, json=jsonValue, headers=headersValue, verify=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">global</span> results</span><br><span class="line">    results = json.loads(r.text)</span><br><span class="line">    <span class="built_in">print</span>(strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, localtime()))</span><br><span class="line">    <span class="keyword">return</span> results</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 邮件提醒方法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sendMail</span>(<span class="params">server, port, sender, passwd, msg</span>):</span><br><span class="line">    smtp = smtplib.SMTP()</span><br><span class="line">    smtp.connect(server, port)</span><br><span class="line">    smtp.login(sender, passwd)</span><br><span class="line">    smtp.sendmail(msg[<span class="string">&#x27;From&#x27;</span>], msg[<span class="string">&#x27;To&#x27;</span>], msg.as_string())</span><br><span class="line">    smtp.quit()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;邮件发送成功email has send out !&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">newMail</span>(<span class="params">status</span>):</span><br><span class="line">    msg = MIMEText(<span class="built_in">str</span>(results), <span class="string">&#x27;plain&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    msg[<span class="string">&#x27;From&#x27;</span>] = formataddr([<span class="string">&quot;AlliotSigner&quot;</span>, sender])</span><br><span class="line">    msg[<span class="string">&#x27;To&#x27;</span>] = formataddr([<span class="string">&quot;Alliot&quot;</span>, receiver])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> status == <span class="literal">None</span>:</span><br><span class="line">        msg[<span class="string">&#x27;Subject&#x27;</span>] = <span class="string">&#x27;打卡失败-_-!&#x27;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;打卡失败&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        msg[<span class="string">&#x27;Subject&#x27;</span>] = <span class="string">&#x27;自动打卡成功&#x27;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;打卡成功&quot;</span>)</span><br><span class="line">    sendMail(server, port, sender, passwd, msg)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 签到并邮件通知结果,不用通知则改为 doSign(url, jsonValue, headersValue) 即可</span></span><br><span class="line">newMail(doSign(url, jsonValue, headersValue)[<span class="string">&quot;data&quot;</span>])</span><br><span class="line"><span class="comment"># doSign(url, jsonValue, headersValue)</span></span><br></pre></td></tr></table></figure>
-<p>修改其中的配置为上文抓到的数据即可（这里注意，<code>headersValue</code> 请求头为字典格式，<code>jsonValue</code> 则为 Json 格式，执行报错的时候检查一下是否是格式错误。）<br>上传到服务器中，执行：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 ihr.py # 你的文件名  </span><br></pre></td></tr></table></figure>
-<p>执行后，打开 i 人事查看是否成功产生一次签到记录，成功即可添加进计划任务。 </p>
-<h3 id="定时执行"><a href="#定时执行" class="headerlink" title="定时执行"></a>定时执行</h3><p>　　利用 crontab 来实现自动执行。关于 crontab 的具体使用，可见 <a href="/post/linux-crontab.html">Linux下crontab的使用与注意事项 | Alliot’s blog</a><br>　　我是定义每周工作日的 8 点 18 点打卡，crontab 配置为：  </p>
-<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">8</span>,<span class="number">18</span> * * mon,tue,wed,thu,fri,sat /<span class="keyword">usr</span>/bin/python3 /alliot/ihr.py&gt;&gt;/alliot/ihr_log.txt</span><br></pre></td></tr></table></figure>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>　　整个流程很简单粗暴，其实一般后台都是能看出来的，因为每次的签到位置都是一样，所以如果想要逼真一点，可以在请求中经纬度、位置名里使用范围的随机数等等… 不过，还是那句话：  可以，但没必要。</p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python调包侠之阿里云堡垒机添加主机</title>
     <url>//post/python-aliyun-hac-addhosts.html</url>
     <content><![CDATA[<p>　　要不是为了过等保，🐶 才用马云家的堡垒机。天下苦其久矣。<span id="more"></span>  </p>
@@ -1593,6 +1569,30 @@
         <tag>Linux</tag>
         <tag>Python</tag>
         <tag>SaltStack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python实现i人事自动打卡</title>
+    <url>//post/python-ihr360-auto-doSign.html</url>
+    <content><![CDATA[<p>　　我司使用的打卡软件是 i 人事，不过我这记性，经常漏了打卡签退，定了闹钟都会忘，今天又被老大屌了。于是准备抓一下签到接口，利用 crontab 来实现自动签到签退。<span id="more"></span>  </p>
+<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>　　这里使用的是 Fiddler 进行抓包，Fiddler 是一个 HTTP 调试代理工具，以代理服务器的形式实现对网络数据流的监听。之所以没有用 Wireshark，一是因为我不是很熟悉 wireshark 的筛选器，二是因为本文使用模拟器（手机应用后台流量多，不便于分析）来抓包，代理服务器方式更方便。</p>
+<h4 id="安装Fiddler"><a href="#安装Fiddler" class="headerlink" title="安装Fiddler"></a>安装Fiddler</h4><p>　　先安装 Fiddler(<a href="https://www.telerik.com/download/fiddler">官网地址</a>)，安装完成之后需要安装 fiddlercertmaker 证书生成工具(<a href="http://www.telerik.com/docs/default-source/fiddler/addons/fiddlercertmaker.exe?sfvrsn=2">官网地址</a>)  </p>
+<h4 id="Fiddler配置"><a href="#Fiddler配置" class="headerlink" title="Fiddler配置"></a>Fiddler配置</h4><p>　　如图，打开Fiddler，Tools 选择 Fiddler Options，将图中所标识地方勾选，配置后点击 OK 保存并重启 Fiddler<img data-src="https://static.iots.vip/%E9%85%8D%E7%BD%AEFiddler.png" alt="配置Fiddler.png"><br>　　再次打开该选项卡，点击 Action 生成证书到桌面(文件名 FiddlerRoot.cer) <img data-src="https://static.iots.vip/%E5%AF%BC%E5%87%BAFiddler%E8%AF%81%E4%B9%A6.png" alt="导出Fiddler证书.png"><br>　　将该证书文件上传到模拟器即可。  </p>
+<h4 id="模拟器配置"><a href="#模拟器配置" class="headerlink" title="模拟器配置"></a>模拟器配置</h4><p>　　记录 Windows 当前网卡的 IP 备用。<br>　　打开模拟器，在模拟器内的系统设置中选择 “安全”，选择 “从 SD 卡安装”，选择前面上传的证书，安装即可。（过程中会要求设置屏保密码，设置即可）<br>　　选择模拟器内的 WiFi 连接，长按当前的 WiFi，选择修改网络，选择手动配置代理，地址填前面记录的 Windows 本地 IP，端口为 8888，保存后重启模拟器即可。  <img data-src="https://static.iots.vip/%E6%A8%A1%E6%8B%9F%E5%99%A8WiFi%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE.png" alt="模拟器WiFi代理设置.png">  </p>
+<h3 id="开始抓包"><a href="#开始抓包" class="headerlink" title="开始抓包"></a>开始抓包</h3><h4 id="配置过滤器"><a href="#配置过滤器" class="headerlink" title="配置过滤器"></a>配置过滤器</h4><p>　　打开 Fiddler 后，打开模拟器，这时候在 Fiddler 会监听到大量的流量信息，便于查找，我们需要使用过滤器，如图，在 Fiddler 界面右侧，选择 “Filters”并勾选，选择 “Use Filters”，在 “Hosts” 项目中，选择 “Show only the following Hosts”，并填入 “<a href="http://www.ihr360.com/">www.ihr360.com</a>“ 这样能过滤掉除 i 人事以外的域名流量信息，同时，在 “Request Headers” 中，勾选 “Show only if URL contains”，填入 “gateway&#x2F;attendance&#x2F;aggregate&#x2F;attendance&#x2F;api&#x2F;sign&#x2F;doSign” ，点击右上角的 Actions，选择 “Run Filterset now” 以生效过滤器。在 Fiddler 左侧的流量信息栏中，使用 Ctrl + X 清除当前所有流量信息。<img data-src="https://static.iots.vip/Fiddler%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%8A%93%E5%8C%85%E9%85%8D%E7%BD%AE.png" alt="Fiddler模拟器抓包配置.png">  </p>
+<h4 id="模拟器签到"><a href="#模拟器签到" class="headerlink" title="模拟器签到"></a>模拟器签到</h4><p>　　将模拟器的模拟定位定位到需要打卡的位置，打开 i 人事，点击考勤打卡，打卡签到，这时候在 Fiddler 中会出现一条监听到的请求，双击打开，如图所示，<img data-src="https://static.iots.vip/Fiddler%E6%8A%93%E5%8C%85%E6%88%90%E5%8A%9F%E8%BF%94%E5%9B%9E.png" alt="Fiddler抓包成功返回.png"><br>　　可以看到，实际上打卡签到动作就是一条 POST 请求。我们了解了这条 POST 请求的基本内容后就可以利用 Python 的 requests 模块来模拟提交了。  </p>
+<h3 id="模拟请求"><a href="#模拟请求" class="headerlink" title="模拟请求"></a>模拟请求</h3><p>　　模拟 POST 请求很简单，这里就不多说，直接贴代码（很烂&#x3D;.&#x3D;! ,能用就行啦…勿喷…）：  </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># www.iots.vip  </span></span><br><span class="line"><span class="comment"># Alliot  </span></span><br><span class="line"><span class="comment"># 2020-1-8  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> formataddr</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> strftime, localtime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略 requests 请求认证警告</span></span><br><span class="line">requests.packages.urllib3.disable_warnings()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 邮件设置</span></span><br><span class="line">server = <span class="string">&#x27;smtp.163.com&#x27;</span></span><br><span class="line">port = <span class="string">&#x27;25&#x27;</span></span><br><span class="line">sender = <span class="string">&#x27;发件人邮箱&#x27;</span></span><br><span class="line">passwd = <span class="string">&#x27;密码(授权码)&#x27;</span></span><br><span class="line">receiver = <span class="string">&#x27;收件人&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># i 人事签到接口地址</span></span><br><span class="line">url = <span class="string">&quot;https://www.ihr360.com/gateway/attendance/aggregate/attendance/api/sign/doSign&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 抓包签到请求头</span></span><br><span class="line">headersValue = &#123;</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;SESSION=XXXXXXXXXXXXXX; Path=/; HttpOnly&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;accept&#x27;</span>: <span class="string">&#x27;application/json;charset=UTF-8&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;appKey&#x27;</span>: <span class="string">&#x27;com.irenshi.personneltreasure&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;appVersion&#x27;</span>: <span class="string">&#x27;XXXX&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;osVersion&#x27;</span>: <span class="string">&#x27;XXXX&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;udid&#x27;</span>: <span class="string">&#x27;XXXXXX&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;IRENSHI_APP_AGENT&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;os&#x27;</span>: <span class="string">&#x27;Android&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;irenshilocale&#x27;</span>: <span class="string">&#x27;zh_CN&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json; charset=utf-8&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Content-Length&#x27;</span>: <span class="string">&#x27;272&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;www.ihr360.com&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;Keep-Alive&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 抓包请求 json</span></span><br><span class="line">jsonValue = &#123;</span><br><span class="line">    <span class="string">&quot;deviceToken&quot;</span>: <span class="string">&quot; &quot;</span>,</span><br><span class="line">    <span class="string">&quot;deviceType&quot;</span>: <span class="string">&quot;NORMAL&quot;</span>,</span><br><span class="line">    <span class="string">&quot;latitude&quot;</span>: XXX,</span><br><span class="line">    <span class="string">&quot;locationName&quot;</span>: <span class="string">&quot;XXX&quot;</span>,</span><br><span class="line">    <span class="string">&quot;longitude&quot;</span>: XXX,</span><br><span class="line">    <span class="string">&quot;phoneName&quot;</span>: <span class="string">&quot;MI6&quot;</span>,</span><br><span class="line">    <span class="string">&quot;signSource&quot;</span>: <span class="string">&quot;APP&quot;</span>,</span><br><span class="line">    <span class="string">&quot;wifiMac&quot;</span>: <span class="string">&quot;XXX&quot;</span>,</span><br><span class="line">    <span class="string">&quot;wifiName&quot;</span>: <span class="string">&quot;Alliot&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 签到方法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">doSign</span>(<span class="params">url, jsonValue, headersValue</span>):</span><br><span class="line">    r = requests.post(url, json=jsonValue, headers=headersValue, verify=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">global</span> results</span><br><span class="line">    results = json.loads(r.text)</span><br><span class="line">    <span class="built_in">print</span>(strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, localtime()))</span><br><span class="line">    <span class="keyword">return</span> results</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 邮件提醒方法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sendMail</span>(<span class="params">server, port, sender, passwd, msg</span>):</span><br><span class="line">    smtp = smtplib.SMTP()</span><br><span class="line">    smtp.connect(server, port)</span><br><span class="line">    smtp.login(sender, passwd)</span><br><span class="line">    smtp.sendmail(msg[<span class="string">&#x27;From&#x27;</span>], msg[<span class="string">&#x27;To&#x27;</span>], msg.as_string())</span><br><span class="line">    smtp.quit()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;邮件发送成功email has send out !&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">newMail</span>(<span class="params">status</span>):</span><br><span class="line">    msg = MIMEText(<span class="built_in">str</span>(results), <span class="string">&#x27;plain&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    msg[<span class="string">&#x27;From&#x27;</span>] = formataddr([<span class="string">&quot;AlliotSigner&quot;</span>, sender])</span><br><span class="line">    msg[<span class="string">&#x27;To&#x27;</span>] = formataddr([<span class="string">&quot;Alliot&quot;</span>, receiver])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> status == <span class="literal">None</span>:</span><br><span class="line">        msg[<span class="string">&#x27;Subject&#x27;</span>] = <span class="string">&#x27;打卡失败-_-!&#x27;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;打卡失败&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        msg[<span class="string">&#x27;Subject&#x27;</span>] = <span class="string">&#x27;自动打卡成功&#x27;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;打卡成功&quot;</span>)</span><br><span class="line">    sendMail(server, port, sender, passwd, msg)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 签到并邮件通知结果,不用通知则改为 doSign(url, jsonValue, headersValue) 即可</span></span><br><span class="line">newMail(doSign(url, jsonValue, headersValue)[<span class="string">&quot;data&quot;</span>])</span><br><span class="line"><span class="comment"># doSign(url, jsonValue, headersValue)</span></span><br></pre></td></tr></table></figure>
+<p>修改其中的配置为上文抓到的数据即可（这里注意，<code>headersValue</code> 请求头为字典格式，<code>jsonValue</code> 则为 Json 格式，执行报错的时候检查一下是否是格式错误。）<br>上传到服务器中，执行：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 ihr.py # 你的文件名  </span><br></pre></td></tr></table></figure>
+<p>执行后，打开 i 人事查看是否成功产生一次签到记录，成功即可添加进计划任务。 </p>
+<h3 id="定时执行"><a href="#定时执行" class="headerlink" title="定时执行"></a>定时执行</h3><p>　　利用 crontab 来实现自动执行。关于 crontab 的具体使用，可见 <a href="/post/linux-crontab.html">Linux下crontab的使用与注意事项 | Alliot’s blog</a><br>　　我是定义每周工作日的 8 点 18 点打卡，crontab 配置为：  </p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">8</span>,<span class="number">18</span> * * mon,tue,wed,thu,fri,sat /<span class="keyword">usr</span>/bin/python3 /alliot/ihr.py&gt;&gt;/alliot/ihr_log.txt</span><br></pre></td></tr></table></figure>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>　　整个流程很简单粗暴，其实一般后台都是能看出来的，因为每次的签到位置都是一样，所以如果想要逼真一点，可以在请求中经纬度、位置名里使用范围的随机数等等… 不过，还是那句话：  可以，但没必要。</p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2158,6 +2158,19 @@
       </tags>
   </entry>
   <entry>
+    <title>shell中exit 0与exit 1</title>
+    <url>//post/shell-exit0-exit1.html</url>
+    <content><![CDATA[<p>　　shell 脚本中有时候需要运行退出脚本操作，可以使用 exit 来实现退出脚本<span id="more"></span>  </p>
+<h1 id="exit-0"><a href="#exit-0" class="headerlink" title="exit 0"></a>exit 0</h1><p>　　使用 <code>eixt 0</code> 退出的脚本，表示脚本正常运行退出，返回 0，运行后 <code>$?</code> 的值为 0<br>如：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# cat alliot.sh </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">echo &quot;exit 0 test&quot;</span><br><span class="line">exit 0</span><br><span class="line">[root@localhost ~]# ./alliot.sh </span><br><span class="line">exit 0 test</span><br><span class="line">[root@localhost ~]# echo $?</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h1 id="exit-1"><a href="#exit-1" class="headerlink" title="exit 1"></a>exit 1</h1><p>　　使用 <code>eixt 1</code> 退出的脚本，表示脚本非正常运行退出，返回 1，运行后 <code>$?</code> 的值为 1<br>如：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# cat alliot.sh </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">echo &quot;exit 1 test&quot;</span><br><span class="line">exit 1</span><br><span class="line">[root@localhost ~]# ./alliot.sh </span><br><span class="line">exit 1 test</span><br><span class="line">[root@localhost ~]# echo $?</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>rm: cannot remove &#39;filename&#39;: Device or resource busy的解决方法</title>
     <url>//post/device-or-resource-busy.html</url>
     <content><![CDATA[<p>今天删除备份的时候出现了 rm: cannot remove ‘filename’: Device or resource busy 的报错，本文记录了原因与解决方法。<span id="more"></span></p>
@@ -2177,19 +2190,6 @@
 ]]></content>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>shell中exit 0与exit 1</title>
-    <url>//post/shell-exit0-exit1.html</url>
-    <content><![CDATA[<p>　　shell 脚本中有时候需要运行退出脚本操作，可以使用 exit 来实现退出脚本<span id="more"></span>  </p>
-<h1 id="exit-0"><a href="#exit-0" class="headerlink" title="exit 0"></a>exit 0</h1><p>　　使用 <code>eixt 0</code> 退出的脚本，表示脚本正常运行退出，返回 0，运行后 <code>$?</code> 的值为 0<br>如：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# cat alliot.sh </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">echo &quot;exit 0 test&quot;</span><br><span class="line">exit 0</span><br><span class="line">[root@localhost ~]# ./alliot.sh </span><br><span class="line">exit 0 test</span><br><span class="line">[root@localhost ~]# echo $?</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<h1 id="exit-1"><a href="#exit-1" class="headerlink" title="exit 1"></a>exit 1</h1><p>　　使用 <code>eixt 1</code> 退出的脚本，表示脚本非正常运行退出，返回 1，运行后 <code>$?</code> 的值为 1<br>如：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# cat alliot.sh </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">echo &quot;exit 1 test&quot;</span><br><span class="line">exit 1</span><br><span class="line">[root@localhost ~]# ./alliot.sh </span><br><span class="line">exit 1 test</span><br><span class="line">[root@localhost ~]# echo $?</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -2289,19 +2289,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【转载】C语言结构体中(.)与(-&gt;)的区别</title>
-    <url>//post/c-1.html</url>
-    <content><![CDATA[<p>　　在对结构体成员进行访问时有(.)与(-&gt;)两种方式，这两种方式的使用方法有些不同。转自<a href="blog.csdn.net/shenyuanluo/article/details/51146140">@ShenYuanLuo</a>  <span id="more"></span>  </p>
-<h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h3><p>　　二者都是二元运算符，右边的操作数均为成员名称。  </p>
-<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><p>　　点运算符(.)左边为结构体名称。<br>　　箭头运算符(-&gt;)左边为结构体指针。<br>如下：  </p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>          // 定义一个结构体类型：<span class="title">DATA</span>  </span></span><br><span class="line"><span class="class">&#123;</span>  </span><br><span class="line">    <span class="type">char</span> key[<span class="number">10</span>];       <span class="comment">// 结构体成员：key  </span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];      <span class="comment">// 结构体成员：name  </span></span><br><span class="line">    <span class="type">int</span> age;            <span class="comment">// 结构体成员：age  </span></span><br><span class="line">&#125;DATA;  </span><br><span class="line">      </span><br><span class="line">DATA data;              <span class="comment">// 声明一个结构体变量  </span></span><br><span class="line">DATA *pdata;            <span class="comment">// 声明一个指向结构体的指针  </span></span><br><span class="line">      </span><br><span class="line"><span class="comment">// 访问数据操作如下：  </span></span><br><span class="line">data.age = <span class="number">24</span>;          <span class="comment">// 结构体变量通过点运算符( . )访问  </span></span><br><span class="line">pdata-&gt;age = <span class="number">24</span>;        <span class="comment">// 指向结构体的指针通过箭头运算符( -&gt; )访问  </span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>转载</tag>
-        <tag>C</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>不到300块捡一台4盘位NAS——蜗牛星际上车记</title>
     <url>//post/diy-nas-woniuxingji.html</url>
     <content><![CDATA[<p>　　最近小众币圈翻车流出大量的星际蜗牛矿车（具体事件：<a href="https://zhuanlan.zhihu.com/p/59752860">蜗牛星际矿机骗局：一堆价值800的机器骗到20亿后，变成废铁-知乎</a>）， 咱这么有爱心，肯定是要为拯救受害者尽一份微薄之力的，于是闲鱼入了一台 D 版单网口，J1900+4G垃圾内存+16G垃圾固态，260 德邦包邮。<span id="more"></span><br>一共有 ABCD 四个版本，可以见图（来自闲鱼卖家）：<img data-src="https://static.iots.vip/%E8%9C%97%E7%89%9B%E6%98%9F%E9%99%85%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94.png" alt="蜗牛星际版本对比">  </p>
@@ -2313,6 +2300,19 @@
       <tags>
         <tag>折腾</tag>
         <tag>硬件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【转载】C语言结构体中(.)与(-&gt;)的区别</title>
+    <url>//post/c-1.html</url>
+    <content><![CDATA[<p>　　在对结构体成员进行访问时有(.)与(-&gt;)两种方式，这两种方式的使用方法有些不同。转自<a href="blog.csdn.net/shenyuanluo/article/details/51146140">@ShenYuanLuo</a>  <span id="more"></span>  </p>
+<h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h3><p>　　二者都是二元运算符，右边的操作数均为成员名称。  </p>
+<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><p>　　点运算符(.)左边为结构体名称。<br>　　箭头运算符(-&gt;)左边为结构体指针。<br>如下：  </p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>          // 定义一个结构体类型：<span class="title">DATA</span>  </span></span><br><span class="line"><span class="class">&#123;</span>  </span><br><span class="line">    <span class="type">char</span> key[<span class="number">10</span>];       <span class="comment">// 结构体成员：key  </span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];      <span class="comment">// 结构体成员：name  </span></span><br><span class="line">    <span class="type">int</span> age;            <span class="comment">// 结构体成员：age  </span></span><br><span class="line">&#125;DATA;  </span><br><span class="line">      </span><br><span class="line">DATA data;              <span class="comment">// 声明一个结构体变量  </span></span><br><span class="line">DATA *pdata;            <span class="comment">// 声明一个指向结构体的指针  </span></span><br><span class="line">      </span><br><span class="line"><span class="comment">// 访问数据操作如下：  </span></span><br><span class="line">data.age = <span class="number">24</span>;          <span class="comment">// 结构体变量通过点运算符( . )访问  </span></span><br><span class="line">pdata-&gt;age = <span class="number">24</span>;        <span class="comment">// 指向结构体的指针通过箭头运算符( -&gt; )访问  </span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>转载</tag>
+        <tag>C</tag>
       </tags>
   </entry>
   <entry>
@@ -3041,7 +3041,7 @@
 
 <h3 id="Git-pages"><a href="#Git-pages" class="headerlink" title="Git pages"></a>Git pages</h3><p>　　很多用 hexo 的朋友都选择使用两个分支来分别存放站点的 source 与 public，然后 public 的分支用来构建 gitpages。由于 GitHub 已经有免费的私有仓库了，我这里是将 source 与 public 分开各开一个 repository，source 仓库为私有。我在 GitHub 新建了两个仓库分别为: wiki-source(私有)、hexo-wiki-pages(公有)。在 hexo-wiki-pages 仓库的设置里打开 gitpages。<br>　　将 themes&#x2F;Wikitten&#x2F;hexo&#x2F; 下的所有文件复制到 hexo 的目录下。</p>
 <ul>
-<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;">git@github.com</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
+<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">git@github.com</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
 <li>修改 <code>.travis.yml</code> branch 字段指定你要构建的分支，如我的 wiki-source 仓库需要构建的分支为: master   </li>
 <li>修改 <code>travis_env_init.sh</code> 中 git 的配置信息（用户名与邮箱）。<br>之后就可以通过 <code>hexo s</code> 打开 <code>localhost:4000</code> 本地访问测试一下，成功则将 hexo 目录 push 到你的 source 仓库。</li>
 </ul>
@@ -3423,6 +3423,21 @@
       </tags>
   </entry>
   <entry>
+    <title>恢复Chrome的https与www显示</title>
+    <url>//post/show-chrome-www-https.html</url>
+    <content><![CDATA[<p>　　新版的 Chrome 取消了 https 小锁与 www 的显示，可以通过如下方式暂时打开。<span id="more"></span><br>　　在 Chrome 中打开地址:  chrome:&#x2F;&#x2F;flags&#x2F;#omnibox-ui-hide-steady-state-url-trivial-subdomains 将选项改为 <code>disable</code> 重启 Chrome 即可。<br>　　三个选项代表： </p>
+<ul>
+<li>default：不显示 https:&#x2F;&#x2F; 及 www. </li>
+<li>disable：显示 https:&#x2F;&#x2F; 及 www. </li>
+<li>enable：显示 https:&#x2F;&#x2F; 但不显示 www.<br>来自@<a href="https://twitter.com/qiushuiyibing">秋水逸冰</a> 的推文。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+        <tag>转载</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>服务器性能测试系列（一）：UnixBench工具跑分测试</title>
     <url>//post/vps-assessment1.html</url>
     <content><![CDATA[<p>UnixBench是一款开源的测试 unix 系统基本性能的工具,是比较通用的测试VPS性能的工具。<br>UnixBench会执行一系列的测试,包括2D和3D图形系统的性能衡量,测试的结果不仅仅只是CPU,内存,或者磁盘为基准,还取决于硬件,操作系统版本,编译器。<br>测试系统各个方面一系列的性能,然后将每个测试结果和一个基准值进行比较,得到一个索引值,所有测试项目的索引值结合在一起形成一个测试分数值。 <span id="more"></span><br>UnixBench一键执行脚本,脚本会自动下载unixbench最新版本,并自动运行.根据机器性能,测试执行完大约需要10-30分钟。 </p>
@@ -3458,21 +3473,6 @@
       </tags>
   </entry>
   <entry>
-    <title>恢复Chrome的https与www显示</title>
-    <url>//post/show-chrome-www-https.html</url>
-    <content><![CDATA[<p>　　新版的 Chrome 取消了 https 小锁与 www 的显示，可以通过如下方式暂时打开。<span id="more"></span><br>　　在 Chrome 中打开地址:  chrome:&#x2F;&#x2F;flags&#x2F;#omnibox-ui-hide-steady-state-url-trivial-subdomains 将选项改为 <code>disable</code> 重启 Chrome 即可。<br>　　三个选项代表： </p>
-<ul>
-<li>default：不显示 https:&#x2F;&#x2F; 及 www. </li>
-<li>disable：显示 https:&#x2F;&#x2F; 及 www. </li>
-<li>enable：显示 https:&#x2F;&#x2F; 但不显示 www.<br>来自@<a href="https://twitter.com/qiushuiyibing">秋水逸冰</a> 的推文。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
-        <tag>转载</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>服务器性能测试系列（三）：fio磁盘性能测试</title>
     <url>//post/vps-assessment3.html</url>
     <content><![CDATA[<p>fio是一个非常灵活的I&#x2F;O测试工具,FIO是测试IOPS的非常好的工具，用来对硬件进行压力测试和验证，支持13种不同的I&#x2F;O引擎，支持多线程或进程模拟等I&#x2F;O操作来进行压力测试。<br>包括:sync,mmap, libaio, posixaio, SG v3, splice, null, network, syslet, guasi, solarisaio 等等。  <span id="more"></span>  </p>
@@ -3491,38 +3491,6 @@
       <tags>
         <tag>Linux</tag>
         <tag>系列</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>本地模拟CNAME解析</title>
-    <url>//post/cname-record-simulate.html</url>
-    <content><![CDATA[<p>　　众所周知，我们可以通过修改本地 hosts 文件来定义一个域名的指向，这个过程我们可以简单的理解为在本机创建了一个优先级很高的 DNS A 记录，实现了某种程度上的域名劫持， 利用这种特性我们可以实现诸如广告屏蔽、本地测试、别名等需求，但 hosts 机制仅仅能定义域名与 IP 对应关系， 并不能模拟其他的 Record 类型， 比如 CNAME 记录。  <span id="more"></span>  </p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>　　由于近期某个应用在某些地区的连通性较差，于是考虑临时对其使用 CDN， 在上线之前，我们需要测试并调整 CDN 回源、缓存策略等各项配置，由于不是新上线的域名，这个域名是有用户在使用的，所以我们不能简单粗暴的将 DNS 记录直接切到 CDN 的 CNAME 域名， 因此我们只能考虑在本地搭建一个 DNS 服务，用于模拟 CNAME。</p>
-<h3 id="安装-DNS-服务"><a href="#安装-DNS-服务" class="headerlink" title="安装 DNS 服务"></a>安装 DNS 服务</h3><p>　　本机为 macOS，使用 homebrew 来安装 dnsmasq 搭建 DNS 服务器， 其他系统配置文件路径会有所不同。  </p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 dnsmasq </span></span><br><span class="line">brew install dnsmasq  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份默认配置文件</span></span><br><span class="line">cp <span class="regexp">/opt/</span>homebrew<span class="regexp">/etc/</span>dnsmasq.conf <span class="regexp">/opt/</span>homebrew<span class="regexp">/etc/</span>dnsmasq.conf.bak</span><br></pre></td></tr></table></figure>
-
-<p>默认的 dnsmasq 配置文件很长，不过大多数配置都注释掉了，可以根据注释来配置我们需要的，这里仅配置一下我们需要关注的地方:  </p>
-<p><code>vim /opt/homebrew/etc/dnsmasq.conf</code>: </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 定义一下上游的 DNS 服务地址</span><br><span class="line">resolv-file=/Users/alliot/dns.conf</span><br><span class="line"># 按照 resolv-file 中列出的顺序查询上游 DNS 服务器</span><br><span class="line">strict-order</span><br><span class="line"></span><br><span class="line">user=root</span><br><span class="line">listen-address=127.0.0.1</span><br><span class="line"></span><br><span class="line"># 从指定的文件读取额外的主机名映射，也就是 hosts </span><br><span class="line">addn-hosts=/etc/banner_add_hosts</span><br><span class="line"></span><br><span class="line"># 创建一条CNAME记录，www.iots.vip会CNAME到alliot.blog.net，多条记录可以在配置文件中写多条配置  </span><br><span class="line">cname=www.iots.vip,alliot.blog.net</span><br></pre></td></tr></table></figure>
-<p>创建一下 dns.conf 指定上游的 DNS:<br><code>vim /Users/alliot/dns.conf</code>  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nameserver 114.114.114.114</span><br><span class="line">nameserver 223.5.5.5</span><br></pre></td></tr></table></figure>
-<p>之后重启服务:  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里由于我们上面启动dnsmasq的用户是root，所以必须加sudo</span>  </span><br><span class="line">sudo brew services restart  dnsmasq</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="配置本机DNS"><a href="#配置本机DNS" class="headerlink" title="配置本机DNS"></a>配置本机DNS</h3><p>假设我们 macOS 当前使用的 Wi-Fi 网络，我们可以直接使用命令行配置 Wi-Fi 网卡的 DNS 服务器:  </p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取当前的 DNS 配置</span></span><br><span class="line"><span class="attribute">networksetup</span> -getdnsservers Wi-Fi</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改DNS为127.0.0.1，即我们的dnsmasq服务</span></span><br><span class="line">networksetup -setdnsservers Wi-Fi <span class="number">127.0.0.1</span></span><br><span class="line"></span><br><span class="line">networksetup -getdnsservers Wi-Fi</span><br></pre></td></tr></table></figure>
-<p>当然你也可以通过界面来配置：<br>依次点击 “系统偏好设置 &gt; 网络 &gt; 高级 &gt; DNS”，选中 “DNS” 配置，删除现有的公共 DNS，填入 <code>127.0.0.1</code> 保存即可。  </p>
-<p>至此我们便可以完成了在本地模拟 CNAME 解析了，当我们访问 <code>www.iots.vip</code> 时，便 CNAME 到了 <code>alliot.blog.net</code>。  </p>
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>我们可以使用 <code>dig</code> 来指定 DNS 服务器来验证一下：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先使用114的DNS解析来看一下现网的DNS记录:</span> </span><br><span class="line">dig +short www.iots.vip @114.114.114.114  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里会返回我们现网的DNS记录</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再使用本地我们的dnsmasq来解析一下：</span> </span><br><span class="line">dig +short www.iots.vip @127.0.0.1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再直接使用当前系统配置的DNS服务看看是否生效:</span> </span><br><span class="line">dig +short www.iots.vip </span><br></pre></td></tr></table></figure>
-
-
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>原理是 DNS 的工作方式是分层的，就像一个有许多层次的目录或者电话簿。<br>我们这里将本机 DNS 指定为了我们启动的 dnsmasq， dnsmasq 指定了 114.114.114.114 为上游 DNS， 那么当我们访问一个网站时，DNS 解析路径就为 hosts -&gt; dnsmasq -&gt; 114DNS.<br><code>www.iots.vip</code> 在 dnsmasq 时找到了一个 CNAME 记录，便不会再往 114DNS 去查询，达到了自定义 CNAME 记录的目的。  </p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -3566,6 +3534,38 @@
       </tags>
   </entry>
   <entry>
+    <title>本地模拟CNAME解析</title>
+    <url>//post/cname-record-simulate.html</url>
+    <content><![CDATA[<p>　　众所周知，我们可以通过修改本地 hosts 文件来定义一个域名的指向，这个过程我们可以简单的理解为在本机创建了一个优先级很高的 DNS A 记录，实现了某种程度上的域名劫持， 利用这种特性我们可以实现诸如广告屏蔽、本地测试、别名等需求，但 hosts 机制仅仅能定义域名与 IP 对应关系， 并不能模拟其他的 Record 类型， 比如 CNAME 记录。  <span id="more"></span>  </p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>　　由于近期某个应用在某些地区的连通性较差，于是考虑临时对其使用 CDN， 在上线之前，我们需要测试并调整 CDN 回源、缓存策略等各项配置，由于不是新上线的域名，这个域名是有用户在使用的，所以我们不能简单粗暴的将 DNS 记录直接切到 CDN 的 CNAME 域名， 因此我们只能考虑在本地搭建一个 DNS 服务，用于模拟 CNAME。</p>
+<h3 id="安装-DNS-服务"><a href="#安装-DNS-服务" class="headerlink" title="安装 DNS 服务"></a>安装 DNS 服务</h3><p>　　本机为 macOS，使用 homebrew 来安装 dnsmasq 搭建 DNS 服务器， 其他系统配置文件路径会有所不同。  </p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 dnsmasq </span></span><br><span class="line">brew install dnsmasq  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份默认配置文件</span></span><br><span class="line">cp <span class="regexp">/opt/</span>homebrew<span class="regexp">/etc/</span>dnsmasq.conf <span class="regexp">/opt/</span>homebrew<span class="regexp">/etc/</span>dnsmasq.conf.bak</span><br></pre></td></tr></table></figure>
+
+<p>默认的 dnsmasq 配置文件很长，不过大多数配置都注释掉了，可以根据注释来配置我们需要的，这里仅配置一下我们需要关注的地方:  </p>
+<p><code>vim /opt/homebrew/etc/dnsmasq.conf</code>: </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 定义一下上游的 DNS 服务地址</span><br><span class="line">resolv-file=/Users/alliot/dns.conf</span><br><span class="line"># 按照 resolv-file 中列出的顺序查询上游 DNS 服务器</span><br><span class="line">strict-order</span><br><span class="line"></span><br><span class="line">user=root</span><br><span class="line">listen-address=127.0.0.1</span><br><span class="line"></span><br><span class="line"># 从指定的文件读取额外的主机名映射，也就是 hosts </span><br><span class="line">addn-hosts=/etc/banner_add_hosts</span><br><span class="line"></span><br><span class="line"># 创建一条CNAME记录，www.iots.vip会CNAME到alliot.blog.net，多条记录可以在配置文件中写多条配置  </span><br><span class="line">cname=www.iots.vip,alliot.blog.net</span><br></pre></td></tr></table></figure>
+<p>创建一下 dns.conf 指定上游的 DNS:<br><code>vim /Users/alliot/dns.conf</code>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nameserver 114.114.114.114</span><br><span class="line">nameserver 223.5.5.5</span><br></pre></td></tr></table></figure>
+<p>之后重启服务:  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里由于我们上面启动dnsmasq的用户是root，所以必须加sudo</span>  </span><br><span class="line">sudo brew services restart  dnsmasq</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="配置本机DNS"><a href="#配置本机DNS" class="headerlink" title="配置本机DNS"></a>配置本机DNS</h3><p>假设我们 macOS 当前使用的 Wi-Fi 网络，我们可以直接使用命令行配置 Wi-Fi 网卡的 DNS 服务器:  </p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取当前的 DNS 配置</span></span><br><span class="line"><span class="attribute">networksetup</span> -getdnsservers Wi-Fi</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改DNS为127.0.0.1，即我们的dnsmasq服务</span></span><br><span class="line">networksetup -setdnsservers Wi-Fi <span class="number">127.0.0.1</span></span><br><span class="line"></span><br><span class="line">networksetup -getdnsservers Wi-Fi</span><br></pre></td></tr></table></figure>
+<p>当然你也可以通过界面来配置：<br>依次点击 “系统偏好设置 &gt; 网络 &gt; 高级 &gt; DNS”，选中 “DNS” 配置，删除现有的公共 DNS，填入 <code>127.0.0.1</code> 保存即可。  </p>
+<p>至此我们便可以完成了在本地模拟 CNAME 解析了，当我们访问 <code>www.iots.vip</code> 时，便 CNAME 到了 <code>alliot.blog.net</code>。  </p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>我们可以使用 <code>dig</code> 来指定 DNS 服务器来验证一下：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先使用114的DNS解析来看一下现网的DNS记录:</span> </span><br><span class="line">dig +short www.iots.vip @114.114.114.114  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里会返回我们现网的DNS记录</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再使用本地我们的dnsmasq来解析一下：</span> </span><br><span class="line">dig +short www.iots.vip @127.0.0.1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再直接使用当前系统配置的DNS服务看看是否生效:</span> </span><br><span class="line">dig +short www.iots.vip </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>原理是 DNS 的工作方式是分层的，就像一个有许多层次的目录或者电话簿。<br>我们这里将本机 DNS 指定为了我们启动的 dnsmasq， dnsmasq 指定了 114.114.114.114 为上游 DNS， 那么当我们访问一个网站时，DNS 解析路径就为 hosts -&gt; dnsmasq -&gt; 114DNS.<br><code>www.iots.vip</code> 在 dnsmasq 时找到了一个 CNAME 记录，便不会再往 114DNS 去查询，达到了自定义 CNAME 记录的目的。  </p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>查看CentOS系统版本信息</title>
     <url>//post/centos-info.html</url>
     <content><![CDATA[<p>不同发行版有不同的方法，我用CentOS比较多，这里以CentOS为例  </p>
@@ -3583,6 +3583,34 @@
       <tags>
         <tag>Linux</tag>
         <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>案例:SAN存储区域网络配置练习</title>
+    <url>//post/SAN-config-practice.html</url>
+    <content><![CDATA[<p>　　SAN(Storage Area Network) 一般用户接触的机会不多，说来也巧，入职后刚好遇上公司存储升级换代，部分配置需要重做，Alliot 借此机会管中窥豹也算是接触了一些存储相关的东西。坤哥与杜老大带我们了解一些基本概念后,给了一个较为简单的配置练习,本文做一些整理。<span id="more"></span> </p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>公司现要求一台新部署的服务器 ServerA 接入 SAN 网络：  </p>
+<h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><p>HBA 卡 1：<br>110000e08b0ffc8a        —连接到交换机1<br>110000e08b0ffc8b        —连接到交换机1<br>HBA 卡 2：<br>110000e08b0ffc8c        —连接到交换机2<br>110000e08b0ffc8d        —连接到交换机2  </p>
+<h4 id="存储-EMC-VMAX10K"><a href="#存储-EMC-VMAX10K" class="headerlink" title="存储 EMC_VMAX10K"></a>存储 EMC_VMAX10K</h4><p>前端端口 wwm：<br>110000e08b0ffc01     —连接交换机1<br>110000e08b0ffc02     —连接交换机1<br>110000e08b0ffc03     —连接交换机2<br>110000e08b0ffc04     —连接交换机2  </p>
+<p>备份采用单边接入  </p>
+<h4 id="磁带库-IBM-TS3310"><a href="#磁带库-IBM-TS3310" class="headerlink" title="磁带库 IBM_TS3310"></a>磁带库 IBM_TS3310</h4><p>wwn:<br>110000e08b0ffca1     —连接交换机1<br>110000e08b0ffca2     —连接交换机1  </p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="问题-1-："><a href="#问题-1-：" class="headerlink" title="问题 1 ："></a>问题 1 ：</h4><p>如何知道服务器的每张HBA卡的哪个口正在连接交换机（即状态为online）<br>Linux服务器查看fc状态：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /sys/class/fc_host/hostX/port_stat</span><br></pre></td></tr></table></figure>
+<p>这里的 “hostX” 中的 X 需要看该目录下的具体数值，依情况而定。    </p>
+<p>其实也可以去到 SAN 交换机通过 <code>switchshow</code> 来查看。  </p>
+<h4 id="问题-2-："><a href="#问题-2-：" class="headerlink" title="问题 2 ："></a>问题 2 ：</h4><p>如何知道服务器连到了交换机的哪个口？如何检查这个口的光衰？<br>查看交换机接口状态:  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">switchshow  </span><br></pre></td></tr></table></figure>
+<p>查看光衰:<br>通过 <code>switchshow</code> 中找到对应端口id </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sfpshow id</span><br></pre></td></tr></table></figure>
+<p>要求<br>RX Power(收光)： 在 [-2, -7] 为质量较好；[-7, -10] 质量暂时可以接受；[-10, -14] 不可接受，需要整改；[-14,- 49] 为不能通讯。<br>TX Power 无所谓  </p>
+<h4 id="问题-3："><a href="#问题-3：" class="headerlink" title="问题 3："></a>问题 3：</h4><p>如何知道当前交换机使用的配置文件名？<br>通过 <code>cfgshow</code> 来查看：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cfgshow | more # 首行即是  </span><br></pre></td></tr></table></figure>
+<h4 id="问题-4-："><a href="#问题-4-：" class="headerlink" title="问题 4 ："></a>问题 4 ：</h4><p>配置 SAN 交换机，要求业务数据 IO 流量与备份 IO 流量分开，两台 SAN 交换机配置如下：  </p>
+<h5 id="SAN-Switch1"><a href="#SAN-Switch1" class="headerlink" title="SAN Switch1:"></a>SAN Switch1:</h5><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 创建 ServerA HBA1 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;ServerA_HBA1_1&quot;</span>,<span class="string">&quot;110000e08b0ffc8a&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;ServerA_HBA1_2&quot;</span>,<span class="string">&quot;110000e08b0ffc8b&quot;</span>   </span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 存储 EMC_VMAX10K SPA SPB 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;EMC_VMAX10K_SPA&quot;</span>,<span class="string">&quot;110000e08b0ffc01&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;EMC_VMAX10K_SPB&quot;</span>,<span class="string">&quot;110000e08b0ffc02&quot;</span>  </span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 备份磁带库 IBM_TS3310 SPA SPB 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;IBM_TS3310_SPA&quot;</span>,<span class="string">&quot;110000e08b0ffca1&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;IBM_TS3310_SPB&quot;</span>,<span class="string">&quot;110000e08b0ffca2  </span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 HBA1_1 到存储 SP A、B 的 Zone  </span></span><br><span class="line">zoneCreate <span class="string">&quot;ServerA_HBA1_1_To_EMC_VMAX10K&quot;</span>,\</span><br><span class="line"><span class="string">&quot;ServerA_HBA1_1;\</span></span><br><span class="line">EMC_VMAX10_SPA;\</span><br><span class="line">EMC_VMAX10_SPB<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 HBA1_2 到备份磁带库 IBM_TSC3310 的 Zone(备份没有多路径，只需要接一个控制器)  </span></span><br><span class="line">zoneCreate <span class="string">&quot;ServerA_HBA1_2_To_IBM_TSC3310&quot;</span>,\</span><br><span class="line"><span class="string">&quot;ServerA_HBA1_2;\</span></span><br><span class="line">IBM_TSC3310_SPA<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 添加到 cfg01 </span></span><br><span class="line">cfgadd <span class="string">&quot;cfg01&quot;</span>,\</span><br><span class="line"><span class="string">&quot;ServerA_HBA1_1_To_EMC_VMAX10K;\</span></span><br><span class="line">ServerA_HBA1_2_To_IBM_TSC3310<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 保存 cfg</span></span><br><span class="line">CfgSave</span><br><span class="line"></span><br><span class="line"><span class="meta"># 激活 cfg01</span></span><br><span class="line">CfgEnable <span class="string">&quot;cfg01&quot;</span></span><br></pre></td></tr></table></figure>
+<h5 id="SAN-Switch2"><a href="#SAN-Switch2" class="headerlink" title="SAN Switch2:"></a>SAN Switch2:</h5><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 创建 ServerA HBA2 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;ServerA_HBA2_1&quot;</span>,<span class="string">&quot;110000e08b0ffc8c&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;ServerA_HBA2_2&quot;</span>,<span class="string">&quot;110000e08b0ffc8d&quot;</span>   </span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 存储 EMC_VMAX10K SPC SPD 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;EMC_VMAX10K_SPC&quot;</span>,<span class="string">&quot;110000e08b0ffc03&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;EMC_VMAX10K_SPD&quot;</span>,<span class="string">&quot;110000e08b0ffc04&quot;</span>  </span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 HBA2 到存储 SP C、D 的 Zone  </span></span><br><span class="line">zoneCreate <span class="string">&quot;ServerA_HBA2_To_EMC_VMAX10K&quot;</span>,\</span><br><span class="line"><span class="string">&quot;ServerA_HBA2_1;\</span></span><br><span class="line">ServerA_HBA2_2;\</span><br><span class="line">EMC_VMAX10_SPC;\</span><br><span class="line">EMC_VMAX10_SPD<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 添加到 cfg01 </span></span><br><span class="line">cfgadd <span class="string">&quot;cfg02&quot;</span>,\</span><br><span class="line">“ServerA_HBA2_To_EMC_VMAX10K<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 保存 cfg</span></span><br><span class="line">CfgSave</span><br><span class="line"></span><br><span class="line"><span class="meta"># 激活 cfg02</span></span><br><span class="line">CfgEnable <span class="string">&quot;cfg02&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>存储</tag>
       </tags>
   </entry>
   <entry>
@@ -3621,34 +3649,6 @@
         <tag>折腾</tag>
         <tag>硬件</tag>
         <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>案例:SAN存储区域网络配置练习</title>
-    <url>//post/SAN-config-practice.html</url>
-    <content><![CDATA[<p>　　SAN(Storage Area Network) 一般用户接触的机会不多，说来也巧，入职后刚好遇上公司存储升级换代，部分配置需要重做，Alliot 借此机会管中窥豹也算是接触了一些存储相关的东西。坤哥与杜老大带我们了解一些基本概念后,给了一个较为简单的配置练习,本文做一些整理。<span id="more"></span> </p>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>公司现要求一台新部署的服务器 ServerA 接入 SAN 网络：  </p>
-<h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><p>HBA 卡 1：<br>110000e08b0ffc8a        —连接到交换机1<br>110000e08b0ffc8b        —连接到交换机1<br>HBA 卡 2：<br>110000e08b0ffc8c        —连接到交换机2<br>110000e08b0ffc8d        —连接到交换机2  </p>
-<h4 id="存储-EMC-VMAX10K"><a href="#存储-EMC-VMAX10K" class="headerlink" title="存储 EMC_VMAX10K"></a>存储 EMC_VMAX10K</h4><p>前端端口 wwm：<br>110000e08b0ffc01     —连接交换机1<br>110000e08b0ffc02     —连接交换机1<br>110000e08b0ffc03     —连接交换机2<br>110000e08b0ffc04     —连接交换机2  </p>
-<p>备份采用单边接入  </p>
-<h4 id="磁带库-IBM-TS3310"><a href="#磁带库-IBM-TS3310" class="headerlink" title="磁带库 IBM_TS3310"></a>磁带库 IBM_TS3310</h4><p>wwn:<br>110000e08b0ffca1     —连接交换机1<br>110000e08b0ffca2     —连接交换机1  </p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="问题-1-："><a href="#问题-1-：" class="headerlink" title="问题 1 ："></a>问题 1 ：</h4><p>如何知道服务器的每张HBA卡的哪个口正在连接交换机（即状态为online）<br>Linux服务器查看fc状态：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /sys/class/fc_host/hostX/port_stat</span><br></pre></td></tr></table></figure>
-<p>这里的 “hostX” 中的 X 需要看该目录下的具体数值，依情况而定。    </p>
-<p>其实也可以去到 SAN 交换机通过 <code>switchshow</code> 来查看。  </p>
-<h4 id="问题-2-："><a href="#问题-2-：" class="headerlink" title="问题 2 ："></a>问题 2 ：</h4><p>如何知道服务器连到了交换机的哪个口？如何检查这个口的光衰？<br>查看交换机接口状态:  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">switchshow  </span><br></pre></td></tr></table></figure>
-<p>查看光衰:<br>通过 <code>switchshow</code> 中找到对应端口id </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sfpshow id</span><br></pre></td></tr></table></figure>
-<p>要求<br>RX Power(收光)： 在 [-2, -7] 为质量较好；[-7, -10] 质量暂时可以接受；[-10, -14] 不可接受，需要整改；[-14,- 49] 为不能通讯。<br>TX Power 无所谓  </p>
-<h4 id="问题-3："><a href="#问题-3：" class="headerlink" title="问题 3："></a>问题 3：</h4><p>如何知道当前交换机使用的配置文件名？<br>通过 <code>cfgshow</code> 来查看：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cfgshow | more # 首行即是  </span><br></pre></td></tr></table></figure>
-<h4 id="问题-4-："><a href="#问题-4-：" class="headerlink" title="问题 4 ："></a>问题 4 ：</h4><p>配置 SAN 交换机，要求业务数据 IO 流量与备份 IO 流量分开，两台 SAN 交换机配置如下：  </p>
-<h5 id="SAN-Switch1"><a href="#SAN-Switch1" class="headerlink" title="SAN Switch1:"></a>SAN Switch1:</h5><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 创建 ServerA HBA1 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;ServerA_HBA1_1&quot;</span>,<span class="string">&quot;110000e08b0ffc8a&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;ServerA_HBA1_2&quot;</span>,<span class="string">&quot;110000e08b0ffc8b&quot;</span>   </span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 存储 EMC_VMAX10K SPA SPB 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;EMC_VMAX10K_SPA&quot;</span>,<span class="string">&quot;110000e08b0ffc01&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;EMC_VMAX10K_SPB&quot;</span>,<span class="string">&quot;110000e08b0ffc02&quot;</span>  </span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 备份磁带库 IBM_TS3310 SPA SPB 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;IBM_TS3310_SPA&quot;</span>,<span class="string">&quot;110000e08b0ffca1&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;IBM_TS3310_SPB&quot;</span>,<span class="string">&quot;110000e08b0ffca2  </span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 HBA1_1 到存储 SP A、B 的 Zone  </span></span><br><span class="line">zoneCreate <span class="string">&quot;ServerA_HBA1_1_To_EMC_VMAX10K&quot;</span>,\</span><br><span class="line"><span class="string">&quot;ServerA_HBA1_1;\</span></span><br><span class="line">EMC_VMAX10_SPA;\</span><br><span class="line">EMC_VMAX10_SPB<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 HBA1_2 到备份磁带库 IBM_TSC3310 的 Zone(备份没有多路径，只需要接一个控制器)  </span></span><br><span class="line">zoneCreate <span class="string">&quot;ServerA_HBA1_2_To_IBM_TSC3310&quot;</span>,\</span><br><span class="line"><span class="string">&quot;ServerA_HBA1_2;\</span></span><br><span class="line">IBM_TSC3310_SPA<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 添加到 cfg01 </span></span><br><span class="line">cfgadd <span class="string">&quot;cfg01&quot;</span>,\</span><br><span class="line"><span class="string">&quot;ServerA_HBA1_1_To_EMC_VMAX10K;\</span></span><br><span class="line">ServerA_HBA1_2_To_IBM_TSC3310<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 保存 cfg</span></span><br><span class="line">CfgSave</span><br><span class="line"></span><br><span class="line"><span class="meta"># 激活 cfg01</span></span><br><span class="line">CfgEnable <span class="string">&quot;cfg01&quot;</span></span><br></pre></td></tr></table></figure>
-<h5 id="SAN-Switch2"><a href="#SAN-Switch2" class="headerlink" title="SAN Switch2:"></a>SAN Switch2:</h5><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 创建 ServerA HBA2 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;ServerA_HBA2_1&quot;</span>,<span class="string">&quot;110000e08b0ffc8c&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;ServerA_HBA2_2&quot;</span>,<span class="string">&quot;110000e08b0ffc8d&quot;</span>   </span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 存储 EMC_VMAX10K SPC SPD 别名  </span></span><br><span class="line">alicreate <span class="string">&quot;EMC_VMAX10K_SPC&quot;</span>,<span class="string">&quot;110000e08b0ffc03&quot;</span>  </span><br><span class="line">alicreate <span class="string">&quot;EMC_VMAX10K_SPD&quot;</span>,<span class="string">&quot;110000e08b0ffc04&quot;</span>  </span><br><span class="line"></span><br><span class="line"><span class="meta"># 创建 HBA2 到存储 SP C、D 的 Zone  </span></span><br><span class="line">zoneCreate <span class="string">&quot;ServerA_HBA2_To_EMC_VMAX10K&quot;</span>,\</span><br><span class="line"><span class="string">&quot;ServerA_HBA2_1;\</span></span><br><span class="line">ServerA_HBA2_2;\</span><br><span class="line">EMC_VMAX10_SPC;\</span><br><span class="line">EMC_VMAX10_SPD<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 添加到 cfg01 </span></span><br><span class="line">cfgadd <span class="string">&quot;cfg02&quot;</span>,\</span><br><span class="line">“ServerA_HBA2_To_EMC_VMAX10K<span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 保存 cfg</span></span><br><span class="line">CfgSave</span><br><span class="line"></span><br><span class="line"><span class="meta"># 激活 cfg02</span></span><br><span class="line">CfgEnable <span class="string">&quot;cfg02&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>存储</tag>
       </tags>
   </entry>
   <entry>
@@ -3776,59 +3776,6 @@
       </tags>
   </entry>
   <entry>
-    <title>群晖入门到进阶系列（一）：系统安装、洗白与局域网唤醒</title>
-    <url>//post/synology-series-1.html</url>
-    <content><![CDATA[<p>　　该<a href="/tags/%E7%B3%BB%E5%88%97/">系列</a>文章是继 <a href="https://www.iots.vip/post/diy-nas-woniuxingji.html">不到300块捡一台4盘位NAS——蜗牛星际上车记</a> 后，对折腾黑<a href="/tags/%E7%BE%A4%E6%99%96/">群晖</a>系统的记录，部分内容也适用于其他硬件平台的朋友与白<a href="/tags/%E7%BE%A4%E6%99%96/">群晖</a>土豪。<br>　　本系列包括系统的安装、洗白、内外网环境配置、套件的优化、 Docker 、PT 下载，以及诸如 <code>ipkg</code> 环境配置等较为高级用法，基本涵盖了这个等级硬件平台下大部分能折腾的地方。<span id="more"></span>  </p>
-<blockquote class="blockquote-center">
-<p>注：本文很多内容来自互联网，仅供学习交流，如侵删。感谢 <a href="https://xpenology.com/forum/profile/23252-jun/">Jun</a> 大佬的引导与其他诸多大佬的热心分享，Alliot 只是记录整理自己的动手过程，以便自己重装时翻阅，同时给需要的朋友作参考，由于部分资料为零散记录或群友帮助，所以部分出处不详，如有侵权，请随时在文末评论区或邮件联系。</p>
-
-</blockquote>   
-<p>　　本系列用到的所有工具： </p>
-<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">链接：https://pan.baidu.com/s/1LXy9zo51a0wGbCjz24MsIg </span><br><span class="line">提取码：iots </span><br><span class="line"><span class="section">===== 2021-07-08 更新 ======</span></span><br><span class="line">阿里云盘链接： https://www.aliyundrive.com/s/veSwnbK6egv</span><br><span class="line">通过这个链接注册可以多领取500G容量： https://pages.aliyundrive.com/mobile-page/web/beinvited.html?code=f8fd344</span><br></pre></td></tr></table></figure>
-<h3 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h3><p>　　Alliot 这里是用的<a href="https://www.iots.vip/post/diy-nas-woniuxingji.html">不到300块捡一台4盘位NAS——蜗牛星际上车记</a> 这台蜗牛星际 D 版。  </p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">CPU: Intel Celeron J1900  </span></span><br><span class="line"><span class="section">内存: 威刚 DDR3L 4G 1666  </span></span><br><span class="line"><span class="section">引导盘: 金士顿 4G USB2.0  </span></span><br><span class="line">原装 mSATA 盘已舍弃，至于为什么后面会说到 </span><br></pre></td></tr></table></figure>
-
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>　　Alliot 这里没有采用大多数人选择的二合一引导方法，而是用的古老的 U 盘引导大法，理由很简单：白群晖实际上也是采用类似的机制，主板上有块闪存单独存放引导文件，而 DSM 系统则在每块硬盘上的第一个分区。<br>　　这里谈谈很多人推崇的二合一引导（蜗牛星际最多，安装在自带的 mSATA 盘中），优点有：方便，不用在数据盘上丢系统分区；系统不在数据盘上，方便硬盘休眠。 缺点也很明显，系统与引导均在一块盘上，这块盘坏了，套件与系统配置等均会丢失，而做单独引导盘，系统会存在于每块数据盘，引导盘坏了，重刷一遍引导依照提示迁移几分钟便能正常使用。<br>　　蜗牛星际还有个原因就是，引导放在 mSATA 中会出现所有硬盘 S.M.A.R.T 信息无法正常显示的情况。这对于 NAS 来说是很危险的，群晖可以根据 S.M.A.R.T 来提示磁盘预损毁，没有 S.M.A.R.T 信息，也许有一天你会发现硬盘毫无征兆的就损毁了，无法抢救数据。<br>　　虽然网上有更改引导来修复 S.M.A.R.T 的方法，但是这里最优解还是 U 盘，不多赘述。<br>　　本文需要用到的工具有：  </p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">DiskImg.exe：	将 IMG 引导写入引导盘所用工具   </span><br><span class="line"><span class="symbol">synoboot.img:</span>	ds918+ 引导  </span><br><span class="line"><span class="symbol">DSM.xxxx.pat:</span>	群晖系统镜像 </span><br><span class="line">osfmount.exe：  img挂载工具</span><br><span class="line">ChipGenius：  U 盘 PID、VID 获取工具  </span><br><span class="line"><span class="symbol">Xshell:</span>  ssh 远程连接工具  </span><br><span class="line"></span><br><span class="line"><span class="meta"># WEPE:	PE 盘制作工具，如果想将引导写入 mSATA，则需要，U 盘不需要 </span></span><br></pre></td></tr></table></figure>
-<h3 id="读取-VID、PID"><a href="#读取-VID、PID" class="headerlink" title="读取 VID、PID"></a>读取 VID、PID</h3><p>　　将准备好的引导 U 盘插入电脑，打开 ChipGenius 工具，选择你的 U 盘，记录显示的 VID、PID 信息洗白备用，一般为如下格式（mSATA 没有这些信息，可以跳过）：  </p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">USB</span>设备ID: VID = <span class="number">0</span>CF3 PID = E500</span><br></pre></td></tr></table></figure>
-
-<h3 id="引导修改"><a href="#引导修改" class="headerlink" title="引导修改"></a>引导修改</h3><p>　　安装前面下载的 <code>osfmount.exe</code>，选择 “Mount new”：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-osfmount-mountnew.png" alt="群晖-osfmount-mountnew.png"><br>选择前面下载的引导 <code>synoboot.img</code>，选择第一个分区挂载：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-osfmount-mountpartition.png" alt="群晖-osfmount-mountpartition.png"><br>记得取消 read-only 的勾选（否则无法修改）：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-osfmount-%E5%85%B3%E9%97%ADreadonly.png" alt="群晖-osfmount-关闭readonly.png"><br>挂载完成后，可在“我的电脑”中发现新的本地磁盘分区，进入该分区的 grub 目录，使用 notepad++ 或记事本修改 grub.cfg 文件：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E4%BF%AE%E6%94%B9grub.cfg.png" alt="群晖-修改grub.cfg.png"><br>约 22 行处将图示区域修改为前面获得的 U 盘的 VID、PID，保存退出：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E4%BF%AE%E6%94%B9vidpid.png" alt="群晖-修改vidpid.png"><br>取消挂载：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-osfmount-dismount.png" alt="群晖-osfmount-dismount.png">  </p>
-<h3 id="引导写入"><a href="#引导写入" class="headerlink" title="引导写入"></a>引导写入</h3><p>　　打开 DiskImg 工具，驱动器选择 U 盘，镜像则选择刚才修改过的 <code>synoboot.img</code> 写入，完成后记得安全移除 U 盘。<br>　　注： 写入过程中如果出现报错，很可能是由于你系统上有其他应用占用，可以换其他电脑试试或在虚拟机中完成。  </p>
-<h3 id="BIOS-设置"><a href="#BIOS-设置" class="headerlink" title="BIOS 设置"></a>BIOS 设置</h3><p>　　本文以蜗牛星际为例，其他主板请网上查怎样进入 BIOS 以及开启 WOL。插入制作好的引导 U 盘，连接网线、鼠标键盘显示器，上电，不停按 DEL 进入 BIOS，在 <code>Advanced</code> 页进入 <code>ACPI Settings</code>（推荐先  F3 将 BIOS 恢复为默认配置后再进行设置 ），将 <code>Resume By Onboard LAN</code> 设置为 <code>enable</code> ，为之后的局域网唤醒（ WOL）做准备，同时在 <code>Boot</code> 页将引导 U 盘移动到第一项，将 <code>UEFI</code> 引导改为 <code>Legacy</code>（有朋友做好引导后开机发现无法正常引导，多半是因为这个选项没有设置）。F4（部分 BIOS 不同，根据 BIOS 上提示）保存配置并重启。  </p>
-<h3 id="安装-DSM"><a href="#安装-DSM" class="headerlink" title="安装 DSM"></a>安装 DSM</h3><p>　　继上一步重启后（请保证机器中除引导外至少有一块硬盘），显示界面（图片看不清可以右键在新标签页打开图片） 如下：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%BC%95%E5%AF%BC%E9%80%89%E6%8B%A9%E7%95%8C%E9%9D%A2.png" alt="群晖-引导选择界面.png"><br>　　选择第一项回车，即可进入下一界面：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%BC%95%E5%AF%BC%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F.png" alt="群晖-引导启动成功.png"><br>　　等待两至三分钟后，使用局域网内的电脑访问: <a href="http://find.synology.com/">http://find.synology.com</a> 搜索局域网内的 DiskStation（如果找不到，可以尝试使用 <a href="https://cndl.synology.cn/download/Tools/Assistant/6.1-15030/Windows/synology-assistant-6.1-15030.exe">群晖助手</a>，或通过路由器管理界面的 DHCP 列表得到群晖的 IP。<br>　　在浏览器中打开前面得到的 IP，开始安装 DSM：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%87%86%E5%A4%87%E5%AE%89%E8%A3%85DSM.png" alt="群晖-准备安装DSM.png"><br>开始设置，选择“手动安装 pat”，路径选择文章开头下载的 pat 文件：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E9%80%89%E6%8B%A9%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85pat.png" alt="群晖-选择手动安装pat.png"><br>安装初始化：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-DSM%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E5%88%9D%E5%A7%8B%E5%8C%96.png" alt="群晖-DSM安装完成初始化.png"><br>创建 DSM 管理员用户：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%88%9B%E5%BB%BADSM%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E6%88%B7.png" alt="群晖-创建DSM管理员用户.png"><br>设置更新检查频率，黑群晖更新系统很有可能无法引导，这里选择“手动通知计划”<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E8%AE%BE%E7%BD%AE%E6%9B%B4%E6%96%B0%E6%A3%80%E6%9F%A5%E9%A2%91%E7%8E%87.png" alt="群晖-设置更新检查频率.png"><br>未全洗白无法注册 QC，使用官方的内网穿透服务，所以这里我们选择跳过注册：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E8%B7%B3%E8%BF%87QC%E6%B3%A8%E5%86%8C.png" alt="群晖-跳过QC注册.png"><br>至此，DSM 安装完成。  </p>
-<h3 id="存储空间配置"><a href="#存储空间配置" class="headerlink" title="存储空间配置"></a>存储空间配置</h3><h4 id="新建存储池"><a href="#新建存储池" class="headerlink" title="新建存储池"></a>新建存储池</h4><p>　　现在我们还无法直接使用我们的硬盘，我们需要将用来存储数据的硬盘初始化，点击右上角（类似开始菜单），选择“存储空间管理员” ：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86%E5%91%98.png" alt="群晖-存储空间管理员.png"><br>　　在“存储池”中选择“新增”：<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E6%96%B0%E5%BB%BA%E5%AD%98%E5%82%A8%E6%B1%A01.png" alt="群晖-新建存储池1.png"><br>　　按照自己的需求选择，有一块盘分多个存储空间的请选择第二项，否则选择第一项：<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E6%96%B0%E5%BB%BA%E5%AD%98%E5%82%A8%E6%B1%A02.png" alt="群晖-新建存储池2.png"><br>　　选择 RAID 类别（关于 RAID 级别，可以看之前的文章<a href="/post/talk-about-raid.html">浅谈raid</a>，群晖的软 RAID 并不推荐，很多人喜欢 RAID 5，其实大容量下 RAID 5 并不能保证数据的安全具体可以查看相关资料），关于数据的存储安全，后面会有文章继续讲到 <a href="https://www.iots.vip/">Alliot</a> 自己的备份做法，这里推荐 Basic：<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E9%85%8D%E7%BD%AE%E5%AD%98%E5%82%A8%E6%B1%A0%E5%B1%9E%E6%80%A7.png" alt="群晖-配置存储池属性.png"><br>　　选择我们的数据硬盘：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E7%A1%AC%E7%9B%98.png" alt="群晖-选择数据硬盘.png"><br>　　之后硬盘会进入初始化的状态（硬盘中原有的数据会被擦除！）  </p>
-<h4 id="新建存储空间"><a href="#新建存储空间" class="headerlink" title="新建存储空间"></a>新建存储空间</h4><p>　　创建了存储池后，我们这时候并不能直接往里面写东西，还需要创建存储空间（这有点类似（当然，只是类似） Linux 的 LVM，初始化磁盘相当于新建 PV，新建存储池相当于新建 VG，而要挂载空间用来使用则还需要在 VG 中新建 LV 也就是类似这里的新建存储空间）<br>　　选择存储空间模式，这里我们选择自定义（因为前面已经创建了存储池）：<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E9%80%89%E6%8B%A9%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%BC%8F.png" alt="群晖-选择存储空间模式.png"><br>　　选择我们先前创建的存储池后，下一步，直到选择文件系统，我们选择 Btrfs（群晖自己文件系统格式，在群晖系统中支持更多的功能），下一步直到应用，等待存储空间初始化完成即可。<br>　　至此，存储空间配置完成。    
-　</p>
-<h3 id="洗白与局域网唤醒"><a href="#洗白与局域网唤醒" class="headerlink" title="洗白与局域网唤醒"></a>洗白与局域网唤醒</h3><p>　　群晖有三种状态，未洗白、半洗白与全洗白，区别如下：  </p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 未洗白： 即 SN、MAC 均非群晖正版机器的。这种状态下，无法使用 QC，Photo Station、Moment 视频无法生成缩略图，Video Station 无法离线转码、无法选择清晰度。</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 半洗白： 即 SN 为群晖正版机器的，MAC 不是。这种状态下，除了无法使用 QC，其他功能与白群晖没有区别。 </span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 全洗白： 即 SN、MAC 均为群晖正版机器的，且对应。这种状态下，QC 也能正常登陆了，与白群晖功能没有任何区别。</span></span><br></pre></td></tr></table></figure>
-<p>　　<a href="https://www.iots.vip/">Alliot</a> 这里选择了半洗白，利用群晖 VMM 安装的 Virtual DSM 的许可证来获得正确的 SN 号，写入引导中完成半洗白。 目前算号器基本绝迹失效了，想要全洗白可直接去网上购买配套的 SN、MAC 地址，不推荐白嫖群晖官方的 QC 服务，很容易翻车，下文介绍半洗白的方法。  </p>
-<h4 id="安装-VMM"><a href="#安装-VMM" class="headerlink" title="安装 VMM"></a>安装 VMM</h4><p>　　打开 DSM 桌面的“套件中心”，安装 “Virtual Machine Manager”：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%AE%89%E8%A3%85VMM.png" alt="群晖-安装VMM.png"><br>　　按照提示下一步直到安装完成：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E8%AE%BE%E7%BD%AE%E5%90%91%E5%AF%BC1.png" alt="群晖-VMM设置向导1.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E8%AE%BE%E7%BD%AE%E5%90%91%E5%AF%BC2.png" alt="群晖-VMM设置向导2.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E8%AE%BE%E7%BD%AE%E5%90%91%E5%AF%BC3.png" alt="群晖-VMM设置向导3.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E8%AE%BE%E7%BD%AE%E5%90%91%E5%AF%BC4.png" alt="群晖-VMM设置向导4.png">  </p>
-<h4 id="新建-VDSM-映像"><a href="#新建-VDSM-映像" class="headerlink" title="新建 VDSM 映像"></a>新建 VDSM 映像</h4><p>　　安装完成后，新建 VDSM 的映像：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E6%96%B0%E5%A2%9E%E6%98%A0%E5%83%8F.png" alt="群晖-VMM新增映像.png"><br>　　选择“下载 Virtual DSM 映像”：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E4%B8%8B%E8%BD%BDVDSM.png" alt="群晖-VMM下载VDSM.png"><br>　　如果连接失败，可以下载离线包：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E4%B8%8B%E8%BD%BDVDSM%E7%A6%BB%E7%BA%BF%E5%8C%85.png" alt="群晖-VMM下载VDSM离线包.png"><br>　　从计算机选择刚才下载的离线包：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E6%96%B0%E5%A2%9E%E6%98%A0%E5%83%8F2.png" alt="群晖-VMM新增映像2.png"><br>按照提示继续，并应用：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E6%96%B0%E5%A2%9E%E6%98%A0%E5%83%8F3.png" alt="群晖-VMM新增映像3.png">  </p>
-<h4 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h4><p>　　如下图，按照指引创建虚拟机，选择免费的许可：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA1.png" alt="群晖-VMM创建虚拟机1.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA2.png" alt="群晖-VMM创建虚拟机2.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA3.png" alt="群晖-VMM创建虚拟机3.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA5.png" alt="群晖-VMM创建虚拟机5.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA6.png" alt="群晖-VMM创建虚拟机6.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA7.png" alt="群晖-VMM创建虚拟机7.png">  </p>
-<h4 id="记录-SN"><a href="#记录-SN" class="headerlink" title="记录 SN"></a>记录 SN</h4><p>　　启动并连接 VDSM 虚拟机后，打开虚拟机内的 DSM 控制面板，点击“信息中心”，记录序列号备用：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E4%BF%A1%E6%81%AF%E4%B8%AD%E5%BF%83.png" alt="群晖-打开控制面板信息中心.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VDSM%E5%BA%8F%E5%88%97%E5%8F%B7.png" alt="群晖-VDSM序列号.png"><br>之后，可以关闭并删除该 VDSM 虚拟机，我们要的仅仅是这个 SN 号，将这个 SN 填入到先前我们修改 VID、PID 的 <code>grub.cfg</code> 的 SN 字段即可完成半洗白。下面是直接用 <code>ssh</code> 来修改 <code>grub.cfg</code> 的方法：   </p>
-<h4 id="开启-ssh"><a href="#开启-ssh" class="headerlink" title="开启 ssh"></a>开启 ssh</h4><p>　　回到群晖的“控制面板”，打开 <code>ssh</code> 功能：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E6%89%93%E5%BC%80ssh%E5%8A%9F%E8%83%BD.png" alt="群晖-打开ssh功能.png">  </p>
-<h4 id="ssh-连接并获得-root-权限"><a href="#ssh-连接并获得-root-权限" class="headerlink" title="ssh 连接并获得 root 权限"></a>ssh 连接并获得 root 权限</h4><p>　　使用 Xshell 或 putty 等终端连接工具连接，此处以 Xshell 为例（安装包均在文章开头的链接里）：<br>新建连接：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-xshell%E8%BF%9E%E6%8E%A51.png" alt="群晖-xshell连接1.png"><br>填入群晖的 IP：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-xshell%E8%BF%9E%E6%8E%A52.png" alt="群晖-xshell连接2.png"><br>填入管理员用户名密码：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-xshell%E8%BF%9E%E6%8E%A53.png" alt="群晖-xshell连接3.png"><br>连接后，使用 <code>sudo -i</code> 并输入管理员密码以获得 root 权限：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-ssh%E8%8E%B7%E5%BE%97%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90.png" alt="群晖-ssh获得管理员权限.png">  </p>
-<h4 id="挂载引导分区"><a href="#挂载引导分区" class="headerlink" title="挂载引导分区"></a>挂载引导分区</h4><p>　　使用如下命令挂载引导分区到 &#x2F;tmpboot 目录：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建挂载点，这里不推荐其他文章的将挂载点丢到 /tmp 下，可能导致以后 boot 无法挂载上</span>    </span><br><span class="line">cd /  &amp;&amp; mkdir /tmpboot   </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入 /dev 目录</span></span><br><span class="line">cd /dev</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载 boot 分区到 /tmpboot 目录，这里切记： synoboot1 不能使用绝对路径，否则会提示超级块错误，无法挂载</span>  </span><br><span class="line">mount -t vfat synoboot1 /tmpboot  </span><br><span class="line"></span><br><span class="line">cd /tmpboot/grub   </span><br></pre></td></tr></table></figure>
-<p>这里如果出现如下报错：  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mount: wrong fs type, bad option, bad superblock on synoboot1,</span><br><span class="line">       missing codepage or helper program, or other error</span><br><span class="line"></span><br><span class="line">       In some cases useful info is found in syslog - try</span><br><span class="line">       dmesg | tail or so.</span><br></pre></td></tr></table></figure>
-<p>暂时没有解决方法，只能使用前面的方法重新制作引导 U 盘，将我们得到的 SN 与群晖的实际 MAC 地址在更改 VID、PID 的步骤中一并更新上去（重新制作引导不会导致系统重装，这也是使用 U 盘引导的一个好处，开机时按照步骤迁移即可，不会对系统产生任何影响），如果没有如上报错请继续下一步骤。  </p>
-<h4 id="修改grub-cfg"><a href="#修改grub-cfg" class="headerlink" title="修改grub.cfg"></a>修改grub.cfg</h4><p>　　使用 <code>vi grub.cfg</code> 编辑 <code>grub.cfg</code> 找到如下内容：  </p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> <span class="attribute">sn</span>=1780PDN123456</span><br><span class="line"><span class="built_in">set</span> <span class="attribute">mac1</span>=001132123456  </span><br></pre></td></tr></table></figure>
-<p>　　按 i 进入编辑模式，将 sn 字段后的部分改为前面我们获取到的 SN，顺便将 mac1 字段后的部分改为路由器中看到的群晖的 MAC 地址以便后面做局域网唤醒（WOL）。<br>　　之后按 ESC，切换为大写，输入 ZZ，即可保存。<br>　　重启系统，进入控制面板，搜索 <code>WOL</code>，勾选 <code>启用局域网唤醒</code>，至此，半洗白与局域网唤醒设置完成。关于局域网唤醒，可以将群晖关机，使用群晖助手中的唤醒或路由器后台中的唤醒来测试。   </p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　至此，我们已经完成了黑群晖的安装、半洗白与局域网唤醒的设置，本文提供的引导是目前 Alliot 正在使用的，蜗牛星际 D 版完美适配，一年了没有出现什么问题，如果是其他硬件平台，可以去找相应相应的引导尝试更换，这里就不多赘述。  </p>
-]]></content>
-      <categories>
-        <category>群晖入门到进阶系列</category>
-      </categories>
-      <tags>
-        <tag>折腾</tag>
-        <tag>系列</tag>
-        <tag>群晖</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>笔记：华为IP基础快速入门-数通基础-网络基础</title>
     <url>//post/note-huawei-network1.html</url>
     <content><![CDATA[<p>　　对于网络基础，之前学习的是谢希仁老师的《计算机网络》，由于教材偏向考试，加上我自己也没能学得很细致，许多地方处于不明所以的状态。 恰好在网上发现了这套华为的IP基础快速入门教程，感觉朱仕耿老师讲的通俗易懂，于是边看边做了一下笔记。<span id="more"></span><br>　　整套视频教程在<a href="http://support.huawei.com/enterprise/zh/init-doc-list/optix-ptn-990-pid-21297155?belongVersionId=LearnMeter&docType=DOCTYPE10&secondType=SECONDTYPE7">这里</a>。 本文视频章节在<a href="http://support.huawei.com/enterprise/zh/doc/DOC1000122546">这里</a></p>
@@ -3897,6 +3844,59 @@
       </tags>
   </entry>
   <entry>
+    <title>群晖入门到进阶系列（一）：系统安装、洗白与局域网唤醒</title>
+    <url>//post/synology-series-1.html</url>
+    <content><![CDATA[<p>　　该<a href="/tags/%E7%B3%BB%E5%88%97/">系列</a>文章是继 <a href="https://www.iots.vip/post/diy-nas-woniuxingji.html">不到300块捡一台4盘位NAS——蜗牛星际上车记</a> 后，对折腾黑<a href="/tags/%E7%BE%A4%E6%99%96/">群晖</a>系统的记录，部分内容也适用于其他硬件平台的朋友与白<a href="/tags/%E7%BE%A4%E6%99%96/">群晖</a>土豪。<br>　　本系列包括系统的安装、洗白、内外网环境配置、套件的优化、 Docker 、PT 下载，以及诸如 <code>ipkg</code> 环境配置等较为高级用法，基本涵盖了这个等级硬件平台下大部分能折腾的地方。<span id="more"></span>  </p>
+<blockquote class="blockquote-center">
+<p>注：本文很多内容来自互联网，仅供学习交流，如侵删。感谢 <a href="https://xpenology.com/forum/profile/23252-jun/">Jun</a> 大佬的引导与其他诸多大佬的热心分享，Alliot 只是记录整理自己的动手过程，以便自己重装时翻阅，同时给需要的朋友作参考，由于部分资料为零散记录或群友帮助，所以部分出处不详，如有侵权，请随时在文末评论区或邮件联系。</p>
+
+</blockquote>   
+<p>　　本系列用到的所有工具： </p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">链接：https://pan.baidu.com/s/1LXy9zo51a0wGbCjz24MsIg </span><br><span class="line">提取码：iots </span><br><span class="line"><span class="section">===== 2021-07-08 更新 ======</span></span><br><span class="line">阿里云盘链接： https://www.aliyundrive.com/s/veSwnbK6egv</span><br><span class="line">通过这个链接注册可以多领取500G容量： https://pages.aliyundrive.com/mobile-page/web/beinvited.html?code=f8fd344</span><br></pre></td></tr></table></figure>
+<h3 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h3><p>　　Alliot 这里是用的<a href="https://www.iots.vip/post/diy-nas-woniuxingji.html">不到300块捡一台4盘位NAS——蜗牛星际上车记</a> 这台蜗牛星际 D 版。  </p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">CPU: Intel Celeron J1900  </span></span><br><span class="line"><span class="section">内存: 威刚 DDR3L 4G 1666  </span></span><br><span class="line"><span class="section">引导盘: 金士顿 4G USB2.0  </span></span><br><span class="line">原装 mSATA 盘已舍弃，至于为什么后面会说到 </span><br></pre></td></tr></table></figure>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>　　Alliot 这里没有采用大多数人选择的二合一引导方法，而是用的古老的 U 盘引导大法，理由很简单：白群晖实际上也是采用类似的机制，主板上有块闪存单独存放引导文件，而 DSM 系统则在每块硬盘上的第一个分区。<br>　　这里谈谈很多人推崇的二合一引导（蜗牛星际最多，安装在自带的 mSATA 盘中），优点有：方便，不用在数据盘上丢系统分区；系统不在数据盘上，方便硬盘休眠。 缺点也很明显，系统与引导均在一块盘上，这块盘坏了，套件与系统配置等均会丢失，而做单独引导盘，系统会存在于每块数据盘，引导盘坏了，重刷一遍引导依照提示迁移几分钟便能正常使用。<br>　　蜗牛星际还有个原因就是，引导放在 mSATA 中会出现所有硬盘 S.M.A.R.T 信息无法正常显示的情况。这对于 NAS 来说是很危险的，群晖可以根据 S.M.A.R.T 来提示磁盘预损毁，没有 S.M.A.R.T 信息，也许有一天你会发现硬盘毫无征兆的就损毁了，无法抢救数据。<br>　　虽然网上有更改引导来修复 S.M.A.R.T 的方法，但是这里最优解还是 U 盘，不多赘述。<br>　　本文需要用到的工具有：  </p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">DiskImg.exe：	将 IMG 引导写入引导盘所用工具   </span><br><span class="line"><span class="symbol">synoboot.img:</span>	ds918+ 引导  </span><br><span class="line"><span class="symbol">DSM.xxxx.pat:</span>	群晖系统镜像 </span><br><span class="line">osfmount.exe：  img挂载工具</span><br><span class="line">ChipGenius：  U 盘 PID、VID 获取工具  </span><br><span class="line"><span class="symbol">Xshell:</span>  ssh 远程连接工具  </span><br><span class="line"></span><br><span class="line"><span class="meta"># WEPE:	PE 盘制作工具，如果想将引导写入 mSATA，则需要，U 盘不需要 </span></span><br></pre></td></tr></table></figure>
+<h3 id="读取-VID、PID"><a href="#读取-VID、PID" class="headerlink" title="读取 VID、PID"></a>读取 VID、PID</h3><p>　　将准备好的引导 U 盘插入电脑，打开 ChipGenius 工具，选择你的 U 盘，记录显示的 VID、PID 信息洗白备用，一般为如下格式（mSATA 没有这些信息，可以跳过）：  </p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">USB</span>设备ID: VID = <span class="number">0</span>CF3 PID = E500</span><br></pre></td></tr></table></figure>
+
+<h3 id="引导修改"><a href="#引导修改" class="headerlink" title="引导修改"></a>引导修改</h3><p>　　安装前面下载的 <code>osfmount.exe</code>，选择 “Mount new”：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-osfmount-mountnew.png" alt="群晖-osfmount-mountnew.png"><br>选择前面下载的引导 <code>synoboot.img</code>，选择第一个分区挂载：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-osfmount-mountpartition.png" alt="群晖-osfmount-mountpartition.png"><br>记得取消 read-only 的勾选（否则无法修改）：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-osfmount-%E5%85%B3%E9%97%ADreadonly.png" alt="群晖-osfmount-关闭readonly.png"><br>挂载完成后，可在“我的电脑”中发现新的本地磁盘分区，进入该分区的 grub 目录，使用 notepad++ 或记事本修改 grub.cfg 文件：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E4%BF%AE%E6%94%B9grub.cfg.png" alt="群晖-修改grub.cfg.png"><br>约 22 行处将图示区域修改为前面获得的 U 盘的 VID、PID，保存退出：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E4%BF%AE%E6%94%B9vidpid.png" alt="群晖-修改vidpid.png"><br>取消挂载：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-osfmount-dismount.png" alt="群晖-osfmount-dismount.png">  </p>
+<h3 id="引导写入"><a href="#引导写入" class="headerlink" title="引导写入"></a>引导写入</h3><p>　　打开 DiskImg 工具，驱动器选择 U 盘，镜像则选择刚才修改过的 <code>synoboot.img</code> 写入，完成后记得安全移除 U 盘。<br>　　注： 写入过程中如果出现报错，很可能是由于你系统上有其他应用占用，可以换其他电脑试试或在虚拟机中完成。  </p>
+<h3 id="BIOS-设置"><a href="#BIOS-设置" class="headerlink" title="BIOS 设置"></a>BIOS 设置</h3><p>　　本文以蜗牛星际为例，其他主板请网上查怎样进入 BIOS 以及开启 WOL。插入制作好的引导 U 盘，连接网线、鼠标键盘显示器，上电，不停按 DEL 进入 BIOS，在 <code>Advanced</code> 页进入 <code>ACPI Settings</code>（推荐先  F3 将 BIOS 恢复为默认配置后再进行设置 ），将 <code>Resume By Onboard LAN</code> 设置为 <code>enable</code> ，为之后的局域网唤醒（ WOL）做准备，同时在 <code>Boot</code> 页将引导 U 盘移动到第一项，将 <code>UEFI</code> 引导改为 <code>Legacy</code>（有朋友做好引导后开机发现无法正常引导，多半是因为这个选项没有设置）。F4（部分 BIOS 不同，根据 BIOS 上提示）保存配置并重启。  </p>
+<h3 id="安装-DSM"><a href="#安装-DSM" class="headerlink" title="安装 DSM"></a>安装 DSM</h3><p>　　继上一步重启后（请保证机器中除引导外至少有一块硬盘），显示界面（图片看不清可以右键在新标签页打开图片） 如下：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%BC%95%E5%AF%BC%E9%80%89%E6%8B%A9%E7%95%8C%E9%9D%A2.png" alt="群晖-引导选择界面.png"><br>　　选择第一项回车，即可进入下一界面：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%BC%95%E5%AF%BC%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F.png" alt="群晖-引导启动成功.png"><br>　　等待两至三分钟后，使用局域网内的电脑访问: <a href="http://find.synology.com/">http://find.synology.com</a> 搜索局域网内的 DiskStation（如果找不到，可以尝试使用 <a href="https://cndl.synology.cn/download/Tools/Assistant/6.1-15030/Windows/synology-assistant-6.1-15030.exe">群晖助手</a>，或通过路由器管理界面的 DHCP 列表得到群晖的 IP。<br>　　在浏览器中打开前面得到的 IP，开始安装 DSM：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%87%86%E5%A4%87%E5%AE%89%E8%A3%85DSM.png" alt="群晖-准备安装DSM.png"><br>开始设置，选择“手动安装 pat”，路径选择文章开头下载的 pat 文件：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E9%80%89%E6%8B%A9%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85pat.png" alt="群晖-选择手动安装pat.png"><br>安装初始化：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-DSM%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E5%88%9D%E5%A7%8B%E5%8C%96.png" alt="群晖-DSM安装完成初始化.png"><br>创建 DSM 管理员用户：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%88%9B%E5%BB%BADSM%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E6%88%B7.png" alt="群晖-创建DSM管理员用户.png"><br>设置更新检查频率，黑群晖更新系统很有可能无法引导，这里选择“手动通知计划”<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E8%AE%BE%E7%BD%AE%E6%9B%B4%E6%96%B0%E6%A3%80%E6%9F%A5%E9%A2%91%E7%8E%87.png" alt="群晖-设置更新检查频率.png"><br>未全洗白无法注册 QC，使用官方的内网穿透服务，所以这里我们选择跳过注册：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E8%B7%B3%E8%BF%87QC%E6%B3%A8%E5%86%8C.png" alt="群晖-跳过QC注册.png"><br>至此，DSM 安装完成。  </p>
+<h3 id="存储空间配置"><a href="#存储空间配置" class="headerlink" title="存储空间配置"></a>存储空间配置</h3><h4 id="新建存储池"><a href="#新建存储池" class="headerlink" title="新建存储池"></a>新建存储池</h4><p>　　现在我们还无法直接使用我们的硬盘，我们需要将用来存储数据的硬盘初始化，点击右上角（类似开始菜单），选择“存储空间管理员” ：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86%E5%91%98.png" alt="群晖-存储空间管理员.png"><br>　　在“存储池”中选择“新增”：<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E6%96%B0%E5%BB%BA%E5%AD%98%E5%82%A8%E6%B1%A01.png" alt="群晖-新建存储池1.png"><br>　　按照自己的需求选择，有一块盘分多个存储空间的请选择第二项，否则选择第一项：<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E6%96%B0%E5%BB%BA%E5%AD%98%E5%82%A8%E6%B1%A02.png" alt="群晖-新建存储池2.png"><br>　　选择 RAID 类别（关于 RAID 级别，可以看之前的文章<a href="/post/talk-about-raid.html">浅谈raid</a>，群晖的软 RAID 并不推荐，很多人喜欢 RAID 5，其实大容量下 RAID 5 并不能保证数据的安全具体可以查看相关资料），关于数据的存储安全，后面会有文章继续讲到 <a href="https://www.iots.vip/">Alliot</a> 自己的备份做法，这里推荐 Basic：<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E9%85%8D%E7%BD%AE%E5%AD%98%E5%82%A8%E6%B1%A0%E5%B1%9E%E6%80%A7.png" alt="群晖-配置存储池属性.png"><br>　　选择我们的数据硬盘：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E7%A1%AC%E7%9B%98.png" alt="群晖-选择数据硬盘.png"><br>　　之后硬盘会进入初始化的状态（硬盘中原有的数据会被擦除！）  </p>
+<h4 id="新建存储空间"><a href="#新建存储空间" class="headerlink" title="新建存储空间"></a>新建存储空间</h4><p>　　创建了存储池后，我们这时候并不能直接往里面写东西，还需要创建存储空间（这有点类似（当然，只是类似） Linux 的 LVM，初始化磁盘相当于新建 PV，新建存储池相当于新建 VG，而要挂载空间用来使用则还需要在 VG 中新建 LV 也就是类似这里的新建存储空间）<br>　　选择存储空间模式，这里我们选择自定义（因为前面已经创建了存储池）：<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E9%80%89%E6%8B%A9%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%BC%8F.png" alt="群晖-选择存储空间模式.png"><br>　　选择我们先前创建的存储池后，下一步，直到选择文件系统，我们选择 Btrfs（群晖自己文件系统格式，在群晖系统中支持更多的功能），下一步直到应用，等待存储空间初始化完成即可。<br>　　至此，存储空间配置完成。    
+　</p>
+<h3 id="洗白与局域网唤醒"><a href="#洗白与局域网唤醒" class="headerlink" title="洗白与局域网唤醒"></a>洗白与局域网唤醒</h3><p>　　群晖有三种状态，未洗白、半洗白与全洗白，区别如下：  </p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 未洗白： 即 SN、MAC 均非群晖正版机器的。这种状态下，无法使用 QC，Photo Station、Moment 视频无法生成缩略图，Video Station 无法离线转码、无法选择清晰度。</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 半洗白： 即 SN 为群晖正版机器的，MAC 不是。这种状态下，除了无法使用 QC，其他功能与白群晖没有区别。 </span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 全洗白： 即 SN、MAC 均为群晖正版机器的，且对应。这种状态下，QC 也能正常登陆了，与白群晖功能没有任何区别。</span></span><br></pre></td></tr></table></figure>
+<p>　　<a href="https://www.iots.vip/">Alliot</a> 这里选择了半洗白，利用群晖 VMM 安装的 Virtual DSM 的许可证来获得正确的 SN 号，写入引导中完成半洗白。 目前算号器基本绝迹失效了，想要全洗白可直接去网上购买配套的 SN、MAC 地址，不推荐白嫖群晖官方的 QC 服务，很容易翻车，下文介绍半洗白的方法。  </p>
+<h4 id="安装-VMM"><a href="#安装-VMM" class="headerlink" title="安装 VMM"></a>安装 VMM</h4><p>　　打开 DSM 桌面的“套件中心”，安装 “Virtual Machine Manager”：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E5%AE%89%E8%A3%85VMM.png" alt="群晖-安装VMM.png"><br>　　按照提示下一步直到安装完成：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E8%AE%BE%E7%BD%AE%E5%90%91%E5%AF%BC1.png" alt="群晖-VMM设置向导1.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E8%AE%BE%E7%BD%AE%E5%90%91%E5%AF%BC2.png" alt="群晖-VMM设置向导2.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E8%AE%BE%E7%BD%AE%E5%90%91%E5%AF%BC3.png" alt="群晖-VMM设置向导3.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E8%AE%BE%E7%BD%AE%E5%90%91%E5%AF%BC4.png" alt="群晖-VMM设置向导4.png">  </p>
+<h4 id="新建-VDSM-映像"><a href="#新建-VDSM-映像" class="headerlink" title="新建 VDSM 映像"></a>新建 VDSM 映像</h4><p>　　安装完成后，新建 VDSM 的映像：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E6%96%B0%E5%A2%9E%E6%98%A0%E5%83%8F.png" alt="群晖-VMM新增映像.png"><br>　　选择“下载 Virtual DSM 映像”：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E4%B8%8B%E8%BD%BDVDSM.png" alt="群晖-VMM下载VDSM.png"><br>　　如果连接失败，可以下载离线包：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E4%B8%8B%E8%BD%BDVDSM%E7%A6%BB%E7%BA%BF%E5%8C%85.png" alt="群晖-VMM下载VDSM离线包.png"><br>　　从计算机选择刚才下载的离线包：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E6%96%B0%E5%A2%9E%E6%98%A0%E5%83%8F2.png" alt="群晖-VMM新增映像2.png"><br>按照提示继续，并应用：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E6%96%B0%E5%A2%9E%E6%98%A0%E5%83%8F3.png" alt="群晖-VMM新增映像3.png">  </p>
+<h4 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h4><p>　　如下图，按照指引创建虚拟机，选择免费的许可：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA1.png" alt="群晖-VMM创建虚拟机1.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA2.png" alt="群晖-VMM创建虚拟机2.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA3.png" alt="群晖-VMM创建虚拟机3.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA5.png" alt="群晖-VMM创建虚拟机5.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA6.png" alt="群晖-VMM创建虚拟机6.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VMM%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA7.png" alt="群晖-VMM创建虚拟机7.png">  </p>
+<h4 id="记录-SN"><a href="#记录-SN" class="headerlink" title="记录 SN"></a>记录 SN</h4><p>　　启动并连接 VDSM 虚拟机后，打开虚拟机内的 DSM 控制面板，点击“信息中心”，记录序列号备用：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E4%BF%A1%E6%81%AF%E4%B8%AD%E5%BF%83.png" alt="群晖-打开控制面板信息中心.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-VDSM%E5%BA%8F%E5%88%97%E5%8F%B7.png" alt="群晖-VDSM序列号.png"><br>之后，可以关闭并删除该 VDSM 虚拟机，我们要的仅仅是这个 SN 号，将这个 SN 填入到先前我们修改 VID、PID 的 <code>grub.cfg</code> 的 SN 字段即可完成半洗白。下面是直接用 <code>ssh</code> 来修改 <code>grub.cfg</code> 的方法：   </p>
+<h4 id="开启-ssh"><a href="#开启-ssh" class="headerlink" title="开启 ssh"></a>开启 ssh</h4><p>　　回到群晖的“控制面板”，打开 <code>ssh</code> 功能：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E6%89%93%E5%BC%80ssh%E5%8A%9F%E8%83%BD.png" alt="群晖-打开ssh功能.png">  </p>
+<h4 id="ssh-连接并获得-root-权限"><a href="#ssh-连接并获得-root-权限" class="headerlink" title="ssh 连接并获得 root 权限"></a>ssh 连接并获得 root 权限</h4><p>　　使用 Xshell 或 putty 等终端连接工具连接，此处以 Xshell 为例（安装包均在文章开头的链接里）：<br>新建连接：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-xshell%E8%BF%9E%E6%8E%A51.png" alt="群晖-xshell连接1.png"><br>填入群晖的 IP：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-xshell%E8%BF%9E%E6%8E%A52.png" alt="群晖-xshell连接2.png"><br>填入管理员用户名密码：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-xshell%E8%BF%9E%E6%8E%A53.png" alt="群晖-xshell连接3.png"><br>连接后，使用 <code>sudo -i</code> 并输入管理员密码以获得 root 权限：<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-ssh%E8%8E%B7%E5%BE%97%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90.png" alt="群晖-ssh获得管理员权限.png">  </p>
+<h4 id="挂载引导分区"><a href="#挂载引导分区" class="headerlink" title="挂载引导分区"></a>挂载引导分区</h4><p>　　使用如下命令挂载引导分区到 &#x2F;tmpboot 目录：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建挂载点，这里不推荐其他文章的将挂载点丢到 /tmp 下，可能导致以后 boot 无法挂载上</span>    </span><br><span class="line">cd /  &amp;&amp; mkdir /tmpboot   </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入 /dev 目录</span></span><br><span class="line">cd /dev</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载 boot 分区到 /tmpboot 目录，这里切记： synoboot1 不能使用绝对路径，否则会提示超级块错误，无法挂载</span>  </span><br><span class="line">mount -t vfat synoboot1 /tmpboot  </span><br><span class="line"></span><br><span class="line">cd /tmpboot/grub   </span><br></pre></td></tr></table></figure>
+<p>这里如果出现如下报错：  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mount: wrong fs type, bad option, bad superblock on synoboot1,</span><br><span class="line">       missing codepage or helper program, or other error</span><br><span class="line"></span><br><span class="line">       In some cases useful info is found in syslog - try</span><br><span class="line">       dmesg | tail or so.</span><br></pre></td></tr></table></figure>
+<p>暂时没有解决方法，只能使用前面的方法重新制作引导 U 盘，将我们得到的 SN 与群晖的实际 MAC 地址在更改 VID、PID 的步骤中一并更新上去（重新制作引导不会导致系统重装，这也是使用 U 盘引导的一个好处，开机时按照步骤迁移即可，不会对系统产生任何影响），如果没有如上报错请继续下一步骤。  </p>
+<h4 id="修改grub-cfg"><a href="#修改grub-cfg" class="headerlink" title="修改grub.cfg"></a>修改grub.cfg</h4><p>　　使用 <code>vi grub.cfg</code> 编辑 <code>grub.cfg</code> 找到如下内容：  </p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> <span class="attribute">sn</span>=1780PDN123456</span><br><span class="line"><span class="built_in">set</span> <span class="attribute">mac1</span>=001132123456  </span><br></pre></td></tr></table></figure>
+<p>　　按 i 进入编辑模式，将 sn 字段后的部分改为前面我们获取到的 SN，顺便将 mac1 字段后的部分改为路由器中看到的群晖的 MAC 地址以便后面做局域网唤醒（WOL）。<br>　　之后按 ESC，切换为大写，输入 ZZ，即可保存。<br>　　重启系统，进入控制面板，搜索 <code>WOL</code>，勾选 <code>启用局域网唤醒</code>，至此，半洗白与局域网唤醒设置完成。关于局域网唤醒，可以将群晖关机，使用群晖助手中的唤醒或路由器后台中的唤醒来测试。   </p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　至此，我们已经完成了黑群晖的安装、半洗白与局域网唤醒的设置，本文提供的引导是目前 Alliot 正在使用的，蜗牛星际 D 版完美适配，一年了没有出现什么问题，如果是其他硬件平台，可以去找相应相应的引导尝试更换，这里就不多赘述。  </p>
+]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
+      <tags>
+        <tag>折腾</tag>
+        <tag>系列</tag>
+        <tag>群晖</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>群晖入门到进阶系列（七）：自用Docker镜像推荐与配置</title>
     <url>//post/synology-series-7.html</url>
     <content><![CDATA[<p>　　前面我们已经讲完了 Docker 的安装与镜像加速器的配置，本文将介绍一些 Alliot 常用的镜像以及相关的配置。<span id="more"></span>  </p>
@@ -3951,36 +3951,6 @@
       </tags>
   </entry>
   <entry>
-    <title>群晖入门到进阶系列（九）：从磁盘空间损毁谈数据安全</title>
-    <url>//post/synology-series-9.html</url>
-    <content><![CDATA[<p>　　说起这个事情已经是好几个月前的事了，目前 Alliot 的装备也是早在几个月前进行了一次升级。前面由于个人工作方面的转型，所以没有太多时间精力来就这件事情进行一次梳理，好在当时做了一些操作日志记录，恰逢今日公司团建，下班比较早，来写写那次 “群晖磁盘空间已损毁” 的事故，顺带从一个不那么成熟的运维工程师的角度，谈谈存储安全与备份策略。<span id="more"></span>  </p>
-<h3 id="事故背景"><a href="#事故背景" class="headerlink" title="事故背景"></a>事故背景</h3><p>　　由于 Alliot 自己本身在一开始对群晖这个系统也是处于非常陌生的程度，对 <a href="/post/diy-nas-woniuxingji.html">不到300块捡一台4盘位NAS——蜗牛星际上车记</a> 这套硬件也是当玩具的心态，没打算玩长久。所以这套 NAS 上的硬盘都是久经沙场的拆机盘，同时，为了最大化的利用磁盘空间，没有对其做类似 RAID 1 或是 RAID 5，就是这两个点让这次磁盘空间损毁的事故成为必然。<br>　　机器内的四块拆机盘属这块希捷 500G 通电时间最短，健康检查来看也是相对较好的，所以我将其作为了群晖的第一块盘，单独划作存储池并作为我的主要存储空间，存储一些相对重要的文件。其他的几块通电时间长，甚至有一两个坏道的硬盘作为 PT 下载等其他一些临时资源的存储。可惜真应了那句话，硬盘坏不坏跟通电时间没有必然关系，由于那阵子家里那边变压器检修频繁停电，导致群晖在运行的时候异常断电了三次，在断电第三次的时候，好死不死的挂掉了这块希捷 500G 的套件盘。<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8D%9F%E6%AF%811.png" alt="群晖-磁盘空间损毁1.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8D%9F%E6%AF%812.png" alt="群晖-磁盘空间损毁2.png"></p>
-<h3 id="事故分析"><a href="#事故分析" class="headerlink" title="事故分析"></a>事故分析</h3><p>　　第一块套件所在的存储空间损毁，意味着群晖上除去必要组件（即新装系统自带的那几个组件）能够使用外，其他所有的套件都无法使用，甚至存储空间都无法挂载。针对这类事故处理的最好的结果当是所有套件恢复正常使用，存储空间的所有文件正常读写，所以，我后面的所有都是围绕着这个结果去做的。<br>　　首先我们来说说，群晖为什么会有存储空间损毁这种机制，而且明明硬盘才那么几个坏道就报损毁了，拔出来格式化插到 Windows 下又能正常使用。<br>　　群晖的存储池的实现其实就是 Linux 下的软 RAID，我们通过 <a href="/post/synology-series-1.html#ssh-%E8%BF%9E%E6%8E%A5%E5%B9%B6%E8%8E%B7%E5%BE%97-root-%E6%9D%83%E9%99%90">ssh 连接群晖并获取 root 权限</a> 后，执行 <code>cat /proc/mdstat</code> 便可通过类似如下输出看到当前系统的软 RAID 信息：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@Alliot-blog # cat /proc/mdstat </span><br><span class="line">Personalities : [linear] [raid0] [raid1] [raid10] [raid6] [raid5] [raid4] </span><br><span class="line">      </span><br><span class="line">md4 : active raid1 sdf3[0]</span><br><span class="line">      112398784 blocks super 1.2 [1/1] [U]</span><br><span class="line">      </span><br><span class="line">md3 : active raid1 sda3[0]</span><br><span class="line">      307749184 blocks super 1.2 [1/1] [U]</span><br><span class="line">      </span><br><span class="line">md2 : active raid1 sde5[0] sdb5[1]</span><br><span class="line">      483563456  blocks super 1.2 [1/1] [UU]</span><br><span class="line">      </span><br><span class="line">md1 : active raid1 sda2[0] sdb2[5] sdc2[1] sdd2[2] sde2[3] sdf2[4]</span><br><span class="line">      2097088 blocks [16/6] [UUUUUU__________]</span><br><span class="line">      </span><br><span class="line">md0 : active raid1 sda1[0] sdb1[5] sdc1[1] sdd1[2] sde1[3] sdf1[4]</span><br><span class="line">      2490176 blocks [16/6] [UUUUUU__________]</span><br><span class="line">      </span><br><span class="line">unused devices: &lt;none&gt;</span><br></pre></td></tr></table></figure>
-<p>大致从 blocks 大小结合实际硬盘容量看一下，md1 与 md2 估计为引导盘。从 md2 开始才是我们创建的存储池。<br>利用 <code>mdadm</code> 命令可以查看相应的存储池（阵列）详细信息：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@Alliot-blog # mdadm -D /dev/md2</span><br><span class="line">/dev/md2:</span><br><span class="line">        Version : 1.2</span><br><span class="line">  Creation Time : Sun Jan 26 16:50:01 2020</span><br><span class="line">     Raid Level : raid1</span><br><span class="line">     Array Size : 483563456 (461.16 GiB 495.17 GB)</span><br><span class="line">  Used Dev Size : 483563456 (461.16 GiB 495.17 GB)</span><br><span class="line">   Raid Devices : 1</span><br><span class="line">  Total Devices : 1</span><br><span class="line">    Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">    Update Time : Mon Aug 24 16:08:07 2020</span><br><span class="line">          State : clean, FAILED </span><br><span class="line"> Active Devices : 1</span><br><span class="line">Working Devices : 1</span><br><span class="line"> Failed Devices : 0</span><br><span class="line">  Spare Devices : 0</span><br><span class="line"></span><br><span class="line">           Name : Alliot-blog:2  (local to host Alliot-blog)</span><br><span class="line">           UUID : 88a869b3:91601c6b:f79ab51d:eee415ed</span><br><span class="line">         Events : 261</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       19        0      faulty active sync   /dev/sdb3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>通过 <code>state</code> 字段了解到当前的这个存储池的状态是不正常的。<br>　　当然，这里得可以看到我们的硬盘的设备文件为 <code>/dev/sdb</code>，也可以使用 <code>smartctl -a /dev/sdb</code> 来查看硬盘的 “S.M.A.R.T” 信息，获取硬盘健康状态指标。<br>　　再来看看为什么当前的存储空间无法进行写入等操作（甚至在 File Station 里都无法看到有相应的共享文件夹）   </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@Alliot-blog # mount |grep volume1  </span><br><span class="line">/dev/md2 on /volume1 type btrfs (ro,relatime,synoacl,space_cache=v2,auto_reclaim_space,metadata_ratio=50,subvolid=257,subvol=/@syno)</span><br></pre></td></tr></table></figure>
-<p>　　可以看到， &#x2F;volume1 当前是以 ro(即 read only) 模式挂载的，当然无法进行任何写入与修改的操作。（那些无法看到共享文件夹的，估计这里直接是取消挂载了）。<br>　　到这里为止，大概能够猜测群晖是通过判断软 RAID 的健康状态来决定是否将存储空间标记为损毁的了。有了这些信息我们能够大致知道怎样去抢救数据了。  </p>
-<h3 id="事故处理"><a href="#事故处理" class="headerlink" title="事故处理"></a>事故处理</h3><p>　　看到这里其实很多朋友都会说了，既然是 ro 模式了，我们直接对它 <code>remount</code> 到 rw 不就行了？又省一块盘？嗯… 这个作为一个正常人肯定都会这么去想，但是当你对它去进行 <code>mount remount,rw</code> 时，会发现并不能如我们所愿重新挂载，多次 <code>remount</code> 再去看挂载模式依旧是只读，而且还没有相关的报错信息。这里我猜测大概率群晖有一定的策略限制（或许是一个循环逻辑？）以保护坏盘中的数据不被进一步破坏。到这里省一块盘的想法可以抛去了。当下只能搬出数据以挽回部分损失了（虽然我有对文件添加一定的备份策略，但是套件数据及配置还是很重要的）。<br>　　群晖的 File Station 中无法进行操作，所以我们需要做的是将这个存储空间里的文件通过命令行拷贝到我们其他的硬盘上：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将块设备mount到一个挂载点（如果mount |grep volume1可以看到有挂载只不过是ro，那么跳过这一步，切记！）  这里我们前面查到的我们要的是md2所以直接执行：</span></span><br><span class="line">mount /dev/md2 /volume1  </span><br><span class="line"></span><br><span class="line">cd /volume1 </span><br><span class="line">ll # 列出来的开头为 @ 的即为部分套件数据，按需进行备份转移</span><br></pre></td></tr></table></figure>
-<p>　　这里稍微啰嗦一下，由于硬盘必定是存在问题的（大多数为物理坏道），我们在转移备份数据的时候，因当按照数据的重要程度进行转移，因为在有物理坏道的情况下读取数据，很容易雪崩导致坏道暴涨，直接导致数据无法读取。  
-　　</p>
-<h3 id="事故反思"><a href="#事故反思" class="headerlink" title="事故反思"></a>事故反思</h3><p>　　回顾这次的磁盘空间损毁，由于自己一直都有备份的习惯，加上本身也没有存放太多有用的数据，所以主要的折腾点还是在于部分套件的设置丢失（直接恢复的套件还是有一些奇奇怪怪的问题，所以我索性重装了 DSM）。  </p>
-<h4 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h4><p>　　关于备份，我推荐的做法是参照企业做法，将数据按照等级来分类，当然，我们的数据不需要分的那么细。Alliot 将自己的数据简单分为如下三类： 重要数据信息、内部数据信息、普通数据信息。<br>　　<strong>重要数据信息</strong> 主要为：涉及个人自身与家庭成员信息的（如家人朋友珍贵或是隐私的照片与视频、书信扫描、证件凭证扫描、登陆凭证信息等），这类信息往往是丢失即没有机会再得到的，或是泄露会带来很多麻烦甚至影响生活的，所以，在安全与隐私方面都需要进行严格的把握。因此，我推荐的做法是机械硬盘等介质，三份以上的归档存储并放置于不同的地方，所有数据按照自己的规则进行打包加密，开启类似 Bitlocker 等加密手段，并且密码应当有一定的复杂度，且熟记。定期维护与检查。这类数据通常数量不多，因此其实成本也不会太高，Alliot 到现在也还没有装满 500G。不是很推荐直接存云存储（尤其是国内）。较为推荐的是分卷压缩并加密，分卷存放于不同的云盘进行二次加密以容灾。特别注意：这类数据不建议直接存放于 NAS 等联网的设备中，尤其是自己没有良好的安全意识与一定的专业知识的情况下。<br>　　<strong>内部数据信息</strong> 主要为： 工作记录、代码与学习笔记、普通日常照片视频以及通讯录备份等，这类信息隐私程度不至于像 “重要数据信息” 那样敏感与不可再生，通常会频繁使用与更新，经常于家人朋友间内部传播流通，因此不适合像重要数据信息那样进行归档存储。这类信息我一般选择存放于自己的 NAS 中，配以较高的密码复杂度，软件配置一定的周期，定期进行多盘备份以及加密同步到国外云盘，并<strong>开启版本控制</strong>，不定期进行移动硬盘冷备。群晖 Drive + Cloudsync + HyperBackup + RAID 1 基本满足软件层面的需求。<br>　　<strong>普通数据信息</strong> 则主要为一些高清电影、大姐姐视频（啊 不  没这回事）、  收藏的软件安装包等重要程度较低的文件，这些文件花一点时间通常可以再下载回来。因此，我通常是 Basic 存储空间配以 HyperBackup 套件备份到淘汰的盘里，同时搭配 Cloudsync 备份到云盘。  </p>
-<h4 id="NAS存储策略推荐"><a href="#NAS存储策略推荐" class="headerlink" title="NAS存储策略推荐"></a>NAS存储策略推荐</h4><p>　　由于群晖系统的特性，为了减少倒腾系统与数据的风险，强烈推荐第一个存储空间使用 RAID 1 模式，并使用全新的硬盘（Alliot 是用的狗东自营 4T 紫盘 *2 ）。关于硬盘这里插一句： 紫盘完全是可以的，有人说监控盘忽略 CRC 错误会导致数据损坏，不适合做文件类存储，其实是不正确的，监控盘的忽略 CRC 错误的指令需要监控主机去主动开启，正常 PC 或 NAS 使用与其他盘没有区别。加上本身监控盘转速慢，也经常是 7*24 的环境，所以在我看来，给 NAS 使用没有一点问题（转速的原因，读写速度会比企业盘慢），不过钱包够的话，还是推荐企业级。<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E7%B4%AB%E7%9B%984T%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E6%88%AA%E5%9B%BE.png" alt="群晖-紫盘4T存储空间截图"><br>　　除去第一个存储空间外，其他的存储空间推荐 Basic 模式，并使用 HyperBackup 按照文件夹互相备份需要备份的内容，这样配置更加灵活，在一定程度上保证数据安全的同事，大大的节省了存储空间。<br>　　文件系统第一个存储空间还是推荐使用 Btrfs 格式，由于 Btrfs 文件系统本身的一些特性，群晖在这种类型下能够做更多的事情。（部分套件要求 Btrfs）<br>　　其他数据盘可以使用 ext4 或其他文件系统格式，但推荐程度一般。许多网友说的是方便在 Linux 下挂载并数据恢复等。但其实 Btrfs 在诸如 RedHat 等 Linux 发行版下都是原生支持 Btrfs 的，使用 <code>mount -t btrfs 设备名 挂载点</code> 是能够直接挂载的。  这个还是看个人喜好吧，区别不大。  </p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　其实 Alliot 早已经将蜗牛星际退休，攒成了六盘位的 ITX 黑群晖了，并且配上了 APC UPS，后面有空的话也会分享一下攒机的记录。互联网公司确实会忙很多，前面也在考证，所以这篇博客兜兜转转，直到今天才完成，文中可能也能感觉到明显的行文断层，见谅。群晖系列的下一篇会是网络安全方面的一些闲聊，谈谈对于群晖（或不仅仅是群晖）的一些基本的安全加固。  </p>
-]]></content>
-      <categories>
-        <category>群晖入门到进阶系列</category>
-      </categories>
-      <tags>
-        <tag>折腾</tag>
-        <tag>系列</tag>
-        <tag>群晖</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>群晖入门到进阶系列（三）：DSM 优化</title>
     <url>//post/synology-series-3.html</url>
     <content><![CDATA[<p>　　本文针对类似 Alliot 这种强迫症患者对 DSM 进行一些系统级的小优化，主要内容有：屏蔽系统更新、CPU 显示补丁、硬盘休眠、断网自动关机。没有这方面的需求的朋友可以暂且跳过本文。<span id="more"></span>  </p>
@@ -4006,6 +3976,36 @@
 <p>确定并保存即可。  </p>
 <h3 id="解决DSM6-2添加第三方套件源无效位置的问题"><a href="#解决DSM6-2添加第三方套件源无效位置的问题" class="headerlink" title="解决DSM6.2添加第三方套件源无效位置的问题"></a>解决DSM6.2添加第三方套件源无效位置的问题</h3><p>&emsp;&emsp;这是由于群晖内部的 CA 根证书库到期导致的，更新替换一下即可：<br><a href="/post/synology-series-1.html#ssh-%E8%BF%9E%E6%8E%A5%E5%B9%B6%E8%8E%B7%E5%BE%97-root-%E6%9D%83%E9%99%90">ssh 连接并群晖获取 root 权限</a>   </p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt.bak</span><br><span class="line">sudo curl -Lko /etc/ssl/certs/ca-certificates.crt https://curl.se/ca/cacert.pem</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>群晖入门到进阶系列</category>
+      </categories>
+      <tags>
+        <tag>折腾</tag>
+        <tag>系列</tag>
+        <tag>群晖</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>群晖入门到进阶系列（九）：从磁盘空间损毁谈数据安全</title>
+    <url>//post/synology-series-9.html</url>
+    <content><![CDATA[<p>　　说起这个事情已经是好几个月前的事了，目前 Alliot 的装备也是早在几个月前进行了一次升级。前面由于个人工作方面的转型，所以没有太多时间精力来就这件事情进行一次梳理，好在当时做了一些操作日志记录，恰逢今日公司团建，下班比较早，来写写那次 “群晖磁盘空间已损毁” 的事故，顺带从一个不那么成熟的运维工程师的角度，谈谈存储安全与备份策略。<span id="more"></span>  </p>
+<h3 id="事故背景"><a href="#事故背景" class="headerlink" title="事故背景"></a>事故背景</h3><p>　　由于 Alliot 自己本身在一开始对群晖这个系统也是处于非常陌生的程度，对 <a href="/post/diy-nas-woniuxingji.html">不到300块捡一台4盘位NAS——蜗牛星际上车记</a> 这套硬件也是当玩具的心态，没打算玩长久。所以这套 NAS 上的硬盘都是久经沙场的拆机盘，同时，为了最大化的利用磁盘空间，没有对其做类似 RAID 1 或是 RAID 5，就是这两个点让这次磁盘空间损毁的事故成为必然。<br>　　机器内的四块拆机盘属这块希捷 500G 通电时间最短，健康检查来看也是相对较好的，所以我将其作为了群晖的第一块盘，单独划作存储池并作为我的主要存储空间，存储一些相对重要的文件。其他的几块通电时间长，甚至有一两个坏道的硬盘作为 PT 下载等其他一些临时资源的存储。可惜真应了那句话，硬盘坏不坏跟通电时间没有必然关系，由于那阵子家里那边变压器检修频繁停电，导致群晖在运行的时候异常断电了三次，在断电第三次的时候，好死不死的挂掉了这块希捷 500G 的套件盘。<br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8D%9F%E6%AF%811.png" alt="群晖-磁盘空间损毁1.png"><br><img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8D%9F%E6%AF%812.png" alt="群晖-磁盘空间损毁2.png"></p>
+<h3 id="事故分析"><a href="#事故分析" class="headerlink" title="事故分析"></a>事故分析</h3><p>　　第一块套件所在的存储空间损毁，意味着群晖上除去必要组件（即新装系统自带的那几个组件）能够使用外，其他所有的套件都无法使用，甚至存储空间都无法挂载。针对这类事故处理的最好的结果当是所有套件恢复正常使用，存储空间的所有文件正常读写，所以，我后面的所有都是围绕着这个结果去做的。<br>　　首先我们来说说，群晖为什么会有存储空间损毁这种机制，而且明明硬盘才那么几个坏道就报损毁了，拔出来格式化插到 Windows 下又能正常使用。<br>　　群晖的存储池的实现其实就是 Linux 下的软 RAID，我们通过 <a href="/post/synology-series-1.html#ssh-%E8%BF%9E%E6%8E%A5%E5%B9%B6%E8%8E%B7%E5%BE%97-root-%E6%9D%83%E9%99%90">ssh 连接群晖并获取 root 权限</a> 后，执行 <code>cat /proc/mdstat</code> 便可通过类似如下输出看到当前系统的软 RAID 信息：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@Alliot-blog # cat /proc/mdstat </span><br><span class="line">Personalities : [linear] [raid0] [raid1] [raid10] [raid6] [raid5] [raid4] </span><br><span class="line">      </span><br><span class="line">md4 : active raid1 sdf3[0]</span><br><span class="line">      112398784 blocks super 1.2 [1/1] [U]</span><br><span class="line">      </span><br><span class="line">md3 : active raid1 sda3[0]</span><br><span class="line">      307749184 blocks super 1.2 [1/1] [U]</span><br><span class="line">      </span><br><span class="line">md2 : active raid1 sde5[0] sdb5[1]</span><br><span class="line">      483563456  blocks super 1.2 [1/1] [UU]</span><br><span class="line">      </span><br><span class="line">md1 : active raid1 sda2[0] sdb2[5] sdc2[1] sdd2[2] sde2[3] sdf2[4]</span><br><span class="line">      2097088 blocks [16/6] [UUUUUU__________]</span><br><span class="line">      </span><br><span class="line">md0 : active raid1 sda1[0] sdb1[5] sdc1[1] sdd1[2] sde1[3] sdf1[4]</span><br><span class="line">      2490176 blocks [16/6] [UUUUUU__________]</span><br><span class="line">      </span><br><span class="line">unused devices: &lt;none&gt;</span><br></pre></td></tr></table></figure>
+<p>大致从 blocks 大小结合实际硬盘容量看一下，md1 与 md2 估计为引导盘。从 md2 开始才是我们创建的存储池。<br>利用 <code>mdadm</code> 命令可以查看相应的存储池（阵列）详细信息：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@Alliot-blog # mdadm -D /dev/md2</span><br><span class="line">/dev/md2:</span><br><span class="line">        Version : 1.2</span><br><span class="line">  Creation Time : Sun Jan 26 16:50:01 2020</span><br><span class="line">     Raid Level : raid1</span><br><span class="line">     Array Size : 483563456 (461.16 GiB 495.17 GB)</span><br><span class="line">  Used Dev Size : 483563456 (461.16 GiB 495.17 GB)</span><br><span class="line">   Raid Devices : 1</span><br><span class="line">  Total Devices : 1</span><br><span class="line">    Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">    Update Time : Mon Aug 24 16:08:07 2020</span><br><span class="line">          State : clean, FAILED </span><br><span class="line"> Active Devices : 1</span><br><span class="line">Working Devices : 1</span><br><span class="line"> Failed Devices : 0</span><br><span class="line">  Spare Devices : 0</span><br><span class="line"></span><br><span class="line">           Name : Alliot-blog:2  (local to host Alliot-blog)</span><br><span class="line">           UUID : 88a869b3:91601c6b:f79ab51d:eee415ed</span><br><span class="line">         Events : 261</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       19        0      faulty active sync   /dev/sdb3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>通过 <code>state</code> 字段了解到当前的这个存储池的状态是不正常的。<br>　　当然，这里得可以看到我们的硬盘的设备文件为 <code>/dev/sdb</code>，也可以使用 <code>smartctl -a /dev/sdb</code> 来查看硬盘的 “S.M.A.R.T” 信息，获取硬盘健康状态指标。<br>　　再来看看为什么当前的存储空间无法进行写入等操作（甚至在 File Station 里都无法看到有相应的共享文件夹）   </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@Alliot-blog # mount |grep volume1  </span><br><span class="line">/dev/md2 on /volume1 type btrfs (ro,relatime,synoacl,space_cache=v2,auto_reclaim_space,metadata_ratio=50,subvolid=257,subvol=/@syno)</span><br></pre></td></tr></table></figure>
+<p>　　可以看到， &#x2F;volume1 当前是以 ro(即 read only) 模式挂载的，当然无法进行任何写入与修改的操作。（那些无法看到共享文件夹的，估计这里直接是取消挂载了）。<br>　　到这里为止，大概能够猜测群晖是通过判断软 RAID 的健康状态来决定是否将存储空间标记为损毁的了。有了这些信息我们能够大致知道怎样去抢救数据了。  </p>
+<h3 id="事故处理"><a href="#事故处理" class="headerlink" title="事故处理"></a>事故处理</h3><p>　　看到这里其实很多朋友都会说了，既然是 ro 模式了，我们直接对它 <code>remount</code> 到 rw 不就行了？又省一块盘？嗯… 这个作为一个正常人肯定都会这么去想，但是当你对它去进行 <code>mount remount,rw</code> 时，会发现并不能如我们所愿重新挂载，多次 <code>remount</code> 再去看挂载模式依旧是只读，而且还没有相关的报错信息。这里我猜测大概率群晖有一定的策略限制（或许是一个循环逻辑？）以保护坏盘中的数据不被进一步破坏。到这里省一块盘的想法可以抛去了。当下只能搬出数据以挽回部分损失了（虽然我有对文件添加一定的备份策略，但是套件数据及配置还是很重要的）。<br>　　群晖的 File Station 中无法进行操作，所以我们需要做的是将这个存储空间里的文件通过命令行拷贝到我们其他的硬盘上：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将块设备mount到一个挂载点（如果mount |grep volume1可以看到有挂载只不过是ro，那么跳过这一步，切记！）  这里我们前面查到的我们要的是md2所以直接执行：</span></span><br><span class="line">mount /dev/md2 /volume1  </span><br><span class="line"></span><br><span class="line">cd /volume1 </span><br><span class="line">ll # 列出来的开头为 @ 的即为部分套件数据，按需进行备份转移</span><br></pre></td></tr></table></figure>
+<p>　　这里稍微啰嗦一下，由于硬盘必定是存在问题的（大多数为物理坏道），我们在转移备份数据的时候，因当按照数据的重要程度进行转移，因为在有物理坏道的情况下读取数据，很容易雪崩导致坏道暴涨，直接导致数据无法读取。  
+　　</p>
+<h3 id="事故反思"><a href="#事故反思" class="headerlink" title="事故反思"></a>事故反思</h3><p>　　回顾这次的磁盘空间损毁，由于自己一直都有备份的习惯，加上本身也没有存放太多有用的数据，所以主要的折腾点还是在于部分套件的设置丢失（直接恢复的套件还是有一些奇奇怪怪的问题，所以我索性重装了 DSM）。  </p>
+<h4 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h4><p>　　关于备份，我推荐的做法是参照企业做法，将数据按照等级来分类，当然，我们的数据不需要分的那么细。Alliot 将自己的数据简单分为如下三类： 重要数据信息、内部数据信息、普通数据信息。<br>　　<strong>重要数据信息</strong> 主要为：涉及个人自身与家庭成员信息的（如家人朋友珍贵或是隐私的照片与视频、书信扫描、证件凭证扫描、登陆凭证信息等），这类信息往往是丢失即没有机会再得到的，或是泄露会带来很多麻烦甚至影响生活的，所以，在安全与隐私方面都需要进行严格的把握。因此，我推荐的做法是机械硬盘等介质，三份以上的归档存储并放置于不同的地方，所有数据按照自己的规则进行打包加密，开启类似 Bitlocker 等加密手段，并且密码应当有一定的复杂度，且熟记。定期维护与检查。这类数据通常数量不多，因此其实成本也不会太高，Alliot 到现在也还没有装满 500G。不是很推荐直接存云存储（尤其是国内）。较为推荐的是分卷压缩并加密，分卷存放于不同的云盘进行二次加密以容灾。特别注意：这类数据不建议直接存放于 NAS 等联网的设备中，尤其是自己没有良好的安全意识与一定的专业知识的情况下。<br>　　<strong>内部数据信息</strong> 主要为： 工作记录、代码与学习笔记、普通日常照片视频以及通讯录备份等，这类信息隐私程度不至于像 “重要数据信息” 那样敏感与不可再生，通常会频繁使用与更新，经常于家人朋友间内部传播流通，因此不适合像重要数据信息那样进行归档存储。这类信息我一般选择存放于自己的 NAS 中，配以较高的密码复杂度，软件配置一定的周期，定期进行多盘备份以及加密同步到国外云盘，并<strong>开启版本控制</strong>，不定期进行移动硬盘冷备。群晖 Drive + Cloudsync + HyperBackup + RAID 1 基本满足软件层面的需求。<br>　　<strong>普通数据信息</strong> 则主要为一些高清电影、大姐姐视频（啊 不  没这回事）、  收藏的软件安装包等重要程度较低的文件，这些文件花一点时间通常可以再下载回来。因此，我通常是 Basic 存储空间配以 HyperBackup 套件备份到淘汰的盘里，同时搭配 Cloudsync 备份到云盘。  </p>
+<h4 id="NAS存储策略推荐"><a href="#NAS存储策略推荐" class="headerlink" title="NAS存储策略推荐"></a>NAS存储策略推荐</h4><p>　　由于群晖系统的特性，为了减少倒腾系统与数据的风险，强烈推荐第一个存储空间使用 RAID 1 模式，并使用全新的硬盘（Alliot 是用的狗东自营 4T 紫盘 *2 ）。关于硬盘这里插一句： 紫盘完全是可以的，有人说监控盘忽略 CRC 错误会导致数据损坏，不适合做文件类存储，其实是不正确的，监控盘的忽略 CRC 错误的指令需要监控主机去主动开启，正常 PC 或 NAS 使用与其他盘没有区别。加上本身监控盘转速慢，也经常是 7*24 的环境，所以在我看来，给 NAS 使用没有一点问题（转速的原因，读写速度会比企业盘慢），不过钱包够的话，还是推荐企业级。<br>　　<img data-src="https://static.iots.vip/%E7%BE%A4%E6%99%96-%E7%B4%AB%E7%9B%984T%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E6%88%AA%E5%9B%BE.png" alt="群晖-紫盘4T存储空间截图"><br>　　除去第一个存储空间外，其他的存储空间推荐 Basic 模式，并使用 HyperBackup 按照文件夹互相备份需要备份的内容，这样配置更加灵活，在一定程度上保证数据安全的同事，大大的节省了存储空间。<br>　　文件系统第一个存储空间还是推荐使用 Btrfs 格式，由于 Btrfs 文件系统本身的一些特性，群晖在这种类型下能够做更多的事情。（部分套件要求 Btrfs）<br>　　其他数据盘可以使用 ext4 或其他文件系统格式，但推荐程度一般。许多网友说的是方便在 Linux 下挂载并数据恢复等。但其实 Btrfs 在诸如 RedHat 等 Linux 发行版下都是原生支持 Btrfs 的，使用 <code>mount -t btrfs 设备名 挂载点</code> 是能够直接挂载的。  这个还是看个人喜好吧，区别不大。  </p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　其实 Alliot 早已经将蜗牛星际退休，攒成了六盘位的 ITX 黑群晖了，并且配上了 APC UPS，后面有空的话也会分享一下攒机的记录。互联网公司确实会忙很多，前面也在考证，所以这篇博客兜兜转转，直到今天才完成，文中可能也能感觉到明显的行文断层，见谅。群晖系列的下一篇会是网络安全方面的一些闲聊，谈谈对于群晖（或不仅仅是群晖）的一些基本的安全加固。  </p>
 ]]></content>
       <categories>
         <category>群晖入门到进阶系列</category>
@@ -4647,19 +4647,6 @@
       </tags>
   </entry>
   <entry>
-    <title>黑苹果与m1外接显示器廉价方案</title>
-    <url>//post/displaylink-hub.html</url>
-    <content><![CDATA[<p>　　这也许是无法驱动独显的黑苹果笔记本想要外接显示器的唯一方案。<span id="more"></span>  </p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>　　最近给我的 Y7000 装上了黑苹果（所用的 EFI 已上传 GitHub: <a href="https://github.com/AlliotTech/hackintosh-y7000-2018-i58300H">hackintosh-y7000-2018-i58300H</a>），一切似乎都很完美，然而，由于 N 卡的驱动目前（或者说未来）都没有可能驱动，板载的 HDMI DP 接口均走的独显，因此无法实现外接视频输出（普通的 USB 转 HDMI 也是走的该通道），经过群友们的测试，仅带外置显卡芯片的 USB 转接头能够实现外接显示器，售价在普遍在 200 左右。这符合垃圾佬的气质与价值观吗？很明显，一点也不。<br>　　通过查阅这些所谓的外接显卡芯片转接头发现，这些转接头普遍采用的是一个 “古老” 的方案——DisplayLink 方案。（事实上，Fresco logic 方案也有一部分,见的比较少，也没有尝试过）  </p>
-<h3 id="外置显卡？No"><a href="#外置显卡？No" class="headerlink" title="外置显卡？No"></a>外置显卡？No</h3><p>　　DiskplayLink 并非传统意义上的外置显卡，而是通过安装在PC上的虚拟图形卡（VGC）软件和嵌入或连接到显示设备的硬件渲染引擎（HRE）组成（<a href="https://en.wikipedia.org/wiki/DisplayLink">wikipedia</a>），在使用时会占用一部分的 CPU 资源来供图形转换用。</p>
-<h3 id="寻找廉价可用品"><a href="#寻找廉价可用品" class="headerlink" title="寻找廉价可用品"></a>寻找廉价可用品</h3><p>　　DisplayLink 其所用的驱动通用，理论上来说，所有 DisplayLink 的转接头或是拓展坞都可以。DL 3X00 系列的拓展坞价格基本在 160 - 400，偶然的机会发现 Thinkpad Pro dock 系列均采用的 DiskplayLink 芯片, 淘宝与闲鱼上有大量的洋垃圾，这里 Alliot 选择的是 40A7 版本。<a href="https://pcsupport.lenovo.com/us/en/solutions/acc100184">ThinkPad USB 3.0 Pro Dock - Overview and Service Parts</a>，闲鱼上 65 不带电源入手（联想方口电源适配器通用），采用的 DL3000 方案，<a href="https://www.displaylink.com/integrated-chipsets/dl-3000">DisplayLink DL-3000 Series</a>，接口很丰富，比较遗憾的是，视频输出只有 DP 与 DVI 接口。<br><img data-src="https://static.iots.vip/displaylink%E8%AE%A2%E5%8D%95.jpg" alt="displaylink订单"><br><img data-src="https://static.iots.vip/Thinkpad%20pro%20dock.jpg" alt="thinkpad pro dock 40a7">  </p>
-<h3 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h3><p>　　DisplayLink 的图形输出采用的是软硬结合的模式，因此必须安装驱动 DisplayLink Manager，<a href="https://www.displaylink.com/downloads">下载</a>安装后，必须要启动该软件才可以有视频输出(网卡、声卡等拓展出的接口不受影响)。<br>　　<img data-src="https://static.iots.vip/displaylink_driver.jpg" alt="displaylink manager"><br>　　目前，我使用的是 24 寸 1080P 的显示器，CPU 占用可以忽略不计，延迟也几乎感觉不到，基本能够满足需求。（根据前面官方的 DL3000 系列的文档，带 2K 分辨率其实也是可以的，4K 就不行了）。macOS 下，识别的显示器尺寸不正确：<br>  <img data-src="https://static.iots.vip/displaylink%E6%98%BE%E7%A4%BA%E5%99%A8macos.jpg" alt="displaylink显示器识别"><br>　　拓展坞的网卡、USB type-A 接口，在 macOS 下均免驱正常使用，只有声卡有问题： 音质很正常（比仿冒声卡的音质好一万倍），能够在设备列表中识别为 Lenovo USB 声卡，不过在使用了一段时间的情况下，会出现声音断断续续的情况，必须重新插拔后才能恢复正常，尝试抓取了日志，没能找到具体原因，个人猜测问题还是出在黑苹果驱动的问题上（或许是 USB 内建的原因？），期待有条件的同学测试反馈。  </p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>验光配镜扫盲</title>
     <url>//post/choose-glasses.html</url>
     <content><![CDATA[<p>&emsp;&emsp;眼镜是心灵的窗户，不巧，我的窗户不是很标准，从小到大，戴过很多副眼镜，从三甲到爱某眼科、宝某、博某，呱呱呱一顿操作下来自己啥也不懂是什么意思，最近由于眼镜被我一屁股坐坏了，就在附近的眼镜城配了眼镜，之后就有了此文。<span id="more"></span></p>
@@ -4695,6 +4682,19 @@
 ]]></content>
       <tags>
         <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>黑苹果与m1外接显示器廉价方案</title>
+    <url>//post/displaylink-hub.html</url>
+    <content><![CDATA[<p>　　这也许是无法驱动独显的黑苹果笔记本想要外接显示器的唯一方案。<span id="more"></span>  </p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>　　最近给我的 Y7000 装上了黑苹果（所用的 EFI 已上传 GitHub: <a href="https://github.com/AlliotTech/hackintosh-y7000-2018-i58300H">hackintosh-y7000-2018-i58300H</a>），一切似乎都很完美，然而，由于 N 卡的驱动目前（或者说未来）都没有可能驱动，板载的 HDMI DP 接口均走的独显，因此无法实现外接视频输出（普通的 USB 转 HDMI 也是走的该通道），经过群友们的测试，仅带外置显卡芯片的 USB 转接头能够实现外接显示器，售价在普遍在 200 左右。这符合垃圾佬的气质与价值观吗？很明显，一点也不。<br>　　通过查阅这些所谓的外接显卡芯片转接头发现，这些转接头普遍采用的是一个 “古老” 的方案——DisplayLink 方案。（事实上，Fresco logic 方案也有一部分,见的比较少，也没有尝试过）  </p>
+<h3 id="外置显卡？No"><a href="#外置显卡？No" class="headerlink" title="外置显卡？No"></a>外置显卡？No</h3><p>　　DiskplayLink 并非传统意义上的外置显卡，而是通过安装在PC上的虚拟图形卡（VGC）软件和嵌入或连接到显示设备的硬件渲染引擎（HRE）组成（<a href="https://en.wikipedia.org/wiki/DisplayLink">wikipedia</a>），在使用时会占用一部分的 CPU 资源来供图形转换用。</p>
+<h3 id="寻找廉价可用品"><a href="#寻找廉价可用品" class="headerlink" title="寻找廉价可用品"></a>寻找廉价可用品</h3><p>　　DisplayLink 其所用的驱动通用，理论上来说，所有 DisplayLink 的转接头或是拓展坞都可以。DL 3X00 系列的拓展坞价格基本在 160 - 400，偶然的机会发现 Thinkpad Pro dock 系列均采用的 DiskplayLink 芯片, 淘宝与闲鱼上有大量的洋垃圾，这里 Alliot 选择的是 40A7 版本。<a href="https://pcsupport.lenovo.com/us/en/solutions/acc100184">ThinkPad USB 3.0 Pro Dock - Overview and Service Parts</a>，闲鱼上 65 不带电源入手（联想方口电源适配器通用），采用的 DL3000 方案，<a href="https://www.displaylink.com/integrated-chipsets/dl-3000">DisplayLink DL-3000 Series</a>，接口很丰富，比较遗憾的是，视频输出只有 DP 与 DVI 接口。<br><img data-src="https://static.iots.vip/displaylink%E8%AE%A2%E5%8D%95.jpg" alt="displaylink订单"><br><img data-src="https://static.iots.vip/Thinkpad%20pro%20dock.jpg" alt="thinkpad pro dock 40a7">  </p>
+<h3 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h3><p>　　DisplayLink 的图形输出采用的是软硬结合的模式，因此必须安装驱动 DisplayLink Manager，<a href="https://www.displaylink.com/downloads">下载</a>安装后，必须要启动该软件才可以有视频输出(网卡、声卡等拓展出的接口不受影响)。<br>　　<img data-src="https://static.iots.vip/displaylink_driver.jpg" alt="displaylink manager"><br>　　目前，我使用的是 24 寸 1080P 的显示器，CPU 占用可以忽略不计，延迟也几乎感觉不到，基本能够满足需求。（根据前面官方的 DL3000 系列的文档，带 2K 分辨率其实也是可以的，4K 就不行了）。macOS 下，识别的显示器尺寸不正确：<br>  <img data-src="https://static.iots.vip/displaylink%E6%98%BE%E7%A4%BA%E5%99%A8macos.jpg" alt="displaylink显示器识别"><br>　　拓展坞的网卡、USB type-A 接口，在 macOS 下均免驱正常使用，只有声卡有问题： 音质很正常（比仿冒声卡的音质好一万倍），能够在设备列表中识别为 Lenovo USB 声卡，不过在使用了一段时间的情况下，会出现声音断断续续的情况，必须重新插拔后才能恢复正常，尝试抓取了日志，没能找到具体原因，个人猜测问题还是出在黑苹果驱动的问题上（或许是 USB 内建的原因？），期待有条件的同学测试反馈。  </p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
       </tags>
   </entry>
 </search>
