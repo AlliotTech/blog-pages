@@ -6,7 +6,7 @@
   <link href="https://www.iots.vip/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://www.iots.vip/"/>
-  <updated>2024-11-24T07:42:07.000Z</updated>
+  <updated>2025-02-10T11:00:00.000Z</updated>
   <id>https://www.iots.vip/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>APC UPS更换电池校准容量</title>
+    <link href="https://www.iots.vip/post/apc-ups-replace-battery"/>
+    <id>https://www.iots.vip/post/apc-ups-replace-battery</id>
+    <published>2025-02-10T11:00:00.000Z</published>
+    <updated>2025-02-10T11:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;　　前面&lt;a href=&quot;/categories/%E7%BE%A4%E6%99%96%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/&quot;&gt;群晖系列&lt;/a&gt;提到过，为了防止市电非预期断电导致数据丢失，我&lt;a href=&quot;/post/synology-series-10#%E7%BB%93%E8%AF%AD&quot;&gt;入了一台 UPS —— APC BR550g CN&lt;/a&gt;, 一晃眼，已经服役近好几年了，续航时间也已经缩短到了5分钟以内, 很明显它的蓄电池已经到达了使用寿命， 趁清灰时机， 更换一下电池， 顺便顺便校准一下容量。</summary>
+    
+    
+    
+    
+    <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible使用Bitwarden存储Vault密码</title>
@@ -29,9 +46,9 @@
     
     
     
-    <category term="Ansible" scheme="https://www.iots.vip/tags/Ansible/"/>
-    
     <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="Ansible" scheme="https://www.iots.vip/tags/Ansible/"/>
     
   </entry>
   
@@ -386,23 +403,6 @@
     
     
     <category term="心思随笔" scheme="https://www.iots.vip/tags/%E5%BF%83%E6%80%9D%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iterm2自动输入堡垒机TOTP验证码</title>
-    <link href="https://www.iots.vip/post/iterm2-jumpserver-totp-autocomplete"/>
-    <id>https://www.iots.vip/post/iterm2-jumpserver-totp-autocomplete</id>
-    <published>2022-08-18T10:31:01.000Z</published>
-    <updated>2022-08-18T10:31:01.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;　　堡垒机强制启用了 MFA 双因子认证，每次都需要打开 APP 输入验证码，对于登录频繁的人来说非常不方便，于是利用 &lt;code&gt;expect&lt;/code&gt; 与 &lt;code&gt;oath-toolkit&lt;/code&gt; 完成了自动登录。（友情提示：本处堡垒机为仅内网可访问，且为边缘测试系统环境，出于安全考虑请不要在重要环境下使用）。</summary>
-    
-    
-    
-    
-    <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
