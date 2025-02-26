@@ -34,6 +34,25 @@
   </entry>
   
   <entry>
+    <title>M1 Mac安装低版本Node.js</title>
+    <link href="https://www.iots.vip/post/installing-lower-version-nodejs-on-m1-mac"/>
+    <id>https://www.iots.vip/post/installing-lower-version-nodejs-on-m1-mac</id>
+    <published>2024-12-12T11:00:00.000Z</published>
+    <updated>2024-12-12T11:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;　　支持在 M1(Apple Sillicon) 平台上原生运行的 Node.js 最低版本为 16， 在这之前的版本要想在 M1 的 Mac 上运行，需要使用 Rosetta 2 转译运行。</summary>
+    
+    
+    
+    
+    <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="macOS" scheme="https://www.iots.vip/tags/macOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ansible使用Bitwarden存储Vault密码</title>
     <link href="https://www.iots.vip/post/ansible-vault-bitwarden-integration"/>
     <id>https://www.iots.vip/post/ansible-vault-bitwarden-integration</id>
@@ -386,23 +405,6 @@
     <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
     
     <category term="Python" scheme="https://www.iots.vip/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>其实可以做一个不那么“浑蛋”的人</title>
-    <link href="https://www.iots.vip/post/mind/be-a-less-ass-person"/>
-    <id>https://www.iots.vip/post/mind/be-a-less-ass-person</id>
-    <published>2022-09-12T11:22:33.000Z</published>
-    <updated>2022-09-12T11:22:33.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;　　一直有对看的书、看的剧做记录的习惯，翻看自己的豆瓣，在工作后浮躁、忙碌的状态下，已经很长一段时间没有更新了。这几年经历了很多，一直没能停下来好好的总结与反思，恰好再一次遇到了《非暴力沟通》</summary>
-    
-    
-    
-    
-    <category term="心思随笔" scheme="https://www.iots.vip/tags/%E5%BF%83%E6%80%9D%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   

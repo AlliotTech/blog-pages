@@ -458,6 +458,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Discuz X3.2 1225版本升级后UC无法登陆解决方案之一</title>
+    <url>//post/discuz-2.html</url>
+    <content><![CDATA[<p>Discuz X3.2在版本升级后，UC出现无法登录的情况，其实只需要修改一下配置文件即可。<span id="more"></span><br>打开(网站根目录)\uc_server\model\admin.php<br>搜索： $this-&gt;cookie_status &#x3D; 0;<br>将其修改为：  </p>
+<pre><code> $this-&gt;cookie_status = isset($_COOKIE[&#39;sid&#39;]) ? 1 : 0; 
+</code></pre>
+<p>覆盖同名文件，再使用uc密码就可以正常登录了  </p>
+]]></content>
+      <tags>
+        <tag>Discuz</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cloudflare Tunnel前置代理支持</title>
     <url>//post/cloudflare-tunnel-proxy-support.html</url>
     <content><![CDATA[<p>　　赛博大善人的 Cloudflare Tunnel(前 Argo Tunnel) 只需要一个域名、一个 Cloudflare 帐号便可以将服务接入到 Cloudflare 的网络，提供了非常方便的内网穿透方式， 同时还提供了 ZeroTrust、防护等功能， 而这一切基本几乎都是免费的，相信看到此文的小伙伴已经薅上一段时间了，不过由于 Cloudflare Tunnel 官方的服务节点分布有限，在部分时空&#x2F;场景下，Tunnel 连通性会面临一些挑战， 这时候要是能够通过前置代理去连接到 Tunnel 服务，问题便能得到解决，可惜<a href="https://github.com/cloudflare/cloudflared/issues/350#issuecomment-1706842883">官方目前并没打算支持这个特性</a>。<span id="more"></span></p>
@@ -479,18 +491,6 @@
         <tag>折腾</tag>
         <tag>Docker</tag>
         <tag>Cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Discuz X3.2 1225版本升级后UC无法登陆解决方案之一</title>
-    <url>//post/discuz-2.html</url>
-    <content><![CDATA[<p>Discuz X3.2在版本升级后，UC出现无法登录的情况，其实只需要修改一下配置文件即可。<span id="more"></span><br>打开(网站根目录)\uc_server\model\admin.php<br>搜索： $this-&gt;cookie_status &#x3D; 0;<br>将其修改为：  </p>
-<pre><code> $this-&gt;cookie_status = isset($_COOKIE[&#39;sid&#39;]) ? 1 : 0; 
-</code></pre>
-<p>覆盖同名文件，再使用uc密码就可以正常登录了  </p>
-]]></content>
-      <tags>
-        <tag>Discuz</tag>
       </tags>
   </entry>
   <entry>
@@ -1109,6 +1109,30 @@
 ]]></content>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>M1 Mac安装低版本Node.js</title>
+    <url>//post/installing-lower-version-nodejs-on-m1-mac.html</url>
+    <content><![CDATA[<p>　　支持在 M1(Apple Sillicon) 平台上原生运行的 Node.js 最低版本为 16， 在这之前的版本要想在 M1 的 Mac 上运行，需要使用 Rosetta 2 转译运行。<span id="more"></span><br>　　这里以 <code>asdf-vm</code> 为例，在 M1 Mac 上安装 Node.js 14 版本（nvm 同理）: </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 Rosetta 2 转译运行asdf install 命令</span></span><br><span class="line">arch -x86_64 asdf install nodejs 14.17.6</span><br><span class="line"></span><br><span class="line">asdf shell nodejs 14.17.6</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试nodejs运行的架构</span></span><br><span class="line">node -e &#x27;console.log(process.arch)&#x27;</span><br><span class="line">x64</span><br></pre></td></tr></table></figure>
+
+
+<p>Ref: </p>
+<ul>
+<li><p><a href="https://stackoverflow.com/questions/71065636/how-can-i-run-a-command-or-script-in-rosetta-from-terminal-on-m1-mac">How can I run a command or script in rosetta from terminal on M1 Mac?</a>  </p>
+</li>
+<li><p><a href="https://github.com/asdf-vm/asdf-nodejs/issues/189#issuecomment-757048599">Add support for Apple Sillicon#189</a>  </p>
+</li>
+<li><p><a href="https://stackoverflow.com/questions/64899827/how-to-install-nodejs-natively-on-apple-silicon-m1">How to install NodeJS natively on Apple Silicon M1?</a>  </p>
+</li>
+<li><p><a href="https://gist.github.com/LeZuse/bf838718ff2689c5fc035c5a6825a11c">Node.js on Apple Silicon</a></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+        <tag>macOS</tag>
       </tags>
   </entry>
   <entry>
@@ -3054,7 +3078,7 @@
 
 <h3 id="Git-pages"><a href="#Git-pages" class="headerlink" title="Git pages"></a>Git pages</h3><p>　　很多用 hexo 的朋友都选择使用两个分支来分别存放站点的 source 与 public，然后 public 的分支用来构建 gitpages。由于 GitHub 已经有免费的私有仓库了，我这里是将 source 与 public 分开各开一个 repository，source 仓库为私有。我在 GitHub 新建了两个仓库分别为: wiki-source(私有)、hexo-wiki-pages(公有)。在 hexo-wiki-pages 仓库的设置里打开 gitpages。<br>　　将 themes&#x2F;Wikitten&#x2F;hexo&#x2F; 下的所有文件复制到 hexo 的目录下。</p>
 <ul>
-<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#46;&#99;&#x6f;&#109;">git@github.com</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
+<li>修改 hexo 目录下的 <code>_config.yml</code> 中的站点信息、域名以及末尾 deploy 字段的 repository 地址为你的 hexo-wiki-pages 公开仓库的 ssh 地址，如我的为：  <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">git@github.com</a>:AlliotTech&#x2F;hexo-wiki-pages  </li>
 <li>修改 <code>.travis.yml</code> branch 字段指定你要构建的分支，如我的 wiki-source 仓库需要构建的分支为: master   </li>
 <li>修改 <code>travis_env_init.sh</code> 中 git 的配置信息（用户名与邮箱）。<br>之后就可以通过 <code>hexo s</code> 打开 <code>localhost:4000</code> 本地访问测试一下，成功则将 hexo 目录 push 到你的 source 仓库。</li>
 </ul>
@@ -4601,27 +4625,6 @@
       </tags>
   </entry>
   <entry>
-    <title>配置阿里云Docker镜像加速度器</title>
-    <url>//post/aliyun-docker-mirrors.html</url>
-    <content><![CDATA[<p>　　Docker 在推拉镜像的时候速度有时很慢，我们可以使用阿里的镜像加速器。<span id="more"></span>  </p>
-<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>登录<a href="https://cr.console.aliyun.com/cn-qingdao/mirrors">阿里云后台</a> 进入容器镜像服务，获取自己的镜像加速器地址。<br><img data-src="https://static.iots.vip/%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E5%99%A8.png" alt="阿里云镜像加速器.png">  </p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>根据提示修改 <code>/etc/docker/daemon.json</code> 来使用加速器：  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/docker</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">tee</span> /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://xxx(你的地址).mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>检查修改是否生效：  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
-<p><code>Registry Mirrors:</code> 为你的镜像加速器地址即可。  </p>
-<p>~~腾讯云 docker 镜像配置 ~~<br>　　如果使用的是腾讯云的 VPS，更推荐使用以下配置：  </p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">       <span class="string">&quot;https://mirror.ccs.tencentyun.com&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>配置Coding仓库与GitHub仓库同步更新</title>
     <url>//post/coding-github-repository.html</url>
     <content><![CDATA[<p>　　就在这两天，GitHub 宣布免费无限私有 repository 了，于是打算将 Coding 上的一些仓库丢 GitHub 一同管理与更新。 <span id="more"></span><br>本文是在部署了 Coding 仓库密钥的情况下进行的。若没有部署密钥，请参考 <a href="https://coding.net/help/docs/repo/ssh/config.html">如何配置 SSH 公钥访问 git 仓库? – CODING 帮助中心</a></p>
@@ -4640,6 +4643,27 @@
 ]]></content>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>配置阿里云Docker镜像加速度器</title>
+    <url>//post/aliyun-docker-mirrors.html</url>
+    <content><![CDATA[<p>　　Docker 在推拉镜像的时候速度有时很慢，我们可以使用阿里的镜像加速器。<span id="more"></span>  </p>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>登录<a href="https://cr.console.aliyun.com/cn-qingdao/mirrors">阿里云后台</a> 进入容器镜像服务，获取自己的镜像加速器地址。<br><img data-src="https://static.iots.vip/%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E5%99%A8.png" alt="阿里云镜像加速器.png">  </p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>根据提示修改 <code>/etc/docker/daemon.json</code> 来使用加速器：  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/docker</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">tee</span> /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://xxx(你的地址).mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>检查修改是否生效：  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<p><code>Registry Mirrors:</code> 为你的镜像加速器地址即可。  </p>
+<p>~~腾讯云 docker 镜像配置 ~~<br>　　如果使用的是腾讯云的 VPS，更推荐使用以下配置：  </p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">       <span class="string">&quot;https://mirror.ccs.tencentyun.com&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
