@@ -1,5 +1,5 @@
 {
-  "commit_id": "78be46e",
-  "message": "Merge branch 'master' of github.com:AlliotTech/alliot-blog",
-  "date": "2025-05-06 18:31:52"
+  "commit_id": "209006e",
+  "message": "fix: remove unnecessary comment from pre-commit config",
+  "date": "2025-06-05 20:38:44"
 }
