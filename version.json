@@ -1,5 +1,5 @@
 {
-  "commit_id": "91145ea",
-  "message": "feat(docs): add guide for handling ArgoCD metadata.annotations size issue",
-  "date": "2025-06-25 15:48:16"
+  "commit_id": "7152837",
+  "message": "fix(docs): correct formatting and spacing in ArgoCD metadata annotations guide",
+  "date": "2025-06-25 16:10:59"
 }
