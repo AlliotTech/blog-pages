@@ -6,7 +6,7 @@
   <link href="https://www.iots.vip/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://www.iots.vip/"/>
-  <updated>2025-02-10T11:00:00.000Z</updated>
+  <updated>2025-06-24T11:21:52.000Z</updated>
   <id>https://www.iots.vip/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ArgoCD部署应用出现metadata.annotations过大问题</title>
+    <link href="https://www.iots.vip/post/argocd-metadata-annotations-Toolong"/>
+    <id>https://www.iots.vip/post/argocd-metadata-annotations-Toolong</id>
+    <published>2025-06-24T11:21:52.000Z</published>
+    <updated>2025-06-24T11:21:52.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;使用 Argo CD 部署 kube-prometheus-stack 的时候，出现 &lt;code&gt;the metadata.annotations is invalid: Too long: must have at most 262144 bytes&lt;/code&gt; 的问题，导致整个 Application 出现 Sync Error。 这是由于Kubernetes 对于 metadata.annotations 字段总长度有限制，通常不能超过262144字节（256KB），而执行 &lt;code&gt;kubectl apply&lt;/code&gt; 时会在 annotation 中加入 &lt;code&gt;last-applied-configuration&lt;/code&gt;, 从而导致 annotation 过大无法 apply。</summary>
+    
+    
+    
+    
+    <category term="GitOps" scheme="https://www.iots.vip/tags/GitOps/"/>
+    
+    <category term="Kubernetes" scheme="https://www.iots.vip/tags/Kubernetes/"/>
+    
+  </entry>
   
   <entry>
     <title>APC UPS更换电池校准容量</title>
@@ -386,25 +405,6 @@
     <category term="IaC" scheme="https://www.iots.vip/tags/IaC/"/>
     
     <category term="Terraform" scheme="https://www.iots.vip/tags/Terraform/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>filezilla-server批量创建用户</title>
-    <link href="https://www.iots.vip/post/batch-create-filezilla-server-ftp-user"/>
-    <id>https://www.iots.vip/post/batch-create-filezilla-server-ftp-user</id>
-    <published>2022-09-25T12:00:00.000Z</published>
-    <updated>2022-09-25T12:00:00.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;　　有一个比较奇怪的需求，需要给 FileZilla-server 新建大量的 ftp 用户，为其配置随机密码，指定单独家目录与用户组等。</summary>
-    
-    
-    
-    
-    <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
-    
-    <category term="Python" scheme="https://www.iots.vip/tags/Python/"/>
     
   </entry>
   

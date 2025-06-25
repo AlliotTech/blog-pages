@@ -1,5 +1,5 @@
 {
-  "commit_id": "1fb330c",
-  "message": "[skipci]Merge pull request #167 from AlliotTech/renovate/node-22.x",
-  "date": "2025-06-25 15:24:15"
+  "commit_id": "91145ea",
+  "message": "feat(docs): add guide for handling ArgoCD metadata.annotations size issue",
+  "date": "2025-06-25 15:48:16"
 }
