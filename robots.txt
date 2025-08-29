@@ -6,13 +6,7 @@ Allow: /post/
 Allow ads.txt
 Disallow: /post/mind/
 
-Disallow: /archives/
-Disallow: /page/
-Disallow: /tags/
-Disallow: /categories/
-Disallow: /reward/
-Disallow: /movies/
-Disallow: /books/
+
 
 Disallow: /vendors/
 Disallow: /lib/

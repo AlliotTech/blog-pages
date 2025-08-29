@@ -1,5 +1,5 @@
 {
-  "commit_id": "0abab37",
-  "message": "feat: add ads.txt file and update robots.txt to allow ads.txt adsense",
-  "date": "2025-08-29 10:21:08"
+  "commit_id": "ddfe69b",
+  "message": "feat: robots.txt允许抓取归档等地址",
+  "date": "2025-08-29 10:29:49"
 }
