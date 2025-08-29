@@ -1,5 +1,5 @@
 {
-  "commit_id": "ddfe69b",
-  "message": "feat: robots.txt允许抓取归档等地址",
-  "date": "2025-08-29 10:29:49"
+  "commit_id": "80c6ec9",
+  "message": "fix: correct syntax for allowing ads.txt in robots.txt",
+  "date": "2025-08-29 10:41:44"
 }

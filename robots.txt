@@ -3,9 +3,8 @@ User-agent: *
 Allow: /
 Allow: /about/
 Allow: /post/
-Allow ads.txt
+Allow /ads.txt
 Disallow: /post/mind/
-
 
 
 Disallow: /vendors/
