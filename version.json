@@ -1,5 +1,5 @@
 {
-  "commit_id": "7e07639",
-  "message": "Merge pull request #181 from AlliotTech/chore/disable-version-inject-to-console",
-  "date": "2025-11-25 15:27:07"
+  "commit_id": "5b0068d",
+  "message": "chore: add concurrency settings to deployment workflow for auto-canceling redundant runs",
+  "date": "2025-11-25 15:38:38"
 }
