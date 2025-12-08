@@ -225,11 +225,11 @@
     
     
     
-    <category term="AWS" scheme="https://www.iots.vip/tags/AWS/"/>
-    
     <category term="Linux" scheme="https://www.iots.vip/tags/Linux/"/>
     
     <category term="Nginx" scheme="https://www.iots.vip/tags/Nginx/"/>
+    
+    <category term="AWS" scheme="https://www.iots.vip/tags/AWS/"/>
     
   </entry>
   

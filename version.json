@@ -1,5 +1,5 @@
 {
-  "commit_id": "5b0068d",
-  "message": "chore: add concurrency settings to deployment workflow for auto-canceling redundant runs",
-  "date": "2025-11-25 15:38:38"
+  "commit_id": "0e3ab5b",
+  "message": "chore: remove comments for clarity in IndexNow workflow",
+  "date": "2025-12-08 14:53:26"
 }
