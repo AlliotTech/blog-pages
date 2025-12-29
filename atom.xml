@@ -6,7 +6,7 @@
   <link href="https://www.iots.vip/atom.xml" rel="self"/>
   <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
   <link href="https://www.iots.vip/"/>
-  <updated>2025-06-24T11:21:52.000Z</updated>
+  <updated>2025-12-28T11:00:00.000Z</updated>
   <id>https://www.iots.vip/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025年底的安卓搞机备忘录</title>
+    <link href="https://www.iots.vip/post/android-root-hide-detection-2025"/>
+    <id>https://www.iots.vip/post/android-root-hide-detection-2025</id>
+    <published>2025-12-28T11:00:00.000Z</published>
+    <updated>2025-12-28T11:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;　　在云服务高度绑定、系统权限不断收紧、厂商深度定制愈发封闭的今天，解锁 Bootloader、Root、刷 Rom 这些曾经被视为 Android 精神内核的操作，正在逐渐从“折腾的乐趣”变成“高风险行为”。马上 2026 年了，你还在玩 Android 机吗？</summary>
+    
+    
+    
+    
+    <category term="Android" scheme="https://www.iots.vip/tags/Android/"/>
+    
+    <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="硬件" scheme="https://www.iots.vip/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>ArgoCD部署应用出现metadata.annotations过大问题</title>
@@ -204,11 +225,11 @@
     
     
     
+    <category term="Android" scheme="https://www.iots.vip/tags/Android/"/>
+    
     <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
     
     <category term="硬件" scheme="https://www.iots.vip/tags/%E7%A1%AC%E4%BB%B6/"/>
-    
-    <category term="Android" scheme="https://www.iots.vip/tags/Android/"/>
     
   </entry>
   
@@ -225,11 +246,11 @@
     
     
     
+    <category term="AWS" scheme="https://www.iots.vip/tags/AWS/"/>
+    
     <category term="Linux" scheme="https://www.iots.vip/tags/Linux/"/>
     
     <category term="Nginx" scheme="https://www.iots.vip/tags/Nginx/"/>
-    
-    <category term="AWS" scheme="https://www.iots.vip/tags/AWS/"/>
     
   </entry>
   
@@ -379,25 +400,6 @@
     
     
     <summary type="html">&lt;p&gt;　　之前我们旧的 Jenkins 集群跑在 AWS EC2 上，近期由于大量新增 Job 以及大量构建任务的并行，导致集群资源吃紧，不得不新增更多的 Slave 来应对。为了降低成本，同时获得更好的资源弹性，Alliot 打算基于 Terraform 在 AWS ECS 中构建新的 Jenkins 持续集成体系。容器提供了更细的资源粒度，拥有更好的资源弹性和资源利用率。</summary>
-    
-    
-    
-    
-    <category term="IaC" scheme="https://www.iots.vip/tags/IaC/"/>
-    
-    <category term="Terraform" scheme="https://www.iots.vip/tags/Terraform/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Terraform启用provider缓存</title>
-    <link href="https://www.iots.vip/post/terraform-provider-cache"/>
-    <id>https://www.iots.vip/post/terraform-provider-cache</id>
-    <published>2022-10-12T11:30:00.000Z</published>
-    <updated>2022-10-12T11:30:00.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;　　我们在开始一个 Terraform 工程项目的时候，首先要做的就是 &lt;code&gt;terraform init&lt;/code&gt;， 这个动作会在当前工作目录下创建 &lt;code&gt;.terraform&lt;/code&gt; 目录，并联网下载项目所需要的 &lt;code&gt;provider&lt;/code&gt; 到该目录下。 即便是多个项目使用的是同样的 &lt;code&gt;provider&lt;/code&gt;，但每个工程项目仍然都有自己单独的 &lt;code&gt;.terraform&lt;/code&gt;, 这不仅仅会浪费磁盘空间，还会花费很多不必要的时间去等待联网下载 &lt;code&gt;provider&lt;/code&gt;，好在 Terraform 官方为我们提供了缓存目录。</summary>
     
     
     
