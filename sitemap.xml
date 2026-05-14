@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.iots.vip/post/choose-glasses</loc>
+    
+    <lastmod>2026-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.iots.vip/post/docker-proxy-mechanism</loc>
     
     <lastmod>2026-02-08</lastmod>
@@ -158,15 +167,6 @@
     <loc>https://www.iots.vip/post/elegant-solution-git-multiple-accounts-proxy-issues</loc>
     
     <lastmod>2023-08-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.iots.vip/post/choose-glasses</loc>
-    
-    <lastmod>2023-04-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1363,7 +1363,7 @@
 
   <url>
     <loc>https://www.iots.vip/</loc>
-    <lastmod>2026-03-24</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
