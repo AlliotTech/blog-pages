@@ -109,8 +109,8 @@
       <name>Alliot</name>
     </author>
     <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
-    <category term="Cloudflare" scheme="https://www.iots.vip/tags/Cloudflare/"/>
     <category term="Docker" scheme="https://www.iots.vip/tags/Docker/"/>
+    <category term="Cloudflare" scheme="https://www.iots.vip/tags/Cloudflare/"/>
     <id>https://www.iots.vip/post/cloudflare-tunnel-proxy-support</id>
     <link href="https://www.iots.vip/post/cloudflare-tunnel-proxy-support"/>
     <published>2024-09-01T11:00:00.000Z</published>
