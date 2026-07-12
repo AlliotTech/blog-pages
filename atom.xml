@@ -202,9 +202,9 @@
     <author>
       <name>Alliot</name>
     </author>
-    <category term="AWS" scheme="https://www.iots.vip/tags/AWS/"/>
     <category term="Linux" scheme="https://www.iots.vip/tags/Linux/"/>
     <category term="Nginx" scheme="https://www.iots.vip/tags/Nginx/"/>
+    <category term="AWS" scheme="https://www.iots.vip/tags/AWS/"/>
     <id>https://www.iots.vip/post/nginx-proxy-pass-aws-alb-504-issue</id>
     <link href="https://www.iots.vip/post/nginx-proxy-pass-aws-alb-504-issue"/>
     <published>2024-01-23T12:00:00.000Z</published>
