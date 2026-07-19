@@ -1,5 +1,5 @@
 {
-  "commit_id": "a37900a",
-  "message": "feat: 友链更新",
-  "date": "2026-07-20 00:21:25"
+  "commit_id": "97e4774",
+  "message": "feat: preserve document tags during HTML minification",
+  "date": "2026-07-20 01:32:42"
 }
