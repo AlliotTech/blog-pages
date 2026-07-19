@@ -1,4 +1,4 @@
-# www.iots.vip 
+# blog.alliot.tech
 User-agent: *
 Allow: /
 Allow: /about/
@@ -17,7 +17,7 @@ Disallow: /404.html
 Disallow: /loading.gif
 Disallow: /search.xml
 
-Sitemap: https://www.iots.vip/sitemap.xml
+Sitemap: https://blog.alliot.tech/sitemap.xml
 
 User-agent: GPTBot
 Disallow: /
