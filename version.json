@@ -1,5 +1,5 @@
 {
-  "commit_id": "eec1f30",
-  "message": "chore(deps): update Hexo to 8.1.2",
-  "date": "2026-07-20 01:35:57"
+  "commit_id": "82b33da",
+  "message": "fix: show migration notice for old domain visits",
+  "date": "2026-07-20 01:42:55"
 }
