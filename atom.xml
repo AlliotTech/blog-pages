@@ -33,8 +33,8 @@
     <author>
       <name>Alliot</name>
     </author>
-    <category term="Android" scheme="https://www.iots.vip/tags/Android/"/>
     <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="Android" scheme="https://www.iots.vip/tags/Android/"/>
     <category term="硬件" scheme="https://www.iots.vip/tags/%E7%A1%AC%E4%BB%B6/"/>
     <id>https://www.iots.vip/post/android-root-hide-detection-2025</id>
     <link href="https://www.iots.vip/post/android-root-hide-detection-2025"/>
@@ -186,8 +186,8 @@
     <author>
       <name>Alliot</name>
     </author>
-    <category term="Android" scheme="https://www.iots.vip/tags/Android/"/>
     <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="Android" scheme="https://www.iots.vip/tags/Android/"/>
     <category term="硬件" scheme="https://www.iots.vip/tags/%E7%A1%AC%E4%BB%B6/"/>
     <id>https://www.iots.vip/post/fxxk-android-tv</id>
     <link href="https://www.iots.vip/post/fxxk-android-tv"/>
@@ -266,8 +266,8 @@
       <name>Alliot</name>
     </author>
     <category term="折腾" scheme="https://www.iots.vip/tags/%E6%8A%98%E8%85%BE/"/>
-    <category term="hexo" scheme="https://www.iots.vip/tags/hexo/"/>
     <category term="CI" scheme="https://www.iots.vip/tags/CI/"/>
+    <category term="hexo" scheme="https://www.iots.vip/tags/hexo/"/>
     <id>https://www.iots.vip/post/new-hexo-workflow</id>
     <link href="https://www.iots.vip/post/new-hexo-workflow"/>
     <published>2023-09-01T04:44:03.000Z</published>

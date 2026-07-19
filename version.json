@@ -1,5 +1,5 @@
 {
-  "commit_id": "46ab243",
-  "message": "chore: remove unreciprocated friend links",
-  "date": "2026-07-19 15:01:46"
+  "commit_id": "5cfa6e7",
+  "message": "refactor internal blog links to relative paths",
+  "date": "2026-07-19 15:21:20"
 }
