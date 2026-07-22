@@ -266,8 +266,8 @@
       <name>Alliot</name>
     </author>
     <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
-    <category term="hexo" scheme="https://blog.alliot.tech/tags/hexo/"/>
     <category term="CI" scheme="https://blog.alliot.tech/tags/CI/"/>
+    <category term="hexo" scheme="https://blog.alliot.tech/tags/hexo/"/>
     <id>https://blog.alliot.tech/post/new-hexo-workflow</id>
     <link href="https://blog.alliot.tech/post/new-hexo-workflow"/>
     <published>2023-09-01T04:44:03.000Z</published>
