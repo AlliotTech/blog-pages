@@ -1,5 +1,5 @@
 {
-  "commit_id": "34e3f46",
-  "message": "fix: disable font since font.im cert expired",
-  "date": "2026-07-23 10:59:32"
+  "commit_id": "b6f876e",
+  "message": "feat: add structured data for site identity",
+  "date": "2026-07-23 12:06:48"
 }
