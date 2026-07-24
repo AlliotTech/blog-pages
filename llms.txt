@@ -1,0 +1,68 @@
+# Alliot's blog
+
+> Alliot 的个人博客, 记录工作、学习与生活，内容以 DevOps、云原生和架构设计为主, 也会分享一些硬件折腾。
+
+这是一个以 DevOps、云原生、架构设计和硬件实践为主的中文个人博客。
+
+## 站点入口
+
+- [首页](https://blog.alliot.tech/) - 最新文章
+- [关于作者](https://blog.alliot.tech/about/)
+- [文章归档](https://blog.alliot.tech/archives/)
+- [标签索引](https://blog.alliot.tech/tags/)
+- [分类索引](https://blog.alliot.tech/categories/)
+- [Atom 订阅](https://blog.alliot.tech/atom.xml)
+- [XML Sitemap](https://blog.alliot.tech/sitemap.xml)
+
+## 主要主题
+
+- [Linux](https://blog.alliot.tech/tags/Linux/) - 58 篇文章
+- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 54 篇文章
+- [系列](https://blog.alliot.tech/tags/%E7%B3%BB%E5%88%97/) - 15 篇文章
+- [CentOS](https://blog.alliot.tech/tags/CentOS/) - 14 篇文章
+- [群晖](https://blog.alliot.tech/tags/%E7%BE%A4%E6%99%96/) - 11 篇文章
+- [Nginx](https://blog.alliot.tech/tags/Nginx/) - 11 篇文章
+- [Docker](https://blog.alliot.tech/tags/Docker/) - 9 篇文章
+- [网络](https://blog.alliot.tech/tags/%E7%BD%91%E7%BB%9C/) - 8 篇文章
+- [硬件](https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/) - 8 篇文章
+- [hexo](https://blog.alliot.tech/tags/hexo/) - 8 篇文章
+- [Python](https://blog.alliot.tech/tags/Python/) - 8 篇文章
+- [Git](https://blog.alliot.tech/tags/Git/) - 7 篇文章
+
+## 最近文章
+
+- [Docker 代理配置机制与作用域](https://blog.alliot.tech/post/docker-proxy-mechanism) - 2026-02-08
+- [2025年底的安卓搞机备忘录](https://blog.alliot.tech/post/android-root-hide-detection-2025) - 2025-12-28
+- [ArgoCD部署应用出现metadata.annotations过大问题](https://blog.alliot.tech/post/argocd-metadata-annotations-Toolong) - 2025-06-24
+- [APC UPS更换电池校准容量](https://blog.alliot.tech/post/apc-ups-replace-battery) - 2025-02-10
+- [M1 Mac安装低版本Node.js](https://blog.alliot.tech/post/installing-lower-version-nodejs-on-m1-mac) - 2024-12-12
+- [Ansible使用Bitwarden存储Vault密码](https://blog.alliot.tech/post/ansible-vault-bitwarden-integration) - 2024-11-24
+- [Cloudflare Tunnel前置代理支持](https://blog.alliot.tech/post/cloudflare-tunnel-proxy-support) - 2024-09-01
+- [CDN场景下配置Vaultwarden启用fail2ban](https://blog.alliot.tech/post/configuration-vaultwarden-enable-fail2ban-over-cdn) - 2024-06-25
+- [中银香港丝滑开户总结](https://blog.alliot.tech/post/summary-of-smooth-account-opening-in-boc-hong-kong) - 2024-05-25
+- [从指定路径更新雷池WAF证书](https://blog.alliot.tech/post/update-safeline-ssl-cert-from-file) - 2024-04-02
+- [AWS ECS使用EBS作为Volume](https://blog.alliot.tech/post/aws-ecs-fargate-ebs-volume) - 2024-03-31
+- [浅浅的调教一下国产智障电视](https://blog.alliot.tech/post/fxxk-android-tv) - 2024-02-01
+- [Nginx proxy_pass到AWS ALB的504问题](https://blog.alliot.tech/post/nginx-proxy-pass-aws-alb-504-issue) - 2024-01-23
+- [OpenV**手动指定路由规则](https://blog.alliot.tech/post/openvxx-manual-static-route-configuration) - 2023-12-20
+- [本地模拟CNAME解析](https://blog.alliot.tech/post/cname-record-simulate) - 2023-11-04
+- [Nginx搭建WebDAV服务](https://blog.alliot.tech/post/nginx-webdav-server) - 2023-10-23
+- [迎来船新版本的Hexo+NexT](https://blog.alliot.tech/post/new-hexo-workflow) - 2023-09-01
+- [优雅的处理Git多帐号与代理问题](https://blog.alliot.tech/post/elegant-solution-git-multiple-accounts-proxy-issues) - 2023-08-06
+- [验光配镜扫盲](https://blog.alliot.tech/post/choose-glasses) - 2023-04-04
+- [Prometheus relabel实现动态metrics path](https://blog.alliot.tech/post/prometheus-metrics-path-relabel) - 2023-03-02
+- [基于Terraform在AWS ECS中构建Jenkins持续集成体系](https://blog.alliot.tech/post/terraform-aws-ecs-jenkins) - 2022-10-14
+- [Terraform启用provider缓存](https://blog.alliot.tech/post/terraform-provider-cache) - 2022-10-12
+- [filezilla-server批量创建用户](https://blog.alliot.tech/post/batch-create-filezilla-server-ftp-user) - 2022-09-25
+- [iterm2自动输入堡垒机TOTP验证码](https://blog.alliot.tech/post/iterm2-jumpserver-totp-autocomplete) - 2022-08-18
+- [logrotate服务错误:read-only filesystem](https://blog.alliot.tech/post/logrotate-service-read-only-filesystem) - 2022-08-18
+- [hexo使用Artalk评论系统](https://blog.alliot.tech/post/hexo-artalk-comment) - 2022-07-24
+- [Using a proxy for ssh connections based on netcat](https://blog.alliot.tech/post/ssh-over-proxy-by-nc) - 2022-07-21
+- [使用Atlantis自动化你的Terraform Pull Request](https://blog.alliot.tech/post/atlantis-terraform-pull-request-automation) - 2022-06-09
+- [asdf管理多版本Terraform](https://blog.alliot.tech/post/asdf-multi-version-terraform) - 2022-06-08
+- [使用Terraformer导出AWS上现有资源](https://blog.alliot.tech/post/terraformer-import-aws-resource) - 2022-05-27
+
+## 使用说明
+
+本文件列出最近 30 篇公开文章；完整的 150 篇公开文章请通过 XML Sitemap 获取。
+文章内容以对应页面为准。引用时请保留文章标题和原始链接。
