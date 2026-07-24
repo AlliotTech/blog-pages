@@ -1,25 +1,12 @@
 # blog.alliot.tech
+# Allow search engines and AI search/citation crawlers.
 User-agent: *
 Allow: /
-Allow: /about/
-Allow: /post/
-Allow: /ads.txt
-Allow: /cec03e62ffad4e3c9539fc88fccb18ee.txt
-Disallow: /post/mind/
-
-
-Disallow: /vendors/
-Disallow: /lib/
-Disallow: /down/
-
-Disallow: /*.txt
-Disallow: /*.json
-Disallow: /404.html
-Disallow: /loading.gif
-Disallow: /search.xml
+Disallow: /search.json
 
 Sitemap: https://blog.alliot.tech/sitemap.xml
 
+# Opt out of model-training and public-dataset crawlers.
 User-agent: GPTBot
 Disallow: /
 
@@ -27,4 +14,7 @@ User-agent: Google-Extended
 Disallow: /
 
 User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
 Disallow: /
