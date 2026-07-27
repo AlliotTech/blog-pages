@@ -61,8 +61,3 @@
 - [使用Atlantis自动化你的Terraform Pull Request](https://blog.alliot.tech/post/atlantis-terraform-pull-request-automation) - 2022-06-09
 - [asdf管理多版本Terraform](https://blog.alliot.tech/post/asdf-multi-version-terraform) - 2022-06-08
 - [使用Terraformer导出AWS上现有资源](https://blog.alliot.tech/post/terraformer-import-aws-resource) - 2022-05-27
-
-## 使用说明
-
-本文件列出最近 30 篇公开文章；完整的 150 篇公开文章请通过 XML Sitemap 获取。
-文章内容以对应页面为准。引用时请保留文章标题和原始链接。

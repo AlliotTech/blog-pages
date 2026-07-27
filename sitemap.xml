@@ -326,7 +326,7 @@
   </url>
   
   <url>
-    <loc>https://blog.alliot.tech/post/do-not-modify-libc-so-6</loc>
+    <loc>https://blog.alliot.tech/post/packer-build-aws-ami-for-jenkins-node</loc>
     
     <lastmod>2021-10-02</lastmod>
     
@@ -335,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://blog.alliot.tech/post/packer-build-aws-ami-for-jenkins-node</loc>
+    <loc>https://blog.alliot.tech/post/do-not-modify-libc-so-6</loc>
     
     <lastmod>2021-10-02</lastmod>
     
@@ -1363,7 +1363,7 @@
 
   <url>
     <loc>https://blog.alliot.tech/</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
