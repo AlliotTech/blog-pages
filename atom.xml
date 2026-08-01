@@ -109,8 +109,8 @@
       <name>Alliot</name>
     </author>
     <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
-    <category term="Cloudflare" scheme="https://blog.alliot.tech/tags/Cloudflare/"/>
     <category term="Docker" scheme="https://blog.alliot.tech/tags/Docker/"/>
+    <category term="Cloudflare" scheme="https://blog.alliot.tech/tags/Cloudflare/"/>
     <id>https://blog.alliot.tech/post/cloudflare-tunnel-proxy-support</id>
     <link href="https://blog.alliot.tech/post/cloudflare-tunnel-proxy-support"/>
     <published>2024-09-01T11:00:00.000Z</published>
