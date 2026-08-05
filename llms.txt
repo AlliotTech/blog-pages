@@ -17,7 +17,7 @@
 ## 主要主题
 
 - [Linux](https://blog.alliot.tech/tags/Linux/) - 58 篇文章
-- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 54 篇文章
+- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 55 篇文章
 - [系列](https://blog.alliot.tech/tags/%E7%B3%BB%E5%88%97/) - 15 篇文章
 - [CentOS](https://blog.alliot.tech/tags/CentOS/) - 14 篇文章
 - [群晖](https://blog.alliot.tech/tags/%E7%BE%A4%E6%99%96/) - 11 篇文章
@@ -31,6 +31,7 @@
 
 ## 最近文章
 
+- [域名切换到 blog.alliot.tech](https://blog.alliot.tech/post/domain-switch-2026) - 2026-08-05
 - [Docker 代理配置机制与作用域](https://blog.alliot.tech/post/docker-proxy-mechanism) - 2026-02-08
 - [2025年底的安卓搞机备忘录](https://blog.alliot.tech/post/android-root-hide-detection-2025) - 2025-12-28
 - [ArgoCD部署应用出现metadata.annotations过大问题](https://blog.alliot.tech/post/argocd-metadata-annotations-Toolong) - 2025-06-24
@@ -60,4 +61,3 @@
 - [Using a proxy for ssh connections based on netcat](https://blog.alliot.tech/post/ssh-over-proxy-by-nc) - 2022-07-21
 - [使用Atlantis自动化你的Terraform Pull Request](https://blog.alliot.tech/post/atlantis-terraform-pull-request-automation) - 2022-06-09
 - [asdf管理多版本Terraform](https://blog.alliot.tech/post/asdf-multi-version-terraform) - 2022-06-08
-- [使用Terraformer导出AWS上现有资源](https://blog.alliot.tech/post/terraformer-import-aws-resource) - 2022-05-27
