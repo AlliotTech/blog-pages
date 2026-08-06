@@ -1,5 +1,5 @@
 {
-  "commit_id": "8a10633",
-  "message": "[skipci]: upgrade hexo-next-theme",
-  "date": "2026-08-06 11:56:28"
+  "commit_id": "a256aef",
+  "message": "chore: add hexo-theme-next@8.29.0 to minimumReleaseAgeExclude",
+  "date": "2026-08-06 14:05:24"
 }
