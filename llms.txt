@@ -16,8 +16,8 @@
 
 ## 主要主题
 
-- [Linux](https://blog.alliot.tech/tags/Linux/) - 58 篇文章
-- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 55 篇文章
+- [Linux](https://blog.alliot.tech/tags/Linux/) - 59 篇文章
+- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 56 篇文章
 - [系列](https://blog.alliot.tech/tags/%E7%B3%BB%E5%88%97/) - 15 篇文章
 - [CentOS](https://blog.alliot.tech/tags/CentOS/) - 14 篇文章
 - [群晖](https://blog.alliot.tech/tags/%E7%BE%A4%E6%99%96/) - 11 篇文章
@@ -43,6 +43,7 @@
 - [中银香港丝滑开户总结](https://blog.alliot.tech/post/summary-of-smooth-account-opening-in-boc-hong-kong) - 2024-05-25
 - [从指定路径更新雷池WAF证书](https://blog.alliot.tech/post/update-safeline-ssl-cert-from-file) - 2024-04-02
 - [AWS ECS使用EBS作为Volume](https://blog.alliot.tech/post/aws-ecs-fargate-ebs-volume) - 2024-03-31
+- [利用 APT Hook 在 PVE 更新后自动执行脚本](https://blog.alliot.tech/post/pve-apt-post-hook) - 2024-03-25
 - [浅浅的调教一下国产智障电视](https://blog.alliot.tech/post/fxxk-android-tv) - 2024-02-01
 - [Nginx proxy_pass到AWS ALB的504问题](https://blog.alliot.tech/post/nginx-proxy-pass-aws-alb-504-issue) - 2024-01-23
 - [OpenV**手动指定路由规则](https://blog.alliot.tech/post/openvxx-manual-static-route-configuration) - 2023-12-20
@@ -60,4 +61,3 @@
 - [hexo使用Artalk评论系统](https://blog.alliot.tech/post/hexo-artalk-comment) - 2022-07-24
 - [Using a proxy for ssh connections based on netcat](https://blog.alliot.tech/post/ssh-over-proxy-by-nc) - 2022-07-21
 - [使用Atlantis自动化你的Terraform Pull Request](https://blog.alliot.tech/post/atlantis-terraform-pull-request-automation) - 2022-06-09
-- [asdf管理多版本Terraform](https://blog.alliot.tech/post/asdf-multi-version-terraform) - 2022-06-08

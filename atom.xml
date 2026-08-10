@@ -201,6 +201,23 @@
     <author>
       <name>Alliot</name>
     </author>
+    <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="Linux" scheme="https://blog.alliot.tech/tags/Linux/"/>
+    <category term="PVE" scheme="https://blog.alliot.tech/tags/PVE/"/>
+    <id>https://blog.alliot.tech/post/pve-apt-post-hook</id>
+    <link href="https://blog.alliot.tech/post/pve-apt-post-hook"/>
+    <published>2024-03-25T08:27:20.000Z</published>
+    <summary>
+      <![CDATA[<p>　　Alliot 的 PVE 使用的是 no-subscription 软件源，Web 管理页面的订阅状态也顺手做了处理。不过负责返回订阅状态的 <code>/usr/share/perl5/PVE/API2/Subscription.pm</code> 属于 <code>pve-manager</code> 软件包，每次更新都会被覆盖，升级完还得再手动修改一次。一次两次还行，次数多了确实麻烦。</p>
+<p>　　APT 本身支持 Hook，可以在 <code>dpkg</code> 完成一轮软件包安装或升级后执行脚本。这里利用 <code>DPkg::Post-Invoke</code>，让 PVE 更新完成后自动把订阅状态补丁重新打回去。]]>
+    </summary>
+    <title>利用 APT Hook 在 PVE 更新后自动执行脚本</title>
+    <updated>2024-03-25T08:27:20.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Alliot</name>
+    </author>
     <category term="Android" scheme="https://blog.alliot.tech/tags/Android/"/>
     <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
     <category term="硬件" scheme="https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/"/>
@@ -281,8 +298,8 @@
       <name>Alliot</name>
     </author>
     <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
-    <category term="hexo" scheme="https://blog.alliot.tech/tags/hexo/"/>
     <category term="CI" scheme="https://blog.alliot.tech/tags/CI/"/>
+    <category term="hexo" scheme="https://blog.alliot.tech/tags/hexo/"/>
     <id>https://blog.alliot.tech/post/new-hexo-workflow</id>
     <link href="https://blog.alliot.tech/post/new-hexo-workflow"/>
     <published>2023-09-01T04:44:03.000Z</published>
@@ -306,19 +323,5 @@
     </summary>
     <title>优雅的处理Git多帐号与代理问题</title>
     <updated>2023-08-06T14:00:00.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Alliot</name>
-    </author>
-    <category term="杂谈" scheme="https://blog.alliot.tech/tags/%E6%9D%82%E8%B0%88/"/>
-    <id>https://blog.alliot.tech/post/choose-glasses</id>
-    <link href="https://blog.alliot.tech/post/choose-glasses"/>
-    <published>2023-04-04T16:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>&emsp;&emsp;眼镜是心灵的窗户，不巧，我的窗户不是很标准，从小到大，戴过很多副眼镜，从三甲到爱某眼科、宝某、博某，呱呱呱一顿操作下来自己啥也不懂是什么意思，最近由于眼镜被我一屁股坐坏了，就在附近的眼镜城配了眼镜，之后就有了此文。]]>
-    </summary>
-    <title>验光配镜扫盲</title>
-    <updated>2026-04-04T16:00:00.000Z</updated>
   </entry>
 </feed>
