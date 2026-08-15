@@ -1,5 +1,5 @@
 {
-  "commit_id": "7c59071",
-  "message": "feat: enable microsoft clarity",
-  "date": "2026-08-11 20:37:15"
+  "commit_id": "d035e91",
+  "message": "feat: add support for draft server in justfile",
+  "date": "2026-08-15 17:19:52"
 }

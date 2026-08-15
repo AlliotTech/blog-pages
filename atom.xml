@@ -48,8 +48,8 @@
     <author>
       <name>Alliot</name>
     </author>
-    <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
     <category term="Android" scheme="https://blog.alliot.tech/tags/Android/"/>
+    <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
     <category term="硬件" scheme="https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/"/>
     <id>https://blog.alliot.tech/post/android-root-hide-detection-2025</id>
     <link href="https://blog.alliot.tech/post/android-root-hide-detection-2025"/>
@@ -130,10 +130,10 @@
     <link href="https://blog.alliot.tech/post/cloudflare-tunnel-proxy-support"/>
     <published>2024-09-01T11:00:00.000Z</published>
     <summary>
-      <![CDATA[<p>　　赛博大善人的 Cloudflare Tunnel(前 Argo Tunnel) 只需要一个域名、一个 Cloudflare 帐号便可以将服务接入到 Cloudflare 的网络，提供了非常方便的内网穿透方式， 同时还提供了 ZeroTrust、防护等功能， 而这一切基本几乎都是免费的，相信看到此文的小伙伴已经薅上一段时间了，不过由于 Cloudflare Tunnel 官方的服务节点分布有限，在部分时空&#x2F;场景下，Tunnel 连通性会面临一些挑战， 这时候要是能够通过前置代理去连接到 Tunnel 服务，问题便能得到解决，可惜<a href="https://github.com/cloudflare/cloudflared/issues/350#issuecomment-1706842883">官方目前并没打算支持这个特性</a>。]]>
+      <![CDATA[<p>　　赛博大善人的 Cloudflare Tunnel（前 Argo Tunnel）只需要一个域名和一个 Cloudflare 帐号，便可以将服务接入 Cloudflare 网络，并提供 Zero Trust、防护等功能。不过，由于 Cloudflare Tunnel 服务节点的网络质量会受到地区和线路影响，部分场景下可能出现连接困难、速度较慢或频繁重连的问题。如果能让 cloudflared 通过前置代理连接 Cloudflare Edge，通常可以改善这类线路问题。遗憾的是，<a href="https://github.com/cloudflare/cloudflared/issues/350#issuecomment-1706842883">官方目前并不打算直接支持这个特性</a>。]]>
     </summary>
     <title>Cloudflare Tunnel前置代理支持</title>
-    <updated>2024-09-01T11:00:00.000Z</updated>
+    <updated>2026-08-15T09:00:00.000Z</updated>
   </entry>
   <entry>
     <author>
@@ -218,8 +218,8 @@
     <author>
       <name>Alliot</name>
     </author>
-    <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
     <category term="Android" scheme="https://blog.alliot.tech/tags/Android/"/>
+    <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
     <category term="硬件" scheme="https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/"/>
     <id>https://blog.alliot.tech/post/fxxk-android-tv</id>
     <link href="https://blog.alliot.tech/post/fxxk-android-tv"/>
