@@ -17,7 +17,7 @@
 ## 主要主题
 
 - [Linux](https://blog.alliot.tech/tags/Linux/) - 59 篇文章
-- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 56 篇文章
+- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 57 篇文章
 - [系列](https://blog.alliot.tech/tags/%E7%B3%BB%E5%88%97/) - 15 篇文章
 - [CentOS](https://blog.alliot.tech/tags/CentOS/) - 14 篇文章
 - [群晖](https://blog.alliot.tech/tags/%E7%BE%A4%E6%99%96/) - 11 篇文章
@@ -31,6 +31,7 @@
 
 ## 最近文章
 
+- [Codex第三方API使用生图接口](https://blog.alliot.tech/post/codex-third-party-api-image-generation) - 2026-09-01
 - [域名切换到 blog.alliot.tech](https://blog.alliot.tech/post/domain-switch-2026) - 2026-08-05
 - [Docker 代理配置机制与作用域](https://blog.alliot.tech/post/docker-proxy-mechanism) - 2026-02-08
 - [2025年底的安卓搞机备忘录](https://blog.alliot.tech/post/android-root-hide-detection-2025) - 2025-12-28
@@ -60,4 +61,3 @@
 - [logrotate服务错误:read-only filesystem](https://blog.alliot.tech/post/logrotate-service-read-only-filesystem) - 2022-08-18
 - [hexo使用Artalk评论系统](https://blog.alliot.tech/post/hexo-artalk-comment) - 2022-07-24
 - [Using a proxy for ssh connections based on netcat](https://blog.alliot.tech/post/ssh-over-proxy-by-nc) - 2022-07-21
-- [使用Atlantis自动化你的Terraform Pull Request](https://blog.alliot.tech/post/atlantis-terraform-pull-request-automation) - 2022-06-09

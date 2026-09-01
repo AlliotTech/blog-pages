@@ -13,7 +13,22 @@
     <![CDATA[Maker & Developer]]>
   </subtitle>
   <title>Alliot's blog</title>
-  <updated>2026-08-05T11:30:00.000Z</updated>
+  <updated>2026-09-01T13:42:20.000Z</updated>
+  <entry>
+    <author>
+      <name>Alliot</name>
+    </author>
+    <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="AI" scheme="https://blog.alliot.tech/tags/AI/"/>
+    <id>https://blog.alliot.tech/post/codex-third-party-api-image-generation</id>
+    <link href="https://blog.alliot.tech/post/codex-third-party-api-image-generation"/>
+    <published>2026-09-01T13:42:20.000Z</published>
+    <summary>
+      <![CDATA[<p>　　Codex(或ChatGPT客户端) 在配置第三方 API 来使用时，其内置的 <code>imagegen</code> Skills 无法正常使用，通过简单的配置即可修复。]]>
+    </summary>
+    <title>Codex第三方API使用生图接口</title>
+    <updated>2026-09-01T13:42:20.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Alliot</name>
@@ -298,8 +313,8 @@
       <name>Alliot</name>
     </author>
     <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
-    <category term="CI" scheme="https://blog.alliot.tech/tags/CI/"/>
     <category term="hexo" scheme="https://blog.alliot.tech/tags/hexo/"/>
+    <category term="CI" scheme="https://blog.alliot.tech/tags/CI/"/>
     <id>https://blog.alliot.tech/post/new-hexo-workflow</id>
     <link href="https://blog.alliot.tech/post/new-hexo-workflow"/>
     <published>2023-09-01T04:44:03.000Z</published>
@@ -308,20 +323,5 @@
     </summary>
     <title>迎来船新版本的Hexo+NexT</title>
     <updated>2023-09-01T04:44:03.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Alliot</name>
-    </author>
-    <category term="Linux" scheme="https://blog.alliot.tech/tags/Linux/"/>
-    <category term="Git" scheme="https://blog.alliot.tech/tags/Git/"/>
-    <id>https://blog.alliot.tech/post/elegant-solution-git-multiple-accounts-proxy-issues</id>
-    <link href="https://blog.alliot.tech/post/elegant-solution-git-multiple-accounts-proxy-issues"/>
-    <published>2023-08-06T14:00:00.000Z</published>
-    <summary>
-      <![CDATA[<p>　　在工作中，常常会容易遇到一台电脑用多个 Git 账号的场景，比如账号 company 账号是工作用的，而账号 personal 是自己个人用的。 由于 Git 本身并没有多账号的机制，导致我们在默认设置下无法很好的区分哪个仓库使用哪个账号。 同时，在某些众所周知的场景下，我们无法直接访问到 Github 仓库，需要走一层 proxy 来加速我们的代码拉取与推送速度， 本文将使用 SSH config 相对优雅的解决这些问题。]]>
-    </summary>
-    <title>优雅的处理Git多帐号与代理问题</title>
-    <updated>2023-08-06T14:00:00.000Z</updated>
   </entry>
 </feed>
