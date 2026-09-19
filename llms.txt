@@ -17,20 +17,21 @@
 ## 主要主题
 
 - [Linux](https://blog.alliot.tech/tags/Linux/) - 59 篇文章
-- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 57 篇文章
+- [折腾](https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/) - 58 篇文章
 - [系列](https://blog.alliot.tech/tags/%E7%B3%BB%E5%88%97/) - 15 篇文章
 - [CentOS](https://blog.alliot.tech/tags/CentOS/) - 14 篇文章
 - [群晖](https://blog.alliot.tech/tags/%E7%BE%A4%E6%99%96/) - 11 篇文章
 - [Nginx](https://blog.alliot.tech/tags/Nginx/) - 11 篇文章
+- [硬件](https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/) - 9 篇文章
 - [Docker](https://blog.alliot.tech/tags/Docker/) - 9 篇文章
 - [网络](https://blog.alliot.tech/tags/%E7%BD%91%E7%BB%9C/) - 8 篇文章
-- [硬件](https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/) - 8 篇文章
 - [hexo](https://blog.alliot.tech/tags/hexo/) - 8 篇文章
 - [Python](https://blog.alliot.tech/tags/Python/) - 8 篇文章
 - [Git](https://blog.alliot.tech/tags/Git/) - 7 篇文章
 
 ## 最近文章
 
+- [OSMO Action5Pro 解锁BL并开启adbd](https://blog.alliot.tech/post/osmo-action5pro-unlock-bootloader-adbd) - 2026-09-17
 - [Codex第三方API使用生图接口](https://blog.alliot.tech/post/codex-third-party-api-image-generation) - 2026-09-01
 - [域名切换到 blog.alliot.tech](https://blog.alliot.tech/post/domain-switch-2026) - 2026-08-05
 - [Docker 代理配置机制与作用域](https://blog.alliot.tech/post/docker-proxy-mechanism) - 2026-02-08
@@ -60,4 +61,3 @@
 - [iterm2自动输入堡垒机TOTP验证码](https://blog.alliot.tech/post/iterm2-jumpserver-totp-autocomplete) - 2022-08-18
 - [logrotate服务错误:read-only filesystem](https://blog.alliot.tech/post/logrotate-service-read-only-filesystem) - 2022-08-18
 - [hexo使用Artalk评论系统](https://blog.alliot.tech/post/hexo-artalk-comment) - 2022-07-24
-- [Using a proxy for ssh connections based on netcat](https://blog.alliot.tech/post/ssh-over-proxy-by-nc) - 2022-07-21

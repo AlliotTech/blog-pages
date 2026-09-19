@@ -13,7 +13,23 @@
     <![CDATA[Maker & Developer]]>
   </subtitle>
   <title>Alliot's blog</title>
-  <updated>2026-09-01T13:42:20.000Z</updated>
+  <updated>2026-09-17T16:00:00.000Z</updated>
+  <entry>
+    <author>
+      <name>Alliot</name>
+    </author>
+    <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="Android" scheme="https://blog.alliot.tech/tags/Android/"/>
+    <category term="硬件" scheme="https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/"/>
+    <id>https://blog.alliot.tech/post/osmo-action5pro-unlock-bootloader-adbd</id>
+    <link href="https://blog.alliot.tech/post/osmo-action5pro-unlock-bootloader-adbd"/>
+    <published>2026-09-17T16:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>　　不久前，某安上有大佬发现 Action 5 Pro 居然能通过 9008 打开 Bootloader，更意外的是它的 SoC 是骁龙 8 Gen 2（SM8550&#x2F;QCS8550）, 一台运动相机塞了颗旗舰 SoC，一下子就变得好玩了。此后某安和 B 站陆续有人放出解锁、常驻工厂模式打开 <code>adbd</code> 的教程。<br>　　这篇就以 macOS 为例，手把手带你解锁并开启adbd]]>
+    </summary>
+    <title>OSMO Action5Pro 解锁BL并开启adbd</title>
+    <updated>2026-09-17T16:00:00.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Alliot</name>
@@ -63,8 +79,8 @@
     <author>
       <name>Alliot</name>
     </author>
-    <category term="Android" scheme="https://blog.alliot.tech/tags/Android/"/>
     <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="Android" scheme="https://blog.alliot.tech/tags/Android/"/>
     <category term="硬件" scheme="https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/"/>
     <id>https://blog.alliot.tech/post/android-root-hide-detection-2025</id>
     <link href="https://blog.alliot.tech/post/android-root-hide-detection-2025"/>
@@ -233,8 +249,8 @@
     <author>
       <name>Alliot</name>
     </author>
-    <category term="Android" scheme="https://blog.alliot.tech/tags/Android/"/>
     <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="Android" scheme="https://blog.alliot.tech/tags/Android/"/>
     <category term="硬件" scheme="https://blog.alliot.tech/tags/%E7%A1%AC%E4%BB%B6/"/>
     <id>https://blog.alliot.tech/post/fxxk-android-tv</id>
     <link href="https://blog.alliot.tech/post/fxxk-android-tv"/>
@@ -307,21 +323,5 @@
     </summary>
     <title>Nginx搭建WebDAV服务</title>
     <updated>2023-10-23T15:00:00.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Alliot</name>
-    </author>
-    <category term="折腾" scheme="https://blog.alliot.tech/tags/%E6%8A%98%E8%85%BE/"/>
-    <category term="hexo" scheme="https://blog.alliot.tech/tags/hexo/"/>
-    <category term="CI" scheme="https://blog.alliot.tech/tags/CI/"/>
-    <id>https://blog.alliot.tech/post/new-hexo-workflow</id>
-    <link href="https://blog.alliot.tech/post/new-hexo-workflow"/>
-    <published>2023-09-01T04:44:03.000Z</published>
-    <summary>
-      <![CDATA[<p>　　自从 2017 年使用 Hexo+NexT 作为博客框架以来，已经过去好几个年头。就如前面那篇<a href="/post/hexo-artalk-comment.html">hexo使用Artalk评论系统</a> 博客所言，由于 Alliot 之前对 NexT 主题与部分插件做了许多侵入式的魔改，基本没有对其做过日常的版本升级维护，因此，已经没有平滑升级的可能性。在一次插件失效的契机下，终于下定决心推倒重建。 本文记录了这一次重建的过程以及在维护模式上相比旧版本的改进。]]>
-    </summary>
-    <title>迎来船新版本的Hexo+NexT</title>
-    <updated>2023-09-01T04:44:03.000Z</updated>
   </entry>
 </feed>
